@@ -1,0 +1,15 @@
+open command line in project file :
+1-write:
+git branch (enter)
+(show list of branches)
+2- git checkout logindesign(enter)
+(needs to login and you will be switched to 'logindesign'
+3- git branch (enter)
+(to make sure that you are in the right branch)
+-------------To this point you can use github desktop Application or you can write ----------------------------------
+4-git add . (enter)//adding changes
+5-git commit -m 'logindesign first push'(enter)
+6-git push (enter)
+-------------Done-------------------------------------------------------------------------------------
+
+ 

@@ -1,0 +1,13 @@
+open command line in project file :
+1-write:
+git branch (enter)
+(show list of branches)
+2- git checkout homedesign(enter)
+(needs to login and you will be switched to 'homedesign'
+3- git branch (enter)
+(to make sure that you are in the right branch)
+-------------To this point you can use github desktop Application or you can write ----------------------------------
+4-git add . (enter)//adding changes
+5-git commit -m 'homedesignfirst push'(enter)
+6-git push (enter)
+-------------Done-------------------------------------------------------------------------------------

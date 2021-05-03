@@ -13,6 +13,8 @@ import { CategoryComponent } from './category/category.component';
 import { CourseComponent } from './course/course.component';
 import { UploadCourseComponent } from './upload-course/upload-course.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,9 @@ import { UploadCourseComponent } from './upload-course/upload-course.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

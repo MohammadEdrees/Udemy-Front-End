@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "ClientSide"
+  "defaultProject": "ClientSide",
+  "cli": {
+    "analytics": "d2d7176c-9ff1-4cf7-ad34-06bdacf60f54"
+  }
 }

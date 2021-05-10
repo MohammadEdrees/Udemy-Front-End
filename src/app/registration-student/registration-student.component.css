@@ -1,0 +1,29 @@
+#submitBtn {
+    width: 100%
+  }
+
+  .icon {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .i {
+    font-size: 15 px;
+    color: lightgrey;
+    padding: 8px;
+    margin-right: 3px;
+  }
+
+  .lock {
+    padding: 10px;
+  }
+
+  .eye {
+    color: darkslategrey;
+    font-size: 20px;
+    padding-top: 20px;
+    border-radius: 3px;
+  }
+  #container{
+    margin-top: 100px;
+  }

@@ -95,3 +95,14 @@ nav{
   top: 5.6rem;
   right: 20rem ;
 }
+
+.Categories{
+  margin-top: 100px;
+  width:350px;
+  height: 70%;
+  scrollbar-width: none;
+}
+.Categories::-webkit-scrollbar{
+display: none;
+}
+

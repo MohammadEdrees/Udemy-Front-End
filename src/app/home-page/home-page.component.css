@@ -177,11 +177,39 @@ margin: 0px;
       width:100%;
        
        overflow: auto;
-       height:400px;
+       height:500px;
        padding: 10px;
        margin-bottom: 60px;
+       
       }
       .img1{
         width: 10%;
         height: 20%;
+      }
+      .topcategdiv {
+        margin-top: 5px;
+      }
+      .topCat{
+        font-weight: bold;
+       
+      }
+      .jumbotronT{
+        margin-top: 91px;
+        background-image: url("../../assets/2.jpg");
+        height: 400px;
+        color: white;
+        display: flex;
+      }
+      .cardjumbo{
+        height: 200px;
+      }
+      .cardheader{
+        font-size: xx-large;
+        color:black;
+        font-family: cursive;
+      }
+      .cardbody{
+        color: black;
+        font-size: large;
+
       }

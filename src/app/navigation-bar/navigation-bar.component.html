@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm navbar-light fixed-top mb-0  ">
   <img src= "../../assets/iconUdemy.ico" alt="icon Udemy"> <a class="navbar-brand  text-dark ml-1 mr-auto" href="home">Udemy</a>
   <form class="form-inline my-2 my-lg-0">
-   <input class="form-control mr-sm-2 w-100" type="text" placeholder="Search" id="search">
+   <input class="form-control mr-sm-2 w-100" type="text" placeholder="Search for anything" id="search">
    <!-- <input type="search" placeholder="Search"  id="search"> -->
 </form>
 
@@ -11,55 +11,50 @@
    <div class="collapse navbar-collapse  " id="collapsibleNavId">
        
        <div class="dropdown mr-5 ml-3">
-        <button mat-button [matMenuTriggerFor]="animals" class="btn btn-outline-info">Categories</button>
 
-    <mat-menu #animals="matMenu" class="mt-4">
-      <button mat-menu-item [matMenuTriggerFor]="vertebrates">Vertebrates</button>
-      <button mat-menu-item [matMenuTriggerFor]="invertebrates">Invertebrates</button>
-    </mat-menu>
-    
-    <mat-menu #vertebrates="matMenu">
-      <button mat-menu-item [matMenuTriggerFor]="fish">Fishes</button>
-      <button mat-menu-item [matMenuTriggerFor]="amphibians">Amphibians</button>
-      <button mat-menu-item [matMenuTriggerFor]="reptiles">Reptiles</button>
-      <button mat-menu-item>Birds</button>
-      <button mat-menu-item>Mammals</button>
-    </mat-menu>
-    
-    <mat-menu #invertebrates="matMenu">
-      <button mat-menu-item>Insects</button>
-      <button mat-menu-item>Molluscs</button>
-      <button mat-menu-item>Crustaceans</button>
-      <button mat-menu-item>Corals</button>
-      <button mat-menu-item>Arachnids</button>
-      <button mat-menu-item>Velvet worms</button>
-      <button mat-menu-item>Horseshoe crabs</button>
-    </mat-menu>
-    
-    <mat-menu #fish="matMenu">
-      <button mat-menu-item>Baikal oilfish</button>
-      <button mat-menu-item>Bala shark</button>
-      <button mat-menu-item>Ballan wrasse</button>
-      <button mat-menu-item>Bamboo shark</button>
-      <button mat-menu-item>Banded killifish</button>
-    </mat-menu>
-    
-    <mat-menu #amphibians="matMenu">
-      <button mat-menu-item>Sonoran desert toad</button>
-      <button mat-menu-item>Western toad</button>
-      <button mat-menu-item>Arroyo toad</button>
-      <button mat-menu-item>Yosemite toad</button>
-    </mat-menu>
-    
-    <mat-menu #reptiles="matMenu">
-      <button mat-menu-item>Banded Day Gecko</button>
-      <button mat-menu-item>Banded Gila Monster</button>
-      <button mat-menu-item>Black Tree Monitor</button>
-      <button mat-menu-item>Blue Spiny Lizard</button>
-      <button mat-menu-item disabled>Velociraptor</button>
-    </mat-menu>
-    
+        <button mat-button [matMenuTriggerFor]="Categories" 
+        class="btn btn-outline-info  " >Categories</button>
        </div>
+      <mat-menu #Categories="matMenu" class="Categories"  >
+        <a mat-menu-item [matMenuTriggerFor]="Development" routerLink="category" >Development</a>
+        <a mat-menu-item [matMenuTriggerFor]="amphibians"  routerLink="category" >Business</a>
+        <a mat-menu-item [matMenuTriggerFor]="reptiles"    routerLink="category" >Finance & Accouting</a>
+        <a mat-menu-item [matMenuTriggerFor]="reptiles"    routerLink="category" >IT & Software</a>
+        <a mat-menu-item [matMenuTriggerFor]="reptiles"    routerLink="category" >Office Productivity</a>
+        <a mat-menu-item [matMenuTriggerFor]="reptiles"    routerLink="category" >Personal Development</a>
+        <a mat-menu-item [matMenuTriggerFor]="reptiles"    routerLink="category" >Design</a>
+        <a mat-menu-item [matMenuTriggerFor]="reptiles"    routerLink="category" >Marketing</a>
+        <a mat-menu-item [matMenuTriggerFor]="reptiles"    routerLink="category" >Lifestyle</a>
+        <a mat-menu-item [matMenuTriggerFor]="reptiles"    routerLink="category" >Photography & Video</a>
+        <a mat-menu-item [matMenuTriggerFor]="reptiles"    routerLink="category" >Health & Fitness</a>
+        <a mat-menu-item [matMenuTriggerFor]="reptiles"    routerLink="category" >Music</a>
+        <a mat-menu-item [matMenuTriggerFor]="reptiles"    routerLink="category" >Teaching & Academics</a>
+      </mat-menu>  
+      
+      <mat-menu #Development="matMenu">
+        <button mat-menu-item>Web Development   </button>
+        <button mat-menu-item>Data Science      </button>
+        <button mat-menu-item>Mobile Development</button>
+      </mat-menu>
+      
+      <mat-menu #fish="matMenu">
+        <button mat-menu-item>Baikal oilfish   </button>
+        <button mat-menu-item>Bala shark       </button>
+        <button mat-menu-item>Ballan wrasse    </button>
+      </mat-menu>
+      
+      <mat-menu #amphibians="matMenu">
+        <button mat-menu-item>Entrepreneurship </button>
+        <button mat-menu-item>Western toad        </button>
+        <button mat-menu-item>Arroyo toad         </button>
+      </mat-menu>
+      
+      <mat-menu #reptiles="matMenu">
+        <button mat-menu-item>Banded Day Gecko    </button>
+        <button mat-menu-item>Banded Gila Monster </button>
+        <button mat-menu-item>Black Tree Monitor  </button>
+      </mat-menu>
+
        <li class="nav-link myDIV"> <a> Udemy for Bussines</a></li>
        <div class="card hide" style="width: 18rem;">
            <div class="card-body">
@@ -68,7 +63,7 @@
              <a href="#" class="btn btn-primary btn-block" > Try Udemy for Bussinese</a>
            </div>
          </div>
-         <li class="nav-link myDIV1"> <a href="instreg"> Teach On udemy</a></li>
+         <li class="nav-link myDIV1"> <a routerLink="instreg"> Teach On udemy</a></li>
          <div class="card hide1" style="width: 18rem;">
              <div class="card-body">
 

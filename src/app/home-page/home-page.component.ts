@@ -18,7 +18,7 @@ export class HomePageComponent implements OnInit {
     
   }
   
-  items = Array.from({length: 3}).map((_, i) => `Item #${i}`);
+  items = Array.from({length: 30}).map((_, i) => `Item #${i}`);
 
   GetCategories(){
 

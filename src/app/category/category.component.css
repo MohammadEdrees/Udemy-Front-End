@@ -1,0 +1,27 @@
+
+.carousel--slider-alignment{
+  height:30rem !important;
+ margin-bottom:0 ;
+  position: static;
+
+  
+}
+.carousel--slider-alignment p, .carousel--slider-alignment h3{
+  margin: 0%;
+}
+/* .card-img-top{
+ height: 30vh;
+} */
+.card-text p, .card-text span{
+  color: rgb(129, 129, 129);
+}
+ p, span{
+  color: rgb(129, 129, 129);
+ }
+ .Instructors--slider-alignment{
+  width:30rem !important;
+ margin-bottom:0 ;
+  position: static;
+ }
+
+ 

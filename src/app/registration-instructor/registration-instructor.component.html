@@ -1,72 +1,105 @@
-<div id="container" class="container  col-sm-4" >
+<div id="container" class="container  col-sm-4">
 
-  <div class="card  shadow">
-    <div class="card-header text-center">
-      <h3> Become a Udemy Instructor!</h3>
+  <div>
+    <div class=" border border-top-0 border-right-0 border-left-0">
+      <p><b>Become a Udemy Instructor !</b></p>
     </div>
     <div class="card-body">
       <p>Discover a supportive community of online instructors. Get instant access to all course creation resources.</p>
       <form [formGroup]="registerForm" (ngSubmit)="submit()">
 
 
-        <!------- Full Name ------->
+<!------- Full Name ------->
         <div class="mb-3">
-          <label for="exampleInputName1" class="form-label">Full Name</label>
-          <input type="name" class="form-control" formControlName="FullName" id="exampleInputName1"
-            [ngClass]="{ 'is-invalid': submitted && f.FullName.errors }">
+          <!-- <label for="exampleInputName1" class="form-label">Full Name</label> -->
 
-          <div *ngIf="submitted && f.FullName.errors" class="invalid-feedback">
-            <div *ngIf="f.FullName.errors.required">
-              FullName is required
+          <div class="input-group border rounded d-flex p-2 align-items-center">
+            <div class="input-group-prepend">
+              <fa-icon [icon]="faUser" class="fa-sm fa-fw text-muted"></fa-icon>
             </div>
-            <div *ngIf="f.FullName.errors.minlength">
-              FullName must be at least 5 characters
-            </div>
-            <div *ngIf="f.FullName.errors.maxlength">
-              FullName must be max 25 characters
-            </div>
-            <div *ngIf="f.FullName.errors.pattern">
-              contain only characters
+            <input type="name" class="form-control border-0" placeholder="Full Name" formControlName="FullName"
+              id="exampleInputName1" [ngClass]="{ 'is-invalid': submitted && f.FullName.errors }">
+
+
+              <!------- Full Name validation------->
+            <div *ngIf="submitted && f.FullName.errors" class="invalid-feedback">
+              <div *ngIf="f.FullName.errors.required">
+                FullName is required
+              </div>
+              <div *ngIf="f.FullName.errors.minlength">
+                FullName must be at least 5 characters
+              </div>
+              <div *ngIf="f.FullName.errors.maxlength">
+                FullName must be max 25 characters
+              </div>
+              <div *ngIf="f.FullName.errors.pattern">
+                contain only characters
+              </div>
             </div>
           </div>
         </div>
+
+
+
 
         <!------- Email ------->
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email </label>
-          <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email"
-            [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+          <div class="input-group border rounded d-flex p-2 align-items-center">
+            <div class="input-group-prepend">
+              <fa-icon [icon]="faEnvelope" class="fa-sm fa-fw text-muted"></fa-icon>
+            </div>
+            <input type="email" class="form-control border-0" placeholder="Email" id="exampleInputEmail1"
+              formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
 
-          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-            <div *ngIf="f.email.errors.required">Email is required</div>
-            <div *ngIf="f.email.errors.pattern">
-              invalid email address must be in form xxx@xxxx.com &lower
-              charcters
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+              <div *ngIf="f.email.errors.pattern">
+                invalid email address must be in form xxx@xxxx.com &lower
+                charcters
+              </div>
             </div>
           </div>
         </div>
 
+
+
         <!------- password ------->
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <!-- <label for="exampleInputPassword1" class="form-label">Password</label>
           <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" [ngClass]="{
             'is-invalid': submitted && f.password.errors
-          }">
-          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">
-              password is required
+          }"> -->
+          <div class="input-group border rounded d-flex p-2 align-items-center">
+            <div class="input-group-prepend">
+              <fa-icon [icon]="faLock" class="fa-sm fa-fw text-muted"></fa-icon>
             </div>
-            <div *ngIf="f.password.errors.minlength">
-              invalid password min 8 characters
+            <input  [type]="hide ? 'password' : 'text'" class="form-control border-0" placeholder="Password" id="exampleInputPassword1"
+              formControlName="password" [ngClass]="{
+              'is-invalid': submitted && f.password.errors }"
+              >
+              
+            <div *ngIf="f.password.value" class="input-group-append"  (click)="hide = !hide" >
+              <fa-icon [icon]="hide ? faEyeSlash : faEye" class="fa-sm fa-fw text-muted"></fa-icon>
             </div>
-            <div *ngIf="f.password.errors.maxlength">
-              invalid password max. 20 characters
-            </div>
-            <div *ngIf="f.password.errors.pattern">
-              invalid password must contain special Charchters as
-              Geeks@portal20
+
+
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">
+                password is required
+              </div>
+              <div *ngIf="f.password.errors.minlength">
+                invalid password min 8 characters
+              </div>
+              <div *ngIf="f.password.errors.maxlength">
+                invalid password max. 20 characters
+              </div>
+              <div *ngIf="f.password.errors.pattern">
+                invalid password must contain special Charchters as
+                Geeks@portal20
+              </div>
             </div>
           </div>
+          <app-password-strength-bar [passwordToCheck]="f.password.value"></app-password-strength-bar>
         </div>
 
 
@@ -76,14 +109,14 @@
             emails with insider tips, motivation, special updates and promotions reserved for instructors.</label>
         </div>
 
+        
         <button id="register" type="submit" class="btn btn-danger col-sm-12">Sign up</button>
+      
       </form>
     </div>
+    
     <div class="card-footer text-muted text-center">
       Already have an account? <a href="#">Log In</a>
     </div>
   </div>
 </div>
-
-
-

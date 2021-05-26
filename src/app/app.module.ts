@@ -6,6 +6,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome'
 
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PasswordStrengthBarComponent } from './password-strength-bar/password-strength-bar.component';
 
 
 @NgModule({
@@ -13,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     routingComponents ,
     NavigationBarComponent,
+    PasswordStrengthBarComponent,
  
   ],
   imports: [
@@ -21,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

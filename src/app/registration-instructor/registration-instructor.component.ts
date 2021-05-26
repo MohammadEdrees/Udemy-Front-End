@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {faUser,faLock,faEnvelope,faEye,faEyeSlash} from '@fortawesome/free-solid-svg-icons'
-import { Instructor, InstructorService } from '../services/instructor.service';
+import { InstructorService } from '../services/instructor.service';
 
 
 @Component({

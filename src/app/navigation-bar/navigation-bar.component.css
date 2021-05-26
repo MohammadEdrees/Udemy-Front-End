@@ -12,8 +12,6 @@ nav{
 .dropdown-submenu {
   position: initial;
 }
-
-
 #search{
     width: 24rem;
     margin: .5rem;
@@ -22,11 +20,6 @@ nav{
     padding: 1.3rem;
     border: rgb(181, 184, 184);
     box-shadow: 5px 5px 5px rgba(78, 78, 78, 0.5);
-}
-
-.navBtnz{
-  margin-right: 3px;
-width: 20%;
 }
 
 .dropdown-submenu>.dropdown-menu {
@@ -86,6 +79,7 @@ width: 20%;
   display: none;
   border-radius: 1rem;
 }
+
 .myDIV,.myDIV1{
   text-align: center;
   margin-left: 5px;  
@@ -94,12 +88,14 @@ width: 20%;
 
 }
 
+
 .myDIV:hover + .hide {
   display: block;
   position:absolute;
   z-index: 990rem;
   top: 5.6rem;
   right: 25rem ;
+
 
 
 }
@@ -115,6 +111,7 @@ width: 20%;
   top: 5.6rem;
   right: 20rem ;
 }
+
 .cartIcon{
   font-size: 20px;
   text-align: center;

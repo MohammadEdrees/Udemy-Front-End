@@ -6,6 +6,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome'
 
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PasswordStrengthBarComponent } from './password-strength-bar/password-strength-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
@@ -17,14 +18,16 @@ import {MatTabsModule} from '@angular/material/tabs';
 // import { CarouselModule } from 'ngx-owl-carousel-o';
 // import { CategoryComponent } from './category/category.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents ,
     NavigationBarComponent,
+    PasswordStrengthBarComponent,
     FooterComponent,
     CategoryComponent
-    
+   
   ],
   imports: [
     BrowserModule,

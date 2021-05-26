@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatTabsModule} from '@angular/material/tabs'; 
+import {ScrollingModule} from '@angular/cdk/scrolling';
 import { CategoryComponent } from './category/category.component'; 
 @NgModule({
   declarations: [
@@ -16,8 +18,8 @@ import { CategoryComponent } from './category/category.component';
     routingComponents ,
     NavigationBarComponent,
     FooterComponent,
-    CategoryComponent,
- 
+    CategoryComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,9 @@ import { CategoryComponent } from './category/category.component';
     ReactiveFormsModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTabsModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

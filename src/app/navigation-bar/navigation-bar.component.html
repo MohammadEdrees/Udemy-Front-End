@@ -1,19 +1,19 @@
 <nav class="navbar navbar-expand-sm navbar-light fixed-top mb-0  ">
-  <img src= "../../assets/iconUdemy.ico" alt="icon Udemy"> <a class="navbar-brand  text-dark ml-1 mr-auto" href="home">Udemy</a>
-  <form class="form-inline my-2 my-lg-0">
+  <img src= "../../assets/iconUdemy.ico" alt="icon Udemy" class="udemyIcon"> <a class="navbar-brand  text-dark ml-1 mr-auto" href="home">Udemy</a>
+  <!-- <form class="form-inline my-2 my-lg-0">
    <input class="form-control mr-sm-2 w-100" type="text" placeholder="Search for anything" id="search">
-   <!-- <input type="search" placeholder="Search"  id="search"> -->
-</form>
+    <input type="search" placeholder="Search"  id="search"> 
+</form> -->
 
-   <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+   <button class="navbar-toggler d-lg-none " type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
        <span class="navbar-toggler-icon"></span>
    </button>
    <div class="collapse navbar-collapse  " id="collapsibleNavId">
        
-       <div class="dropdown mr-5 ml-3">
+       <div class="dropdown mr-1 ml-1">
 
         <button mat-button [matMenuTriggerFor]="Categories" 
-        class="btn btn-outline-info  " >Categories</button>
+        class="btn btn-outline-default border-0   " >Categories</button>
        </div>
       <mat-menu #Categories="matMenu" class="Categories"  >
         <a mat-menu-item [matMenuTriggerFor]="Development" routerLink="category" >Development</a>
@@ -55,7 +55,13 @@
         <button mat-menu-item>Black Tree Monitor  </button>
       </mat-menu>
 
-       <li class="nav-link myDIV"> <a> Udemy for Bussines</a></li>
+      <form class="form-inline my-2 my-lg-0    w-100   ">
+        <input class="form-control mr-sm-2 w-100" type="text" placeholder="Search for anything" id="search">
+        <!-- <input type="search" placeholder="Search"  id="search"> -->
+     </form >
+
+       <li class="nav-link myDIV text-wrap text-truncate  "> <a> Udemy for Bussines</a></li>
+
        <div class="card hide" style="width: 18rem;">
            <div class="card-body">
 
@@ -63,7 +69,9 @@
              <a href="#" class="btn btn-primary btn-block" > Try Udemy for Bussinese</a>
            </div>
          </div>
-         <li class="nav-link myDIV1"> <a routerLink="instreg"> Teach On udemy</a></li>
+
+         <li class="nav-link myDIV1 text-wrap text-truncate "> <a routerLink="instreg"> Teach On udemy</a></li>
+
          <div class="card hide1" style="width: 18rem;">
              <div class="card-body">
 
@@ -71,7 +79,8 @@
                <a href="#" class="btn btn-primary btn-block" > Learn More..</a>
              </div>
            </div>
-           <li class="nav-link myDIV1 mr-5"><i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></li>
+
+           <li class="nav-link DivIcon  "><i class=" fa fa-shopping-cart cartIcon" aria-hidden="true"></i></li>
            <div class="card hide1" style="width: 18rem;">
                <div class="card-body">
 
@@ -80,9 +89,11 @@
                </div>
              </div>
 
-       <button class="btn btn-outline-info d-lg-inline mr-5" routerLink="login">Login </button>
-       <button class="btn btn-info mr-3" routerLink="studentreg">SignIn</button>
+       <button class="btn btn-outline-info d-lg-inline   border navBtnz" routerLink="login">Log in </button>
+       <button class="btn btn-info border navBtnz" routerLink="studentreg">Sign Up</button>
+       <button class="btn btn-info border " routerLink="studentreg">Lang</button>
  </div>
+
 
 
 

@@ -14,8 +14,7 @@ export class NavigationBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  Categories=['A','B','C','D','E','F'];
-  mName='Edreez';
+
 
 
 

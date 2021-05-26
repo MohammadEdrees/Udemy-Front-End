@@ -1,20 +1,32 @@
 nav{
-  background-color: azure;
+  background-color: white;
   color: #999;
-  box-shadow: 5px 5px 5px rgba(78, 78, 78, 0.5);
+  box-shadow: 5px 5px 5px rgba(245, 236, 236, 0.5);
 }
+.udemyIcon{
+  width: 40px;
+  height: 40px;;
+}
+
 
 .dropdown-submenu {
   position: initial;
 }
+
+
 #search{
-    width: 25rem;
-    margin: 1rem;
+    width: 24rem;
+    margin: .5rem;
     border-radius: 2rem;
-    height: 2.5rem;
+    height: 2rem;
     padding: 1.3rem;
     border: rgb(181, 184, 184);
     box-shadow: 5px 5px 5px rgba(78, 78, 78, 0.5);
+}
+
+.navBtnz{
+  margin-right: 3px;
+width: 20%;
 }
 
 .dropdown-submenu>.dropdown-menu {
@@ -74,12 +86,20 @@ nav{
   display: none;
   border-radius: 1rem;
 }
+.myDIV,.myDIV1{
+  text-align: center;
+  margin-left: 5px;  
+  font-size: 13px;
+  width:30%;
+
+}
 
 .myDIV:hover + .hide {
   display: block;
   position:absolute;
   z-index: 990rem;
   top: 5.6rem;
+  right: 25rem ;
 
 
 }
@@ -95,9 +115,17 @@ nav{
   top: 5.6rem;
   right: 20rem ;
 }
-
+.cartIcon{
+  font-size: 20px;
+  text-align: center;
+   
+}
+.DivIcon{
+  margin-left: 2%;
+  width:5%;
+}
 .Categories{
-  margin-top: 100px;
+  margin-top: 80px;
   width:350px;
   height: 70%;
   scrollbar-width: none;

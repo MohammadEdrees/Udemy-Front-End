@@ -34,11 +34,14 @@ export class RegistrationInstructorComponent implements OnInit {
   faEyeSlash=faEyeSlash;
   //Add user form actions
   get f() { return this.registerForm.controls; }
+
+
   submit() {
 
     this.submitted = true;
     // stop here if form is invalid
     if (this.registerForm.invalid) {
+
         return;
     }
 

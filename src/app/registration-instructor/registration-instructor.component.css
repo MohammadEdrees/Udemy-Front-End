@@ -1,8 +1,25 @@
 #container{
     margin-top: 130px;
+}
 
 .col {
     margin: 0 auto;
     text-align: center;
   }
+
+
+.error{
+color: #DC3545;
+font-size: 12px;
+margin-top: 5px;
+  }
+
+  .CustomBorder{
+    border: 1px solid gray;
+}
+
+  .OnErrorBorder{
+      border:1px solid #DC3545;
+  }
+
 

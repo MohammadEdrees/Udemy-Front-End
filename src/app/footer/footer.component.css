@@ -1,0 +1,25 @@
+.footer-39201 {
+   padding: 2rem ;
+   color: #6b6a6a;
+    }
+ p,button{
+ color: #6b6a6a;
+ }
+ a {
+ -webkit-transition: .3s all ease;
+ -o-transition: .3s all ease;
+ transition: .3s all ease;
+ }
+ a, a:hover {
+       text-decoration: none !important;
+    }
+ .footer-39201 .subscribe {
+               position: relative;
+            }
+
+            .iconsize{
+              
+                  width: 40px;
+                  height: 40px;;
+               
+            }

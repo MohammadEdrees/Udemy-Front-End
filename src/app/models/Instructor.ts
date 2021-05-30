@@ -1,12 +1,14 @@
 export class Instructor {
     constructor(
-      public Inst_Id:number,
-      public Inst_Name:string,
-      public Address:string,
-      public Password:string,
-      public ImagPath:string,
-      public Phone : number,
-      public Mail : string
+      public instId:number,
+      public instName:string,
+      public address:string,
+      public password:string,
+      public imagPath:string,
+      public phone : number,
+      public mail : string
+
+      
     ) { }
 
 }

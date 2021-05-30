@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {faUser,faLock,faEnvelope,faEye,faEyeSlash} from '@fortawesome/free-solid-svg-icons'
-import { InstructorService } from '../services/instructor.service';
+import { Instructor } from '../models/Instructor';
+import {  InstructorService } from '../services/instructor.service';
 
 
 @Component({
@@ -18,24 +19,35 @@ export class RegistrationInstructorComponent implements OnInit {
   constructor(private instructorService:InstructorService) { }
 
   registerForm: FormGroup = new FormGroup({
-    FullName: new FormControl('', [Validators.required, Validators.minLength(5),Validators.maxLength(25),Validators.pattern(this.namePattern)]),
-    email: new FormControl('', [Validators.required, Validators.email,Validators.pattern(this.emailPattern)]),
+    instId:new FormControl(146) ,
+    instName: new FormControl('', [Validators.required, Validators.minLength(5),Validators.maxLength(25),Validators.pattern(this.namePattern)]),
+    address:new FormControl() ,
     password : new FormControl('', [Validators.required, Validators.minLength(8),Validators.maxLength(20)]),
+    imagPath:new FormControl() ,
+    phone : new FormControl() ,
+    mail: new FormControl('', [Validators.required, Validators.email,Validators.pattern(this.emailPattern)]),
     
+   
   });
 
   submitted = false;
   hide = true;
-  
+
+  //new Object 
+  newInstructor: Instructor =new Instructor ( 0,'','','','',0,'');
+
+  //assign icons
   faUser=faUser;
   faEnvelope=faEnvelope;
   faLock=faLock;
   faEye=faEye;
   faEyeSlash=faEyeSlash;
+
   //Add user form actions
   get f() { return this.registerForm.controls; }
-  submit() {
 
+  // submit function
+  submit() {
     this.submitted = true;
     // stop here if form is invalid
     if (this.registerForm.invalid) {
@@ -46,7 +58,14 @@ export class RegistrationInstructorComponent implements OnInit {
     //True if all the fields are filled
     if(this.submitted)
     {
-        console.log("registeration success");
+       this.newInstructor=this.registerForm.value;
+       console.log(this.newInstructor);
+       //call function on service
+       this.instructorService.AddInstructor(this.newInstructor).subscribe(data =>{
+         console.log(data);
+
+        // this.router.navigate(['login'])
+       });
     }
 
   }

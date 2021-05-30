@@ -13,28 +13,30 @@
         <div class="mb-3">
           <!-- <label for="exampleInputName1" class="form-label">Full Name</label> -->
 
-          <div class="input-group border rounded d-flex p-2 align-items-center">
+          <div class="input-group CustomBorder rounded d-flex p-2 align-items-center"
+            [ngClass]="{'OnErrorBorder': submitted && f.instName.errors }">
             <div class="input-group-prepend">
               <fa-icon [icon]="faUser" class="fa-sm fa-fw text-muted"></fa-icon>
             </div>
-            <input type="name" class="form-control border-0" placeholder="Full Name" formControlName="FullName"
-              id="exampleInputName1" [ngClass]="{ 'is-invalid': submitted && f.FullName.errors }">
+            <input type="name" class="form-control border-0" placeholder="Full Name" formControlName="instName"
+              id="exampleInputName1" [ngClass]="{ 'is-invalid': submitted && f.instName.errors }">
 
 
-              <!------- Full Name validation------->
-            <div *ngIf="submitted && f.FullName.errors" class="invalid-feedback">
-              <div *ngIf="f.FullName.errors.required">
-                FullName is required
-              </div>
-              <div *ngIf="f.FullName.errors.minlength">
-                FullName must be at least 5 characters
-              </div>
-              <div *ngIf="f.FullName.errors.maxlength">
-                FullName must be max 25 characters
-              </div>
-              <div *ngIf="f.FullName.errors.pattern">
-                contain only characters
-              </div>
+
+          </div>
+          <!------- Full Name validation------->
+          <div *ngIf="submitted && f.instName.errors" class="error">
+            <div *ngIf="f.instName.errors.required">
+              FullName is required
+            </div>
+            <div *ngIf="f.instName.errors.minlength">
+              FullName must be at least 5 characters
+            </div>
+            <div *ngIf="f.instName.errors.maxlength">
+              FullName must be max 25 characters
+            </div>
+            <div *ngIf="f.instName.errors.pattern">
+              contain only characters
             </div>
           </div>
         </div>
@@ -44,19 +46,22 @@
 
         <!------- Email ------->
         <div class="mb-3">
-          <div class="input-group border rounded d-flex p-2 align-items-center">
+          <div class="input-group CustomBorder rounded d-flex p-2 align-items-center"
+            [ngClass]="{'OnErrorBorder': submitted && f.mail.errors }">
             <div class="input-group-prepend">
               <fa-icon [icon]="faEnvelope" class="fa-sm fa-fw text-muted"></fa-icon>
             </div>
             <input type="email" class="form-control border-0" placeholder="Email" id="exampleInputEmail1"
-              formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+              formControlName="mail" [ngClass]="{ 'is-invalid': submitted && f.mail.errors }">
 
-            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-              <div *ngIf="f.email.errors.required">Email is required</div>
-              <div *ngIf="f.email.errors.pattern">
-                invalid email address must be in form xxx@xxxx.com &lower
-                charcters
-              </div>
+
+          </div>
+          <!------- Email validation------->
+          <div *ngIf="submitted && f.mail.errors" class="error">
+            <div *ngIf="f.mail.errors.required">Email is required</div>
+            <div *ngIf="f.mail.errors.pattern">
+              invalid email address must be in form xxx@xxxx.com &lower
+              charcters
             </div>
           </div>
         </div>

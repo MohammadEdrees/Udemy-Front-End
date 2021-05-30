@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PasswordStrengthBarComponent } from './password-strength-bar/password-strength-bar.component';
 
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +25,7 @@ import { PasswordStrengthBarComponent } from './password-strength-bar/password-s
     ReactiveFormsModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -19,6 +19,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 
 
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,8 +44,8 @@ import { HttpClientModule } from '@angular/common/http';
     ScrollingModule,
     CarouselModule,
      MatCardModule,
-    IvyCarouselModule
-
+    IvyCarouselModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

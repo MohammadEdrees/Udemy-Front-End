@@ -355,3 +355,38 @@ hr {
 
 
 
+
+
+
+
+
+.carousel--slider-alignment{
+  height:30rem !important;
+ margin-bottom:0 ;
+  position: absolute;
+
+  
+}
+.carousel--slider-alignment p, .carousel--slider-alignment h3{
+  margin: 0%;
+}
+/* .card-img-top{
+ height: 30vh;
+} */
+.card-text p, .card-text span{
+  color: rgb(129, 129, 129);
+}
+ p, span{
+  color: rgb(129, 129, 129);
+ }
+
+
+ .imgs{
+   width: 35%;
+ }
+
+
+
+
+
+ 

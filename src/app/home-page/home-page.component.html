@@ -1,251 +1,790 @@
-
 <!--Start Jumbo-->
-  <div class="jumbotron  jumbotronT p-5 " #jumbotron>
+<div class="jumbotron  jumbotronT p-5 " #jumbotron>
 
-    <div class=" col-6 d-none col-lg-4  d-lg-block d-md-block d-sm-block  cardjumbo  "#jumboCard>
+  <div class=" col-6 d-none col-lg-4  d-lg-block d-md-block d-sm-block  cardjumbo  " #jumboCard>
 
-      <div class="card-body ">
-        <p class="card-text cardheader">Wake Up</p>
-      </div>
-
-      <div class="card-body ">
-        <p class="card-text  text-wrap cardbody">
-          Ambition accepted. Learn the latest skills to reach your professional goals</p>
-      </div>
-
-      <div class="card-body d-flex justify-content-center ">
-        <input class="form-control mr-sm-2 w-100 cardSearch"
-         type="text" 
-         placeholder="Search"  #search2>
-      </div>
-
-
+    <div class="card-body ">
+      <p class="card-text cardheader">Wake Up</p>
     </div>
-    <div class="col-6 col-lg-8 col-md-8  " >
-       
+
+    <div class="card-body ">
+      <p class="card-text  text-wrap cardbody">
+        Ambition accepted. Learn the latest skills to reach your professional goals</p>
     </div>
-   
+
+    <div class="card-body d-flex justify-content-center ">
+      <input class="form-control mr-sm-2 w-100 cardSearch" type="text" placeholder="Search" #search2>
+    </div>
+
+
   </div>
+  <div class="col-6 col-lg-8 col-md-8  ">
+
+  </div>
+
+</div>
 <!--End Jumbo-->
 
-  <div class=" container-fluid  d-flex justify-content-center " >
+<!--Start text-->
+<div class="m-3">
+  <div class="h3">
+    The world's largest selection of courses
+  </div>
+  <div class="p text-secondary ">
+    Choose from 155,000 online video courses with new additions published every month
+  </div>
+</div>
+
+<!--End text-->
+
+<div class=" container-fluid  d-flex justify-content-center ">
   <!---->
-  <mat-tab-group dynamicHeight class="container-fluid  " >
-    <mat-tab label="item1">
-      <div class="sliderParent mat-elevation-z4">
+  <mat-tab-group>
+    <!--Start Web Develpment-->
+    <mat-tab label="Web Develpment">
+      <!-- Content 1 -->
+     
+      <div class=" offset-md-1 border col-md-11">
         
-        <div class="border insideTabsTopPart bg-warning">
-          first section
-        </div>
+        <div class="row m-2">
+          <div class="col ">
+            <div class="h3">Build websites and applications with Web Development</div>
+            <div class="p text-secondary">The world of web development is as wide as 
+              the internet itself. Much of our social and vocational lives play 
+              out on the internet.
+            </div>
+            
+             <button class="btn btn-outline-info mt-2 mb-3">Explore Web Development</button> 
+          </div>
+          <div class="col d-flex flex-row-reverse">
+            <img src="../../assets/11.jpg" class="rounded-circle imgs m-3" >
+          </div>
+        </div> 
 
-        <div class=" insideTabsdownPart   ">
+        <carousel [loop]="true" [cellsToScroll]="1" [objectFit]="'cover'" [lightDOM]="true"
+          class="carousel--slider-alignment  w-100 ">
 
-          <div  class="menuContainer">
-            <cdk-virtual-scroll-viewport
-            orientation="horizontal" 
-            itemSize="50"
-             class="viewport "    
-             >
-              <div *cdkVirtualFor="let item of items" class="cardc " >
-
-                <!-- <div class="x" >
-                  <div class="header">
-                    <img alt="design" 
-                     src="https://s.udemycdn.com/home/top-categories/lohp-category-design.jpg"/>
-                  </div>
-                  <div class="footer"><h3>Design</h3></div>
-                </div> -->
-
-                {{item}}
+          <div class="carousel-cell ">
+            <div class="card card-border-none ">
+              <img class="card-img-top img-fluid" src="../../assets/4.jpg" />
+              <div class="card-body">
+                <h3 class="card-title"> Web Development Bootcap 2021</h3>
+                <div class="card-text">
+                  <p> name of auther</p>
+                  <span class="text-warning mr-3"> 4.5</span>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning m-1"></i>
+                  <span>(number of using)</span>
+                  <p>price</p><span>discount</span>
+                </div>
               </div>
+            </div>
+          </div>
 
-            </cdk-virtual-scroll-viewport>
+
+          <div class="carousel-cell ">
+            <div class="card card-border-none ">
+              <img class="card-img-top img-fluid" src="../../assets/3.jpg" />
+              <div class="card-body">
+                <h3 class="card-title"> Web Development Bootcap 2021</h3>
+                <div class="card-text">
+                  <p> name of auther</p>
+                  <span class="text-warning mr-3"> 4.5</span>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning m-1"></i>
+                  <span>(number of using)</span>
+                  <p>price</p><span>discount</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-cell ">
+            <div class="card card-border-none ">
+              <img class="card-img-top img-fluid" src="../../assets/5.jpg" />
+              <div class="card-body">
+                <h3 class="card-title"> Web Development Bootcap 2021</h3>
+                <div class="card-text">
+                  <p> name of auther</p>
+                  <span class="text-warning mr-3"> 4.5</span>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning m-1"></i>
+                  <span>(number of using)</span>
+                  <p>price</p><span>discount</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-cell ">
+            <div class="card card-border-none ">
+              <img class="card-img-top img-fluid" src="../../assets/3.jpg" />
+              <div class="card-body">
+                <h3 class="card-title"> Web Development Bootcap 2021</h3>
+                <div class="card-text">
+                  <p> name of auther</p>
+                  <span class="text-warning mr-3"> 4.5</span>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning m-1"></i>
+                  <span>(number of using)</span>
+                  <p>price</p><span>discount</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-cell ">
+            <div class="card card-border-none ">
+              <img class="card-img-top img-fluid" src="../../assets/4.jpg" />
+              <div class="card-body">
+                <h3 class="card-title"> Web Development Bootcap 2021</h3>
+                <div class="card-text">
+                  <p> name of auther</p>
+                  <span class="text-warning mr-3"> 4.5</span>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning m-1"></i>
+                  <span>(number of using)</span>
+                  <p>price</p><span>discount</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </carousel>
+
+      </div>
+
+      <!-- content1 -->
+    </mat-tab>
+<!--End Web Develpment-->
+
+  <!--Start Python-->
+  <mat-tab label="Python">
+    <!-- Content 1 -->
+
+    <div class=" offset-md-1 border col-md-11">
+      
+      <div class="row m-2">
+        <div class="col ">
+          <div class="h3">Expand your career opportunities with Python</div>
+          <div class="p text-secondary">Whether you work in machine learning or finance,
+             or are pursuing a career in web development or data science, Python is 
+             one of the most important skills you can learn.
           </div>
           
+           <button class="btn btn-outline-info mt-2 mb-3">Explore Python</button> 
         </div>
+        <div class="col d-flex flex-row-reverse">
+          <img src="../../assets/11.jpg" class="rounded-circle imgs m-3" >
+        </div>
+      </div> 
 
+      <carousel [loop]="true" [cellsToScroll]="1" [objectFit]="'cover'" [lightDOM]="true"
+        class="carousel--slider-alignment  w-100 ">
 
-      </div>
-    </mat-tab>
-
-    <mat-tab label="item2">
-      <div class="sliderParent mat-elevation-z4">
-       Content item2
-      </div>
-    </mat-tab>
-
-    <mat-tab label="item3">
-      <div class="sliderParent mat-elevation-z4">
-       Content item3
-      </div>
-    </mat-tab>
-
-    <mat-tab label="item4">
-      <div class="sliderParent mat-elevation-z4">
-       Content item4
-      </div>
-    </mat-tab>
-
-    <mat-tab label="item5">
-      <div class="sliderParent mat-elevation-z4">
-       Content item5
-      </div>
-    </mat-tab>
-
-    <mat-tab label="item6">
-      <div class="sliderParent mat-elevation-z4">
-       Content item6
-      </div>
-    </mat-tab>
-
-    <mat-tab label="item7">
-      <div class="sliderParent mat-elevation-z4">
-        Content item7
-       </div>
-    </mat-tab>
-
-  </mat-tab-group>
-  
- <!---->
-  </div >
-
-
-  <div class="container-fluid  d-flex justify-content-center  ">   
-    <!--TopCategories-->
-    <div class="container  topcategdiv  ">
-      
-        <h1 class="topCat ml-1 ">
-          Top categories
-        </h1>
-  
-  
-          <div class=" parent">
-            <div class="header">
-              <img alt="design" 
-               src="https://s.udemycdn.com/home/top-categories/lohp-category-design.jpg"/>
+        <div class="carousel-cell ">
+          <div class="card card-border-none ">
+            <img class="card-img-top img-fluid" src="../../assets/4.jpg" />
+            <div class="card-body">
+              <h3 class="card-title"> Web Development Bootcap 2021</h3>
+              <div class="card-text">
+                <p> name of auther</p>
+                <span class="text-warning mr-3"> 4.5</span>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning m-1"></i>
+                <span>(number of using)</span>
+                <p>price</p><span>discount</span>
+              </div>
             </div>
-            <div class="footer"><h3>Design</h3></div>
           </div>
-  
-          <div class=" parent">
-            <div class="header">
-              <img
-                alt="music"
-                src="https://s.udemycdn.com/home/top-categories/lohp-category-development.jpg"
-              /></div>
-            <div class="footer"><h3>Development</h3></div>
-          </div>
-  
-          <div class=" parent">
-            <div class="header">
-              <img alt="marketing"
-               src="https://s.udemycdn.com/home/top-categories/lohp-category-marketing.jpg">
-          </div>
-            <div class="footer"><h3>Markting</h3></div>
-          </div>
-  
-          <div class=" parent">
-            <div class="header">
-              <img alt="it-and-software"
-               src="https://s.udemycdn.com/home/top-categories/lohp-category-it-and-software.jpg">
-          </div>
-          <div class="footer"><h3>IT and Software</h3></div>
         </div>
-          <div class="parent">
-            <div class="header">
-              <img alt="personal-development"
-               src="https://s.udemycdn.com/home/top-categories/lohp-category-personal-development.jpg">
+
+
+        <div class="carousel-cell ">
+          <div class="card card-border-none ">
+            <img class="card-img-top img-fluid" src="../../assets/3.jpg" />
+            <div class="card-body">
+              <h3 class="card-title"> Web Development Bootcap 2021</h3>
+              <div class="card-text">
+                <p> name of auther</p>
+                <span class="text-warning mr-3"> 4.5</span>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning m-1"></i>
+                <span>(number of using)</span>
+                <p>price</p><span>discount</span>
+              </div>
+            </div>
           </div>
-          <div class="footer"><h3>Personal Development</h3></div>
         </div>
-  
-          <div class="parent">
-            <div class="header">
-              <img alt="business" 
-                   src="https://s.udemycdn.com/home/top-categories/lohp-category-business.jpg">
+
+        <div class="carousel-cell ">
+          <div class="card card-border-none ">
+            <img class="card-img-top img-fluid" src="../../assets/5.jpg" />
+            <div class="card-body">
+              <h3 class="card-title"> Web Development Bootcap 2021</h3>
+              <div class="card-text">
+                <p> name of auther</p>
+                <span class="text-warning mr-3"> 4.5</span>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning m-1"></i>
+                <span>(number of using)</span>
+                <p>price</p><span>discount</span>
+              </div>
+            </div>
           </div>
-          <div class="footer"><h3>Business</h3></div>
         </div>
-  
-          <div class="parent">
-            <div class="header">
-              <img alt="photography" 
-              src="https://s.udemycdn.com/home/top-categories/lohp-category-photography.jpg">
+        <div class="carousel-cell ">
+          <div class="card card-border-none ">
+            <img class="card-img-top img-fluid" src="../../assets/3.jpg" />
+            <div class="card-body">
+              <h3 class="card-title"> Web Development Bootcap 2021</h3>
+              <div class="card-text">
+                <p> name of auther</p>
+                <span class="text-warning mr-3"> 4.5</span>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning m-1"></i>
+                <span>(number of using)</span>
+                <p>price</p><span>discount</span>
+              </div>
+            </div>
           </div>
-          <div class="footer"><h3>Photography</h3></div>
+        </div>
+
+        <div class="carousel-cell ">
+          <div class="card card-border-none ">
+            <img class="card-img-top img-fluid" src="../../assets/4.jpg" />
+            <div class="card-body">
+              <h3 class="card-title"> Web Development Bootcap 2021</h3>
+              <div class="card-text">
+                <p> name of auther</p>
+                <span class="text-warning mr-3"> 4.5</span>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning m-1"></i>
+                <span>(number of using)</span>
+                <p>price</p><span>discount</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </carousel>
+
+    </div>
+
+    <!-- content1 -->
+  </mat-tab>
+<!--End Python-->
+
+
+ <!--Start Excel-->
+ <mat-tab label="Excel">
+  <!-- Content 1 -->
+
+  <div class=" offset-md-1 border col-md-11">
+    
+    <div class="row m-2">
+      <div class="col ">
+        <div class="h3">Analyze and visualize data with Excel</div>
+        <div class="p text-secondary">Regardless of the industry you work in,
+           Microsoft Office Excel is an invaluable spreadsheet program for
+            organizing and representing data. Excel offers functions,
         </div>
         
-          <div class="parent">
-            <div class="header">
-              <img alt="music" 
-                  src="https://s.udemycdn.com/home/top-categories/lohp-category-music.jpg">
+         <button class="btn btn-outline-info mt-2 mb-3">Explore Excel</button> 
+      </div>
+      <div class="col d-flex flex-row-reverse">
+        <img src="../../assets/11.jpg" class="rounded-circle imgs m-3" >
+      </div>
+    </div> 
+
+    <carousel [loop]="true" [cellsToScroll]="1" [objectFit]="'cover'" [lightDOM]="true"
+      class="carousel--slider-alignment  w-100 ">
+
+      <div class="carousel-cell ">
+        <div class="card card-border-none ">
+          <img class="card-img-top img-fluid" src="../../assets/4.jpg" />
+          <div class="card-body">
+            <h3 class="card-title"> Web Development Bootcap 2021</h3>
+            <div class="card-text">
+              <p> name of auther</p>
+              <span class="text-warning mr-3"> 4.5</span>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning m-1"></i>
+              <span>(number of using)</span>
+              <p>price</p><span>discount</span>
+            </div>
           </div>
-          <div class="footer"><h3>Music</h3></div>
         </div>
-  
-    </div>
-    <!--End Of Top Categories-->
-    
+      </div>
+
+
+      <div class="carousel-cell ">
+        <div class="card card-border-none ">
+          <img class="card-img-top img-fluid" src="../../assets/3.jpg" />
+          <div class="card-body">
+            <h3 class="card-title"> Web Development Bootcap 2021</h3>
+            <div class="card-text">
+              <p> name of auther</p>
+              <span class="text-warning mr-3"> 4.5</span>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning m-1"></i>
+              <span>(number of using)</span>
+              <p>price</p><span>discount</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-cell ">
+        <div class="card card-border-none ">
+          <img class="card-img-top img-fluid" src="../../assets/5.jpg" />
+          <div class="card-body">
+            <h3 class="card-title"> Web Development Bootcap 2021</h3>
+            <div class="card-text">
+              <p> name of auther</p>
+              <span class="text-warning mr-3"> 4.5</span>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning m-1"></i>
+              <span>(number of using)</span>
+              <p>price</p><span>discount</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-cell ">
+        <div class="card card-border-none ">
+          <img class="card-img-top img-fluid" src="../../assets/3.jpg" />
+          <div class="card-body">
+            <h3 class="card-title"> Web Development Bootcap 2021</h3>
+            <div class="card-text">
+              <p> name of auther</p>
+              <span class="text-warning mr-3"> 4.5</span>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning m-1"></i>
+              <span>(number of using)</span>
+              <p>price</p><span>discount</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-cell ">
+        <div class="card card-border-none ">
+          <img class="card-img-top img-fluid" src="../../assets/4.jpg" />
+          <div class="card-body">
+            <h3 class="card-title"> Web Development Bootcap 2021</h3>
+            <div class="card-text">
+              <p> name of auther</p>
+              <span class="text-warning mr-3"> 4.5</span>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning mr-1"></i>
+              <i class="fa fa-star text-warning m-1"></i>
+              <span>(number of using)</span>
+              <p>price</p><span>discount</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </carousel>
+
   </div>
 
-  <div  class="container">
-    <div class=" part2 ">
-      <div class="container1">
-       <img src="https://s.udemycdn.com/home/non-student-cta/udlite-lohp-promo-teacher.jpg" class="non-student-cta-image" alt="non student cta image" width="320" height="320">
-   
-       </div>
-       </div>
-      
-     <div class=" container2">
-       <h1 class="udlite-heading-xxl non-student-cta__header">Become an instructor</h1>
-       <p>
- Top instructors from around the world teach millions of students on Udemy. We provide the tools and skills to teach what you love.
- </p>
- <button class="button">StartTeachingToday</button>
-     </div>
+  <!-- content1 -->
+</mat-tab>
+<!--End Excel-->
+
+
+  </mat-tab-group>
+
+  <!---->
+</div>
+
+<!--Start Students are viewing-->
+<div class="container ">
+<h1 class="m-3">
+  Students are viewing
+</h1>
+<div class=" offset-md-1  col-md-11">
+    
+  <carousel [loop]="true" [cellsToScroll]="1" [objectFit]="'cover'" [lightDOM]="true"
+    class="carousel--slider-alignment  w-100 ">
+
+    <div class="carousel-cell ">
+      <div class="card card-border-none ">
+        <img class="card-img-top img-fluid" src="../../assets/4.jpg" />
+        <div class="card-body">
+          <h3 class="card-title"> Web Development Bootcap 2021</h3>
+          <div class="card-text">
+            <p> name of auther</p>
+            <span class="text-warning mr-3"> 4.5</span>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning m-1"></i>
+            <span>(number of using)</span>
+            <p>price</p><span>discount</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="carousel-cell ">
+      <div class="card card-border-none ">
+        <img class="card-img-top img-fluid" src="../../assets/3.jpg" />
+        <div class="card-body">
+          <h3 class="card-title"> Web Development Bootcap 2021</h3>
+          <div class="card-text">
+            <p> name of auther</p>
+            <span class="text-warning mr-3"> 4.5</span>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning m-1"></i>
+            <span>(number of using)</span>
+            <p>price</p><span>discount</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-cell ">
+      <div class="card card-border-none ">
+        <img class="card-img-top img-fluid" src="../../assets/5.jpg" />
+        <div class="card-body">
+          <h3 class="card-title"> Web Development Bootcap 2021</h3>
+          <div class="card-text">
+            <p> name of auther</p>
+            <span class="text-warning mr-3"> 4.5</span>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning m-1"></i>
+            <span>(number of using)</span>
+            <p>price</p><span>discount</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-cell ">
+      <div class="card card-border-none ">
+        <img class="card-img-top img-fluid" src="../../assets/3.jpg" />
+        <div class="card-body">
+          <h3 class="card-title"> Web Development Bootcap 2021</h3>
+          <div class="card-text">
+            <p> name of auther</p>
+            <span class="text-warning mr-3"> 4.5</span>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning m-1"></i>
+            <span>(number of using)</span>
+            <p>price</p><span>discount</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-cell ">
+      <div class="card card-border-none ">
+        <img class="card-img-top img-fluid" src="../../assets/4.jpg" />
+        <div class="card-body">
+          <h3 class="card-title"> Web Development Bootcap 2021</h3>
+          <div class="card-text">
+            <p> name of auther</p>
+            <span class="text-warning mr-3"> 4.5</span>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning m-1"></i>
+            <span>(number of using)</span>
+            <p>price</p><span>discount</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </carousel>
+
+</div>
+</div>
+<!--End Students are viewing-->
+
+
+
+
+<div class="container-fluid  d-flex justify-content-center  ">
+  <!--TopCategories-->
+  <div class="container  topcategdiv  ">
+
+    <h1 class="topCat ml-1 ">
+      Top categories
+    </h1>
+
+
+    <div class=" parent">
+      <div class="header">
+        <img alt="design" src="https://s.udemycdn.com/home/top-categories/lohp-category-design.jpg" />
+      </div>
+      <div class="footer">
+        <h3>Design</h3>
+      </div>
+    </div>
+
+    <div class=" parent">
+      <div class="header">
+        <img alt="music" src="https://s.udemycdn.com/home/top-categories/lohp-category-development.jpg" />
+      </div>
+      <div class="footer">
+        <h3>Development</h3>
+      </div>
+    </div>
+
+    <div class=" parent">
+      <div class="header">
+        <img alt="marketing" src="https://s.udemycdn.com/home/top-categories/lohp-category-marketing.jpg">
+      </div>
+      <div class="footer">
+        <h3>Markting</h3>
+      </div>
+    </div>
+
+    <div class=" parent">
+      <div class="header">
+        <img alt="it-and-software" src="https://s.udemycdn.com/home/top-categories/lohp-category-it-and-software.jpg">
+      </div>
+      <div class="footer">
+        <h3>IT and Software</h3>
+      </div>
+    </div>
+    <div class="parent">
+      <div class="header">
+        <img alt="personal-development"
+          src="https://s.udemycdn.com/home/top-categories/lohp-category-personal-development.jpg">
+      </div>
+      <div class="footer">
+        <h3>Personal Development</h3>
+      </div>
+    </div>
+
+    <div class="parent">
+      <div class="header">
+        <img alt="business" src="https://s.udemycdn.com/home/top-categories/lohp-category-business.jpg">
+      </div>
+      <div class="footer">
+        <h3>Business</h3>
+      </div>
+    </div>
+
+    <div class="parent">
+      <div class="header">
+        <img alt="photography" src="https://s.udemycdn.com/home/top-categories/lohp-category-photography.jpg">
+      </div>
+      <div class="footer">
+        <h3>Photography</h3>
+      </div>
+    </div>
+
+    <div class="parent">
+      <div class="header">
+        <img alt="music" src="https://s.udemycdn.com/home/top-categories/lohp-category-music.jpg">
+      </div>
+      <div class="footer">
+        <h3>Music</h3>
+      </div>
+    </div>
+
+  </div>
+  <!--End Of Top Categories-->
+
+</div>
+
+
+
+<!--Start Featured topics by category-->
+<h1 class="b m-3 ">Featured topics by category</h1>
+<table class="table table-borderless m-3">
+  <thead>
+    <tr class="h5">
+      <th scope="col">Development</th>
+      <th scope="col">Business</th>
+      <th scope="col">IT and Software</th>
+      <th scope="col">Design</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <h2 class="text-primary">Python</h2>
+<p class="text-muted">27,537,753 students</p>
+      </td>
+      <td>
+        <h2 class="text-primary">Financial Analysis</h2>
+<p class="text-muted">27,537,753 students</p>
+      </td>
+      <td>
+        <h2 class="text-primary">AWS Certification</h2>
+<p class="text-muted">27,537,753 students</p>
+      </td>
+      <td>
+        <h2 class="text-primary">Photoshop</h2>
+<p class="text-muted">27,537,753 students</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h2 class="text-primary">Web Development</h2>
+<p class="text-muted">27,537,753 students</p>
+      </td>
+      <td>
+        <h2 class="text-primary">SQL</h2>
+<p class="text-muted">27,537,753 students</p>
+      </td>
+      <td>
+        <h2 class="text-primary">Ethical Hacking</h2>
+<p class="text-muted">27,537,753 students</p>
+      </td>
+      <td>
+        <h2 class="text-primary">Graphic Design</h2>
+<p class="text-muted">27,537,753 students</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h2 class="text-primary">Machine Learning</h2>
+<p class="text-muted">27,537,753 students</p>
+      </td>
+      <td>
+        <h2 class="text-primary">PMP</h2>
+<p class="text-muted">27,537,753 students</p>
+      </td>
+      <td>
+        <h2 class="text-primary">Cyber Security</h2>
+<p class="text-muted">27,537,753 students</p>
+      </td>
+      <td>
+        <a href="#"><h2 class="text-primary">Drawing</h2></a>
+<p class="text-muted">27,537,753 students</p>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <button class="btn btn-info btn-lg">Explore More</button>
+  </tfoot>
+</table>
+
+
+<!--End Featured topics by category-->
+
+
+
   
-   <div class="part3 border">
 
 
-      <div class="container4">
+<div class="container">
+  <div class=" part2 ">
+    <div class="container1">
+      <img src="https://s.udemycdn.com/home/non-student-cta/udlite-lohp-promo-teacher.jpg" class="non-student-cta-image"
+        alt="non student cta image" width="320" height="320">
 
-        <h1 >Udemy for Business</h1>
-        <p >
-          Get unlimited access to 5,500+ of Udemy’s top courses for your team.
-          </p>
-          <button class="button1">Get Udemy For Business</button>
-       </div>
-       <div class="container3">
-   <img src="https://s.udemycdn.com/home/non-student-cta/udlite-lohp-promo-ufb.jpg" alt="non student cta image" >
-   </div>
+    </div>
+  </div>
+
+  <div class=" container2">
+    <h1 class="udlite-heading-xxl non-student-cta__header">Become an instructor</h1>
+    <p>
+      Top instructors from around the world teach millions of students on Udemy. We provide the tools and skills to
+      teach what you love.
+    </p>
+    <button class="button">StartTeachingToday</button>
+  </div>
+
+  <div class="part3 border">
 
 
-   </div>
+    <div class="container4">
 
-   <div class="part4 d-flex justify-content-center  ">
+      <h1>Udemy for Business</h1>
+      <p>
+        Get unlimited access to 5,500+ of Udemy’s top courses for your team.
+      </p>
+      <button class="button1">Get Udemy For Business</button>
+    </div>
+    <div class="container3">
+      <img src="https://s.udemycdn.com/home/non-student-cta/udlite-lohp-promo-ufb.jpg" alt="non student cta image">
+    </div>
+
+
+  </div>
+
+  <div class="part4 d-flex justify-content-center  ">
 
 
     <div class="container5">
-      <iframe  title="Mohamad Alaloush's Story" width="580" height="400" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" src="https://www.youtube.com/embed/QFIhEmOd6No/?autoplay=1"></iframe>
-      </div>
+      <iframe title="Mohamad Alaloush's Story" width="580" height="400" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""
+        src="https://www.youtube.com/embed/QFIhEmOd6No/?autoplay=0"></iframe>
+    </div>
     <div class="container6">
 
-      <h1 >Transform Your Life Through Education</h1>
+      <h1>Transform Your Life Through Education</h1>
       <h3>
-        Mohamad Alaloush launched a new career in software development by taking courses on Udemy. What will you be able to do?
+        Mohamad Alaloush launched a new career in software development by taking courses on Udemy. What will you be able
+        to do?
       </h3>
 
-     </div>
+    </div>
 
-
- </div>
 
   </div>
-  <div   class="img1" >
+
+</div>
+<!-- <div   class="img1" >
     <img alt="Udemy"
          src="https://www.udemy.com/staticx/udemy/images/v6/logo-coral.svg" >
-   </div>
-   
-
-
-
+   </div> -->

@@ -4,7 +4,7 @@
  margin-bottom:0 ;
   position: static;
 
-  
+
 }
 .carousel--slider-alignment p, .carousel--slider-alignment h3{
   margin: 0%;
@@ -15,6 +15,7 @@
 .card-text p, .card-text span{
   color: rgb(129, 129, 129);
 }
+
  p, span{
   color: rgb(129, 129, 129);
  }
@@ -24,4 +25,4 @@
   position: static;
  }
 
- 
+

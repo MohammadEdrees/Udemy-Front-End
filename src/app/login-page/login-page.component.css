@@ -126,6 +126,10 @@ iframe {
   line-height: 1.2;
   /* text-transform: uppercase; */
 }
+input{
+  caret-color: lightcoral;
+  
+}
 
 .bg1 {background-color: #3b5998;}
 .bg2 {background-color: #f37177;}
@@ -158,7 +162,7 @@ iframe {
   align-items: center;
   padding: 15px;
   position: relative;
-  background-color: #e6e6e6;
+  background-color: #fff;
 }
 
 .wrap-login100 {

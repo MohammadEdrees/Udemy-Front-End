@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm navbar-light fixed-top mb-0  ">
-  <img src="../../assets/iconUdemy.ico" alt="icon Udemy" class="udemyIcon"> 
+  <img src="../../assets/iconUdemy.ico" alt="icon Udemy" class="udemyIcon">
   <a class="navbar-brand  text-dark ml-1 mr-auto" href="home">Udemy</a>
- 
+
 
 
   <button class="navbar-toggler d-lg-none " type="button" data-toggle="collapse" data-target="#collapsibleNavId"
@@ -13,7 +13,7 @@
     <div class="dropdown mr-1 ml-1">
 
       <button mat-button [matMenuTriggerFor]="Categories"
-        class="btn btn-outline-default border-0   ">Categories</button>
+        class="btn btn-outline-default border-0 text-secondary  ">Categories</button>
     </div>
     <mat-menu #Categories="matMenu" class="Categories">
       <a mat-menu-item [matMenuTriggerFor]="Development" routerLink="category">Development</a>
@@ -55,12 +55,12 @@
       <button mat-menu-item>Black Tree Monitor </button>
     </mat-menu>
 
-    <form class="form-inline my-2 my-lg-0    w-100   ">
-      <input class="form-control mr-sm-2 w-100" type="text" placeholder="Search for anything" id="search">
-     
+    <form class="form-inline my-2 my-lg-0      ">
+      <input class="form-control mr-sm-2 " type="text" placeholder="Search for anything" id="search">
+
     </form>
 
-    <li class="nav-link myDIV text-wrap text-truncate  "> <a> Udemy for Bussines</a></li>
+    <li class="nav-link myDIV  "> <a> Udemy for Bussines</a></li>
 
     <div class="card hide" style="width: 18rem;">
       <div class="card-body">
@@ -70,7 +70,7 @@
       </div>
     </div>
 
-    <li class="nav-link myDIV1 text-wrap text-truncate "> <a routerLink="instreg"> Teach On udemy</a></li>
+    <li class="nav-link myDIV1 "> <a routerLink="instreg"> Teach On udemy</a></li>
 
     <div class="card hide1" style="width: 18rem;">
       <div class="card-body">
@@ -81,7 +81,7 @@
     </div>
 
 
-    <li class="nav-link DivIcon  "><i class=" fa fa-shopping-cart cartIcon" aria-hidden="true"></i></li>
+    <li class="nav-link DivIcon   "><i class=" fa fa-shopping-cart cartIcon fa-3x" aria-hidden="true"></i></li>
 
     <div class="card hide1" style="width: 18rem;">
       <div class="card-body">
@@ -92,9 +92,9 @@
     </div>
 
 
-    <button class="btn btn-outline-info d-lg-inline   border navBtnz" routerLink="login">Log in </button>
-    <button class="btn btn-info border navBtnz" routerLink="studentreg">Sign Up</button>
-    <button class="btn btn-info border " routerLink="studentreg">Lang</button>
+    <button class="btn btn-outline-info d-lg-inline   border navBtnz mr-3" routerLink="login">Log in </button>
+    <button class="btn btn-info border navBtnz mr-3 " routerLink="studentreg">Sign Up</button>
+    <button class="btn btn-outline-secondary border " routerLink="studentreg"><i class="fa fa-globe text-secondary" aria-hidden="true"></i></button>
 
   </div>
 

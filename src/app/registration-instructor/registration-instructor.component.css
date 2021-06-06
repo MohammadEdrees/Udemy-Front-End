@@ -22,4 +22,9 @@ margin-top: 5px;
       border:1px solid #DC3545;
   }
 
+  input{
+    caret-color: lightcoral;
+
+  }
+
 

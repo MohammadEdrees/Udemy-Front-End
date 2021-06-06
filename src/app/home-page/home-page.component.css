@@ -272,7 +272,7 @@ hr {
   width:100%;
   display:flex;
   justify-content: center;
-  
+
 }
 /**/
 .menuContainer {
@@ -292,8 +292,8 @@ hr {
 .viewport {
   height: 100%;
   background:transparent;
-  
- 
+
+
 }
 .viewport::-webkit-scrollbar{
 
@@ -316,7 +316,7 @@ hr {
   size: 3px;
   font-size: 2px;
  background:white;
- 
+
 }
 .viewport::-webkit-scrollbar-button:horizontal:decrement{
  background-image: url("../../assets/8.jpg");
@@ -363,9 +363,15 @@ hr {
 .carousel--slider-alignment{
   height:30rem !important;
  margin-bottom:0 ;
-  position: absolute;
+  position: fixed;
 
-  
+
+}
+
+.carousel--slider-alignment-students{
+  height:30rem !important;
+  margin-bottom:0 ;
+   position: static;
 }
 .carousel--slider-alignment p, .carousel--slider-alignment h3{
   margin: 0%;
@@ -389,4 +395,3 @@ hr {
 
 
 
- 

@@ -66,10 +66,10 @@
 
         <mat-option *ngFor="let option of Instructors | filterByIns:searchText;" [value]="option">
 
-          <fa-icon [icon]="faUser" class="fa-sm fa-fw text-muted"></fa-icon> {{option.fname}}
+          <fa-icon [icon]="faUser" class="fa-sm fa-fw text-info"></fa-icon> {{option.fname}}
         </mat-option>
         <mat-option *ngFor="let option of Courses | filterByCrs:searchText;" [value]="option">
-          <fa-icon [icon]="faFile" class="fa-sm fa-fw text-muted"></fa-icon>  {{option.title}}
+          <fa-icon [icon]="faFile" class="fa-sm fa-fw text-info"></fa-icon>  {{option.title}}
         </mat-option>
       </mat-autocomplete>
      
@@ -121,4 +121,3 @@
 
 
 </nav>
-end navbar

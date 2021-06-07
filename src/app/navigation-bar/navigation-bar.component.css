@@ -13,13 +13,13 @@ nav{
   position: initial;
 }
 #search{
-    width: 5rem;
+    width: 24rem;
     margin: .5rem;
     border-radius: 2rem;
     height: 2rem;
     padding: 1.3rem;
     border: 2px solid gray;
-    /* box-shadow: 5px 5px 5px rgba(78, 78, 78, 0.5); */
+    box-shadow: 5px 5px 5px rgba(78, 78, 78, 0.5); 
 
 }
 .dropdown-submenu>.dropdown-menu {
@@ -134,4 +134,7 @@ nav{
 .Categories::-webkit-scrollbar{
 display: none;
 }
+
+
+
 

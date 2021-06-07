@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 import {faUser,faLock,faEnvelope,faEye,faEyeSlash} from '@fortawesome/free-solid-svg-icons'
 import { Instructor } from '../models/Instructor';
 import {  InstructorService } from '../services/instructor.service';
@@ -19,22 +19,28 @@ export class RegistrationInstructorComponent implements OnInit {
   constructor(private instructorService:InstructorService) { }
 
   registerForm: FormGroup = new FormGroup({
-    instId:new FormControl(146) ,
-    instName: new FormControl('', [Validators.required, Validators.minLength(5),Validators.maxLength(25),Validators.pattern(this.namePattern)]),
+
     address:new FormControl() ,
     password : new FormControl('', [Validators.required, Validators.minLength(8),Validators.maxLength(20)]),
     imagPath:new FormControl() ,
     phone : new FormControl() ,
     mail: new FormControl('', [Validators.required, Validators.email,Validators.pattern(this.emailPattern)]),
-    
-   
+    shoppingCard: new FormControl() ,
+    instCrs: new FormControl() , 
+    communication: new FormControl() ,
+    fname: new FormControl('', [Validators.required, Validators.minLength(5),Validators.maxLength(25),Validators.pattern(this.namePattern)]),
+    lname: new FormControl(),
+    language: new FormControl() ,
+    headLine: new FormControl() ,
+    biography: new FormControl() 
+          
   });
 
   submitted = false;
   hide = true;
-
+  errorMessage:string='';
   //new Object 
-  newInstructor: Instructor =new Instructor ( 0,'','','','',0,'');
+  newInstructor: Instructor =new Instructor ('','','',0,'','','','','','','','','');
 
   //assign icons
   faUser=faUser;
@@ -62,11 +68,14 @@ export class RegistrationInstructorComponent implements OnInit {
        this.newInstructor=this.registerForm.value;
        console.log(this.newInstructor);
        //call function on service
-       this.instructorService.AddInstructor(this.newInstructor).subscribe(data =>{
+       this.instructorService.AddInstructor(this.newInstructor).subscribe(
+         data =>{
          console.log(data);
-
         // this.router.navigate(['login'])
-       });
+       }, err=>{
+        this.errorMessage=err.error;
+      }
+       );
     }
 
   }

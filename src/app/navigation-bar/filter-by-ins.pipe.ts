@@ -18,7 +18,7 @@ export class FilterByInsPipe implements PipeTransform {
     searchText = searchText.toLocaleLowerCase();
     
     return items.filter(instructor => {
-      return instructor.instName.toLocaleLowerCase().includes(searchText) ;
+      return instructor.fname.toLocaleLowerCase().includes(searchText) ;
       // ||      
     });
 

@@ -55,11 +55,31 @@
       <button mat-menu-item>Black Tree Monitor </button>
     </mat-menu>
 
+
+
+
+    <!------ Start Search ------>
     <form class="form-inline my-2 my-lg-0      ">
-      <input class="form-control mr-sm-2 " type="text" placeholder="Search for anything" id="search">
+      <input class="form-control mr-sm-2  " type="text" placeholder="Search for anything" id="search"
+      [matAutocomplete]="auto" [(ngModel)]="searchText" [ngModelOptions]="{ standalone: true }"> 
+      <mat-autocomplete #auto="matAutocomplete" class="mt-4" >
+
+        <mat-option *ngFor="let option of Instructors | filterByIns:searchText;" [value]="option">
+
+          <fa-icon [icon]="faUser" class="fa-sm fa-fw text-muted"></fa-icon> {{option.fname}}
+        </mat-option>
+        <mat-option *ngFor="let option of Courses | filterByCrs:searchText;" [value]="option">
+          <fa-icon [icon]="faFile" class="fa-sm fa-fw text-muted"></fa-icon>  {{option.title}}
+        </mat-option>
+      </mat-autocomplete>
+     
 
     </form>
 
+      
+
+
+    <!------ End Search ------>
     <li class="nav-link myDIV  "> <a> Udemy for Bussines</a></li>
 
     <div class="card hide" style="width: 18rem;">
@@ -70,7 +90,7 @@
       </div>
     </div>
 
-    <li class="nav-link myDIV1 "> <a routerLink="instreg"> Teach On udemy</a></li>
+    <li class="nav-link myDIV1 "><a routerLink="instreg"> Teach On udemy</a></li>
 
     <div class="card hide1" style="width: 18rem;">
       <div class="card-body">
@@ -94,7 +114,8 @@
 
     <button class="btn btn-outline-info d-lg-inline   border navBtnz mr-3" routerLink="login">Log in </button>
     <button class="btn btn-info border navBtnz mr-3 " routerLink="studentreg">Sign Up</button>
-    <button class="btn btn-outline-secondary border " routerLink="studentreg"><i class="fa fa-globe text-secondary" aria-hidden="true"></i></button>
+    <button class="btn btn-outline-secondary border " routerLink="studentreg"><i class="fa fa-globe text-secondary"
+        aria-hidden="true"></i></button>
 
   </div>
 

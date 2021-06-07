@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
 import { FilterByInsPipe } from './navigation-bar/filter-by-ins.pipe';
 import { FilterByCrsPipe } from './navigation-bar/filter-by-crs.pipe'
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -47,8 +48,9 @@ import { FilterByCrsPipe } from './navigation-bar/filter-by-crs.pipe'
     MatTabsModule,
     ScrollingModule,
     CarouselModule,
-     MatCardModule,
+    MatCardModule,
     IvyCarouselModule,
+    MatAutocompleteModule
    
   ],
   providers: [],

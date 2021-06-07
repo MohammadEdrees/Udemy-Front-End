@@ -1,11 +1,13 @@
-<div id="container" class="container  col-sm-4">
+<div id="container" class="col-sm-4">
 
   <div>
     <div class=" border border-top-0 border-right-0 border-left-0">
       <p><b>Become a Udemy Instructor !</b></p>
     </div>
+    
     <div class="card-body">
       <p>Discover a supportive community of online instructors. Get instant access to all course creation resources.</p>
+      <div *ngIf="errorMessage" class="alert alert-warning">{{errorMessage}}</div>
       <form [formGroup]="registerForm" (ngSubmit)="submit()">
 
 
@@ -14,28 +16,28 @@
           <!-- <label for="exampleInputName1" class="form-label">Full Name</label> -->
 
           <div class="input-group CustomBorder rounded d-flex p-2 align-items-center"
-            [ngClass]="{'OnErrorBorder': submitted && f.instName.errors }">
+            [ngClass]="{'OnErrorBorder': submitted && f.fname.errors }">
             <div class="input-group-prepend">
               <fa-icon [icon]="faUser" class="fa-sm fa-fw text-muted"></fa-icon>
             </div>
-            <input type="name" class="form-control border-0" placeholder="Full Name" formControlName="instName"
-              id="exampleInputName1" [ngClass]="{ 'is-invalid': submitted && f.instName.errors }">
+            <input type="name" class="form-control border-0" placeholder="Full Name" formControlName="fname"
+              id="exampleInputName1" [ngClass]="{ 'is-invalid': submitted && f.fname.errors }">
 
 
 
           </div>
           <!------- Full Name validation------->
-          <div *ngIf="submitted && f.instName.errors" class="error">
-            <div *ngIf="f.instName.errors.required">
+          <div *ngIf="submitted && f.fname.errors" class="error">
+            <div *ngIf="f.fname.errors.required">
               FullName is required
             </div>
-            <div *ngIf="f.instName.errors.minlength">
+            <div *ngIf="f.fname.errors.minlength">
               FullName must be at least 5 characters
             </div>
-            <div *ngIf="f.instName.errors.maxlength">
+            <div *ngIf="f.fname.errors.maxlength">
               FullName must be max 25 characters
             </div>
-            <div *ngIf="f.instName.errors.pattern">
+            <div *ngIf="f.fname.errors.pattern">
               contain only characters
             </div>
           </div>

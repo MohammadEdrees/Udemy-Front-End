@@ -7,7 +7,10 @@ nav{
   width: 40px;
   height: 40px;;
 }
-
+.slang{
+  border:1px solid #999;
+  border-radius: .5rem;
+}
 
 .dropdown-submenu {
   position: initial;
@@ -134,4 +137,6 @@ nav{
 .Categories::-webkit-scrollbar{
 display: none;
 }
-
+#subcateg{
+  position: fixed;
+}

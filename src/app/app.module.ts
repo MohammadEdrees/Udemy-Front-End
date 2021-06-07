@@ -16,10 +16,14 @@ import {MatTabsModule} from '@angular/material/tabs';
  import {MatCardModule} from '@angular/material/card';
  import {IvyCarouselModule} from 'angular-responsive-carousel';
  import { CarouselModule } from 'ngx-owl-carousel-o';
+ import {TranslateHttpLoader} from'@ngx-translate/http-loader';
 
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
 
-import { HttpClientModule } from '@angular/common/http';
-import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TopCategoriesComponent } from './top-categories/top-categories.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
     NavigationBarComponent,
     PasswordStrengthBarComponent,
     FooterComponent,
-    CategoryComponent
+    CategoryComponent,
+    TopCategoriesComponent
    
   ],
   imports: [
@@ -45,9 +50,20 @@ import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
     CarouselModule,
      MatCardModule,
     IvyCarouselModule,
-   
+    TranslateModule.forRoot({
+      defaultLanguage:'en',
+      loader:{
+        provide:TranslateLoader,
+        useFactory:createTranslateLoader,
+        deps:[HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function createTranslateLoader(http:HttpClient){
+return new TranslateHttpLoader(http,'./assets/i18n/','.json')
+}

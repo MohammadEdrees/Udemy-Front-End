@@ -11,6 +11,7 @@ export class CategoryComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+   
   }
 
 }

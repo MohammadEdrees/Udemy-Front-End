@@ -1,4 +1,6 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit,ChangeDetectionStrategy,ViewEncapsulation} from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home-page',
@@ -10,12 +12,13 @@ import { Component, OnInit,ChangeDetectionStrategy,ViewEncapsulation} from '@ang
 export class HomePageComponent implements OnInit {
 
   Categories=[];
-  constructor() { 
+  constructor(public translate:TranslateService) { 
    
   }
   
   ngOnInit(): void {
-    
+  
+   
   }
   
   items = Array.from({length: 30}).map((_, i) => `Item #${i}`);

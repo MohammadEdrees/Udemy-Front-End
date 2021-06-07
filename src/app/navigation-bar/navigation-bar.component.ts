@@ -10,7 +10,7 @@ import {CategoryService} from '../services/Category.service'
   selector: 'app-navigation-bar',
   templateUrl: './navigation-bar.component.html',
   styleUrls: ['./navigation-bar.component.css'],
-  encapsulation:ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None
 })
 export class NavigationBarComponent implements OnInit {
   

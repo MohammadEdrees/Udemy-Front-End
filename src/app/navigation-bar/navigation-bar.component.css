@@ -16,15 +16,15 @@ nav{
   position: initial;
 }
 #search{
-    width: 24rem;
+    width: 5rem;
     margin: .5rem;
     border-radius: 2rem;
     height: 2rem;
     padding: 1.3rem;
-    border: rgb(181, 184, 184);
-    box-shadow: 5px 5px 5px rgba(78, 78, 78, 0.5);
-}
+    border: 2px solid gray;
+    /* box-shadow: 5px 5px 5px rgba(78, 78, 78, 0.5); */
 
+}
 .dropdown-submenu>.dropdown-menu {
   top: 0;
   left: 100%;

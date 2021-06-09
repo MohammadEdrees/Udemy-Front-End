@@ -39,132 +39,47 @@
 
 <div class=" container-fluid  d-flex justify-content-center ">
   <!---->
-  <mat-tab-group>
+  <mat-tab-group *ngFor="let item of topic ">
     <!--Start Web Develpment-->
-    <mat-tab label="Web Develpment">
+    <mat-tab label={{item.topName}}  (click)="GetTopRelateCourse(item.topId)">
       <!-- Content 1 -->
 
-      <div class=" offset-md-1 border col-md-11">
+      <div class=" offset-md-1 border col-md-11" *ngFor="let items of courses">
 
         <div class="row m-2">
-          <div class="col ">
-            <div class="h3">Build websites and applications with Web Development</div>
-            <div class="p text-secondary">The world of web development is as wide as
-              the internet itself. Much of our social and vocational lives play
-              out on the internet.
+          <div class="col "  >
+            <div class="h3">{{items.title}}</div>
+            <div class="p text-secondary">{{items.description}}
             </div>
 
-             <button class="btn btn-outline-info mt-2 mb-3">Explore Web Development</button>
+             <button class="btn btn-outline-info mt-2 mb-3">Export  {{items.title}}</button>
           </div>
           <div class="col d-flex flex-row-reverse">
             <img src="../../assets/11.jpg" class="rounded-circle imgs m-3" >
           </div>
         </div>
 
-        <carousel [loop]="true" [cellsToScroll]="1" [objectFit]="'cover'" [lightDOM]="true"
-          class="carousel--slider-alignment  w-100 ">
-
-          <div class="carousel-cell ">
+        <carousel [loop]="true" [cellsToScroll]="1" [objectFit]="'cover'" [lightDOM]="true" class="carousel--slider-alignment  w-100 ">
+          <div class="carousel-cell " *ngFor="let items of courses"  >
             <div class="card card-border-none ">
               <img class="card-img-top img-fluid" src="../../assets/4.jpg" />
               <div class="card-body">
-                <h3 class="card-title"> Web Development Bootcap 2021</h3>
+                <h3 class="card-title"> {{items.subtitle}}</h3>
                 <div class="card-text">
-                  <p> name of auther</p>
-                  <span class="text-warning mr-3"> 4.5</span>
+                  <p> {{items.author}}</p>
+                  <span class="text-warning mr-3"> {{items.rate}}</span>
                   <i class="fa fa-star text-warning mr-1"></i>
                   <i class="fa fa-star text-warning mr-1"></i>
                   <i class="fa fa-star text-warning mr-1"></i>
                   <i class="fa fa-star text-warning mr-1"></i>
                   <i class="fa fa-star text-warning m-1"></i>
-                  <span>(number of using)</span>
-                  <p>price</p><span>discount</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="carousel-cell ">
-            <div class="card card-border-none ">
-              <img class="card-img-top img-fluid" src="../../assets/3.jpg" />
-              <div class="card-body">
-                <h3 class="card-title"> Web Development Bootcap 2021</h3>
-                <div class="card-text">
-                  <p> name of auther</p>
-                  <span class="text-warning mr-3"> 4.5</span>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning m-1"></i>
-                  <span>(number of using)</span>
-                  <p>price</p><span>discount</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-cell ">
-            <div class="card card-border-none ">
-              <img class="card-img-top img-fluid" src="../../assets/5.jpg" />
-              <div class="card-body">
-                <h3 class="card-title"> Web Development Bootcap 2021</h3>
-                <div class="card-text">
-                  <p> name of auther</p>
-                  <span class="text-warning mr-3"> 4.5</span>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning m-1"></i>
-                  <span>(number of using)</span>
-                  <p>price</p><span>discount</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-cell ">
-            <div class="card card-border-none ">
-              <img class="card-img-top img-fluid" src="../../assets/3.jpg" />
-              <div class="card-body">
-                <h3 class="card-title"> Web Development Bootcap 2021</h3>
-                <div class="card-text">
-                  <p> name of auther</p>
-                  <span class="text-warning mr-3"> 4.5</span>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning m-1"></i>
-                  <span>(number of using)</span>
-                  <p>price</p><span>discount</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-cell ">
-            <div class="card card-border-none ">
-              <img class="card-img-top img-fluid" src="../../assets/4.jpg" />
-              <div class="card-body">
-                <h3 class="card-title"> Web Development Bootcap 2021</h3>
-                <div class="card-text">
-                  <p> name of auther</p>
-                  <span class="text-warning mr-3"> 4.5</span>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning m-1"></i>
-                  <span>(number of using)</span>
-                  <p>price</p><span>discount</span>
+                  <span>{{items.paymentMethod}}</span>
+                  <p>{{items.levels}}</p>
                 </div>
               </div>
             </div>
           </div>
         </carousel>
-
       </div>
 
       <!-- content1 -->
@@ -172,10 +87,10 @@
 <!--End Web Develpment-->
 
   <!--Start Python-->
-  <mat-tab label="Python">
+  <!-- <mat-tab label="Python"> -->
     <!-- Content 1 -->
 
-    <div class=" offset-md-1 border col-md-11">
+    <!-- <div class=" offset-md-1 border col-md-11">
 
       <div class="row m-2">
         <div class="col ">
@@ -296,18 +211,18 @@
         </div>
       </carousel>
 
-    </div>
+    </div> -->
 
     <!-- content1 -->
-  </mat-tab>
+  <!-- </mat-tab> -->
 <!--End Python-->
 
 
  <!--Start Excel-->
- <mat-tab label="Excel">
+ <!-- <mat-tab label="Excel"> -->
   <!-- Content 1 -->
 
-  <div class=" offset-md-1 border col-md-11">
+  <!-- <div class=" offset-md-1 border col-md-11">
 
     <div class="row m-2">
       <div class="col ">
@@ -428,10 +343,10 @@
       </div>
     </carousel>
 
-  </div>
+  </div> -->
 
   <!-- content1 -->
-</mat-tab>
+<!-- </mat-tab> -->
 <!--End Excel-->
 
 
@@ -567,16 +482,16 @@
     </h1>
 
 
-    <div class=" parent">
-      <div class="header">
+    <div class=" parent" *ngFor="let item of categ"  >
+      <div class="header" >
         <img alt="design" src="https://s.udemycdn.com/home/top-categories/lohp-category-design.jpg" />
       </div>
       <div class="footer">
-        <h3>Design</h3>
+        <h3>{{item.categoryName}}</h3>
       </div>
     </div>
 
-    <div class=" parent">
+    <!-- <div class=" parent">
       <div class="header">
         <img alt="music" src="https://s.udemycdn.com/home/top-categories/lohp-category-development.jpg" />
       </div>
@@ -637,7 +552,7 @@
       <div class="footer">
         <h3>Music</h3>
       </div>
-    </div>
+    </div> -->
 
   </div>
   <!--End Of Top Categories-->

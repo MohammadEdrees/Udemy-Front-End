@@ -21,7 +21,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
 import { FilterByInsPipe } from './navigation-bar/filter-by-ins.pipe';
-import { FilterByCrsPipe } from './navigation-bar/filter-by-crs.pipe'
+import { FilterByCrsPipe } from './navigation-bar/filter-by-crs.pipe';
+import { DescriptionVideoComponent } from './description-video/description-video.component'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FilterByCrsPipe } from './navigation-bar/filter-by-crs.pipe'
     FooterComponent,
     CategoryComponent,
     FilterByInsPipe,
-    FilterByCrsPipe
+    FilterByCrsPipe,
+    DescriptionVideoComponent
    
   ],
   imports: [

@@ -9,12 +9,16 @@ import {DescriptionVideoComponent} from './description-video/description-video.c
 
 const routes: Routes = [
   {component:RegistrationStudentComponent,path:'studentreg'},
-  {component:HomePageComponent,path:'home' } ,
+  // {component:TopCategoriesComponent,path:'home/topcateg'},
+  {component:HomePageComponent,path:'home'}
+  ,
   {component:LoginPageComponent,path:'login' } ,
+
   {component:RegistrationInstructorComponent,path:'instreg' } ,
   {component:CategoryComponent,path:'category'},
   {component:DescriptionVideoComponent,path:"DescriptionVideo"},
   {path:"",redirectTo:"home",pathMatch:"full"}
+
 
 
 ];

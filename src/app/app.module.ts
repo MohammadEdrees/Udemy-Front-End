@@ -11,14 +11,14 @@ import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
 import {ScrollingModule} from '@angular/cdk/scrolling';
-import { CategoryComponent } from './category/category.component'; 
+import { CategoryComponent } from './category/category.component';
 import {MatTabsModule} from '@angular/material/tabs';
  import {MatCardModule} from '@angular/material/card';
  import {IvyCarouselModule} from 'angular-responsive-carousel';
  import { CarouselModule } from 'ngx-owl-carousel-o';
+ //import {TranslateHttpLoader} from'@ngx-translate/http-loader';
 
-
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
 import { FilterByInsPipe } from './navigation-bar/filter-by-ins.pipe';
 import { FilterByCrsPipe } from './navigation-bar/filter-by-crs.pipe';
@@ -35,7 +35,7 @@ import { DescriptionVideoComponent } from './description-video/description-video
     FilterByInsPipe,
     FilterByCrsPipe,
     DescriptionVideoComponent
-   
+
   ],
   imports: [
     BrowserModule,
@@ -51,9 +51,20 @@ import { DescriptionVideoComponent } from './description-video/description-video
     CarouselModule,
      MatCardModule,
     IvyCarouselModule,
-   
+    // TranslateModule.forRoot({
+    //   defaultLanguage:'en',
+    //   loader:{
+    //     provide:TranslateLoader,
+    //     useFactory:createTranslateLoader,
+    //     deps:[HttpClient]
+    //   }
+    // })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function createTranslateLoader(http:HttpClient){
+//return new TranslateHttpLoader(http,'./assets/i18n/','.json')
+}

@@ -1,9 +1,13 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit,ChangeDetectionStrategy,ViewEncapsulation} from '@angular/core';
+
 import { HomeService } from '../services/home.service';
 import{Course} from '../models/Course';
 import{Topic} from '../models/Topic';
 import {Category} from '../models/categery';
 import { ActivatedRoute } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-home-page',
@@ -35,6 +39,7 @@ this.activeRout.params.subscribe(
 }
 
   ngOnInit(): void {
+
 
 
 
@@ -79,6 +84,10 @@ this.activeRout.params.subscribe(
         console.log("error Topic"+ err);
       }
     )
+
+
+
+
 
   }
 

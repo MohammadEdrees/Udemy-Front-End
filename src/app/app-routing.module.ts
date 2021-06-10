@@ -5,13 +5,19 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { RegistrationInstructorComponent } from './registration-instructor/registration-instructor.component';
 import {RegistrationStudentComponent} from './registration-student/registration-student.component' 
 import {CategoryComponent}from './category/category.component'
+import { TopCategoriesComponent } from './top-categories/top-categories.component';
 const routes: Routes = [
   {component:RegistrationStudentComponent,path:'studentreg'},
-  {component:HomePageComponent,path:'home' } ,
+  {component:TopCategoriesComponent,path:'home/topcateg'},
+  {component:HomePageComponent,path:'home'}
+  ,
   {component:LoginPageComponent,path:'login' } ,
+
   {component:RegistrationInstructorComponent,path:'instreg' } ,
-  {component:CategoryComponent,path:'category'},
+ 
+  
   {path:"",redirectTo:"home",pathMatch:"full"}
+
 
 
 ];

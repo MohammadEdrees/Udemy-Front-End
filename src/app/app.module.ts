@@ -18,11 +18,15 @@ import {MatTabsModule} from '@angular/material/tabs';
  import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
-import { HttpClientModule } from '@angular/common/http';
-import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FilterByInsPipe } from './navigation-bar/filter-by-ins.pipe';
 import { FilterByCrsPipe } from './navigation-bar/filter-by-crs.pipe'
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
+
+import { TopCategoriesComponent } from './top-categories/top-categories.component';
+import { EditInstrucrorComponent } from './edit-instrucror/edit-instrucror.component';
+
 
 @NgModule({
   declarations: [
@@ -32,8 +36,10 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     PasswordStrengthBarComponent,
     FooterComponent,
     CategoryComponent,
+    TopCategoriesComponent,
     FilterByInsPipe,
-    FilterByCrsPipe
+    FilterByCrsPipe,
+    EditInstrucrorComponent
    
   ],
   imports: [
@@ -57,3 +63,4 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

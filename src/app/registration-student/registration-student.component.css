@@ -1,34 +1,49 @@
-#submitBtn {
-    width: 100%
-  }
+/* #submitBtn {
+  width: 100%
+}
 
-  .icon {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
+.icon {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
-  .i {
-    font-size: 15 px;
-    color: lightgrey;
-    padding: 8px;
-    margin-right: 3px;
-  }
+.i {
+  font-size: 15 px;
+  color: lightgrey;
+  padding: 8px;
+  margin-right: 3px;
+}
 
-  .lock {
-    padding: 10px;
-  }
+.lock {
+  padding: 10px;
+} */
 
-  .eye {
-    color: darkslategrey;
-    font-size: 20px;
-    padding-top: 20px;
-    border-radius: 3px;
-  }
-  #container{
-    margin-top: 100px;
-  }
 
-  input{
-    caret-color: lightcoral;
 
-  }
+#container{
+  margin: auto;
+  margin-top: 100px;
+}
+
+
+.col {
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+.error{
+color: #DC3545;
+font-size: 12px;
+margin-top: 5px;
+}
+
+.CustomBorder{
+  border: 1px solid gray;
+}
+
+.OnErrorBorder{
+    border:1px solid #DC3545;
+}
+
+

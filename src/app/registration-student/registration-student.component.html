@@ -1,102 +1,141 @@
-<div id="container">
+<div id="container" class="col-sm-10 col-md-7 col-lg-6 col-xl-4">
 
-  <div class=" col-12  mt-5">
+  <div >
 
-
-
-    <div class=" p-1 col-10 col-sm-8 col-md-6 col-lg-4  mt-1 p-1  ">
+    <div>
       <div class=" p-3 mb-3    border border-top-0 border-right-0 border-left-0  ">
         <b>Sign Up and Start Learning!</b>
       </div>
+      <div class="card-body">
+        <div *ngIf="errorMessage" class="alert alert-warning">{{errorMessage}}</div>
+        <form [formGroup]="registerForm" (ngSubmit)="submit()">
 
-      <div class=' d-flex justify-content-center  p-3'>
-        <form>
-          <div class="form-group ">
+            <!------- Full Name ------->
+        <div class="mb-3">
+          <!-- <label for="exampleInputName1" class="form-label">Full Name</label> -->
 
-            <!-- Full Name  -->
-
-            <div class="input-group mb-2   ">
-              <div class="input-group-prepend text-center">
-                <div class="input-group-text bg-white p-2 border border-right-0  text-center ">
-                  <!-- <label class="fa fa-user  i "></label> -->
-               <fa-icon [icon]="faUser" ></fa-icon>
-
-                </div>
-              </div>
-              <input type="text" class="form-control border border-left-0 p-1  " id="nameId" placeholder="Full Name">
+          <div class="input-group CustomBorder rounded d-flex p-2 align-items-center"
+            [ngClass]="{'OnErrorBorder': submitted && f.fname.errors }">
+            <div class="input-group-prepend">
+              <fa-icon [icon]="faUser" class="fa-sm fa-fw text-muted"></fa-icon>
             </div>
-
-            <!-- Email -->
-
-            <div class="input-group mb-2  ">
-              <div class="input-group-prepend text-center">
-                <div class="input-group-text bg-white p-2 border border-right-0 text-center">
-                  <!-- <label class="fa fa-envelope    i"></label> -->
-               <fa-icon [icon]="faEnvelope" ></fa-icon>
-
-                </div>
-              </div>
-              <input type="text" class="form-control border border-left-0 p-3  " id="mailId" placeholder="Email">
-            </div>
-
-            <!-- password -->
-
-            <div class="input-group mb-2   ">
-              <div class="input-group-prepend text-center">
-                <div class="input-group-text bg-white p-2 border border-right-0 text-center">
-                  <!-- <label class="fa fa-lock    i lock"></label> -->
-               <fa-icon [icon]="faLock" ></fa-icon>
-
-                </div>
-              </div>
-              <input type="password" class="form-control border border-left-0 border-right-0 p-3 " id="passId"
-                placeholder="Password">
-              
-              <span toggle="#password-field"
-              class="fa fa-eye field-icon toggle-password  i eye border border-left-0" >
-              <!-- <fa-icon [icon]="faEye" ></fa-icon> -->
+            <input type="name" class="form-control border-0" placeholder="First Name" formControlName="fname"
+              id="exampleInputName1" [ngClass]="{ 'is-invalid': submitted && f.fname.errors }">
 
 
-            </span>
-            </div>
-
-            <!-- checkbox -->
-
-            <div class="custom-control custom-checkbox  text-wrap">
-              <input id="chekboxId" type="checkbox" class="custom-control-input" />
-              <label for="chekboxId" class="custom-control-label text-wrap">
-                Yes! I want to get the most out of Udemy by receiving emails with exclusive deals, personal
-                recommendations and learning tips!
-              </label>
-
-            </div>
 
           </div>
-
-          <!-- Submit -->
-
-          <div class="container p-1">
-            <Button id="submitBtn" type="submit" class=" form-control btn-danger p3">
-              <b>Sign Up</b>
-            </Button>
+          <!------- Full Name validation------->
+          <div *ngIf="submitted && f.fname.errors" class="error">
+            <div *ngIf="f.fname.errors.required">
+              fullName is required
+            </div>
+            <div *ngIf="f.fname.errors.minlength">
+              Name must be at least 5 characters
+            </div>
+            <div *ngIf="f.fname.errors.maxlength">
+              Name must be max 25 characters
+            </div>
+            <div *ngIf="f.fname.errors.pattern">
+              contain only characters
+            </div>
           </div>
+        </div>
 
 
-        </form>
-      </div>
-      <div class=" p-3 mb-1   border border-top-0 border-right-0 border-left-0 text-wrap  " style="font-size: 10px;">
-        <label> By signing up you agree to our<a href="#">Terms of use</a>and<a href="#">Privacy
-            policy</a>
-        </label>
-      </div>
 
-      <div class=" p-3 mb-3  border border-0 ">
-        <label>Already have account ?<b><a href="#">Log In</a></b></label>
-      </div>
+
+        <!------- Email ------->
+        <div class="mb-3">
+          <div class="input-group CustomBorder rounded d-flex p-2 align-items-center"
+            [ngClass]="{'OnErrorBorder': submitted && f.mail.errors }">
+            <div class="input-group-prepend">
+              <fa-icon [icon]="faEnvelope" class="fa-sm fa-fw text-muted"></fa-icon>
+            </div>
+            <input type="email" class="form-control border-0" placeholder="Email" id="exampleInputEmail1"
+              formControlName="mail" [ngClass]="{ 'is-invalid': submitted && f.mail.errors }">
+
+
+          </div>
+          <!------- Email validation------->
+          <div *ngIf="submitted && f.mail.errors" class="error">
+            <div *ngIf="f.mail.errors.required">Email is required</div>
+            <div *ngIf="f.mail.errors.pattern">
+              invalid email address must be in form xxx@xxxx.com &lower
+              charcters
+            </div>
+          </div>
+        </div>
+
+
+            <!------- password ------->
+        <div class="mb-3">
+          <!-- <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" [ngClass]="{
+            'is-invalid': submitted && f.password.errors
+          }"> -->
+          <div class="input-group CustomBorder rounded d-flex p-2 align-items-center"
+            [ngClass]="{'OnErrorBorder': submitted && f.password.errors }">
+            <div class="input-group-prepend">
+              <fa-icon [icon]="faLock" class="fa-sm fa-fw text-muted"></fa-icon>
+            </div>
+            <input [type]="hide ? 'password' : 'text'" class="form-control border-0" placeholder="Password"
+              id="exampleInputPassword1" formControlName="password" [ngClass]="{
+              'is-invalid': submitted && f.password.errors }">
+             
+            <div *ngIf="f.password.value" class="input-group-append" (click)="hide = !hide">
+              <fa-icon [icon]="hide ? faEyeSlash : faEye" class="fa-sm fa-fw text-muted"></fa-icon>
+            </div>
+          </div>
+          
+         <!------- Password validation------->
+         <div *ngIf="submitted && f.password.errors" class="error">
+          <div *ngIf="f.password.errors.required">
+            password is required
+          </div>
+          <div *ngIf="f.password.errors.minlength">
+            invalid password min 8 characters
+          </div>
+          <div *ngIf="f.password.errors.maxlength">
+            invalid password max. 20 characters
+         </div>
+          <div *ngIf="f.password.errors.pattern">
+            invalid password must contain special Charchters as
+            Geeks@portal20
+          </div>
+        </div>
+          <app-password-strength-bar [passwordToCheck]="f.password.value"></app-password-strength-bar>
+         
+        </div>
+
+
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">I want to get the most out of my experience, by receiving
+            emails with insider tips, motivation, special updates and promotions reserved for instructors.</label>
+        </div>
+
+
+        <button id="register" type="submit" class="btn btn-danger col-sm-12">Sign up</button>
+        <div  class=" p-3 mb-1   border border-top-0 border-right-0 border-left-0 text-wrap  " style="font-size: 10px;">
+          <label> By signing up you agree to our<a href="#">Terms of use</a>and<a href="#">Privacy
+              policy</a>
+          </label>
+        </div>
+  
+      </form>
+    </div>
+
+    <div class="card-footer text-muted text-center">
+      Already have an account? <a href="#">Log In</a>
+    </div>
+  </div>
+</div>
+     
     </div>
 
 
-  </div>
+  
   <div>
 
 
@@ -104,12 +143,12 @@
 
 
 
-</div>
-<div class=" p-3 mb-1   border  border-right-0 border-left-0 text-wrap  ">
+
+<!-- <div class=" p-3 mb-1   border  border-right-0 border-left-0 text-wrap  ">
   <p class="text-wrap  p-2">
     <label style="font-weight: bold; font-size: 24px;">
       Top companies choose<a href="#" style="font-weight: bold;">Udemy for Business</a>to build in-demand career
-      skills.
+      skills. -->
       <!-- <label class=" fa fa-github-alt fa-3x text-muted  icon"></label> -->
 
       <!-- <fa-icon [icon]="faLyft" ></fa-icon>
@@ -119,13 +158,13 @@
 
 
 
-      <label class=" fa fa-stack-overflow fa-3x text-muted  icon"></label>
+      <!-- <label class=" fa fa-stack-overflow fa-3x text-muted  icon"></label>
       <label class=" fa fa-trello fa-3x text-muted icon"></label>
       <label class=" fa fa-linux fa-3x text-muted icon"></label>
-      <label class=" fa fa-linkedin fa-3x text-muted icon"></label>
+      <label class=" fa fa-linkedin fa-3x text-muted icon"></label> -->
       <!-- <label class=" fa fa-lyft "></label> -->
 
-    </label>
+    <!-- </label>
 
   </p>
-</div>
+</div> -->

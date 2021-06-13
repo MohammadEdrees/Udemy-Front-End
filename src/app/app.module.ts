@@ -11,7 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
 import {ScrollingModule} from '@angular/cdk/scrolling';
-import { CategoryComponent } from './category/category.component'; 
+import { CategoryComponent } from './category/category.component';
 import {MatTabsModule} from '@angular/material/tabs';
  import {MatCardModule} from '@angular/material/card';
  import {IvyCarouselModule} from 'angular-responsive-carousel';
@@ -27,7 +27,11 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { TopCategoriesComponent } from './top-categories/top-categories.component';
 import { EditInstrucrorComponent } from './edit-instrucror/edit-instrucror.component';
 
-
+import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
+import { DescriptionVideoComponent } from './description-video/description-video.component'
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {PopoverModule} from "ngx-smart-popover";
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,10 +41,11 @@ import { EditInstrucrorComponent } from './edit-instrucror/edit-instrucror.compo
     FooterComponent,
     CategoryComponent,
     TopCategoriesComponent,
+    EditInstrucrorComponent,
     FilterByInsPipe,
     FilterByCrsPipe,
-    EditInstrucrorComponent
-   
+    DescriptionVideoComponent
+
   ],
   imports: [
     BrowserModule,
@@ -56,7 +61,10 @@ import { EditInstrucrorComponent } from './edit-instrucror/edit-instrucror.compo
     CarouselModule,
     MatCardModule,
     IvyCarouselModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatToolbarModule,
+    MatIconModule ,
+    PopoverModule
    
   ],
   providers: [],

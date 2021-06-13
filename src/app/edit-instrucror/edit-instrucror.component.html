@@ -1,1 +1,198 @@
-<p>edit-instrucror works!</p>
+<div class="navbar ">
+    <ul>
+        <li><a href="">
+                <div class="rounded-circle d-flex mb-0">
+
+                    <i class="fa fa-bell-o  fa-lg text-secondary " [popover]="myPopover1" [popoverOnHover]="true"
+                        [popoverCloseOnMouseOutside]="true" popoverPlacement="left"></i>
+                </div>
+            </a></li>
+
+        <li><a href="">
+                <div class="rounded-circle d-flex justify-content-center bg-secondary" style="width: 60px; height: 60px"
+                    [popover]="myPopover" [popoverOnHover]="true" [popoverCloseOnMouseOutside]="true">
+                    <span class="h5 p-3 text-white">{{
+                        genarteChar(myname)
+                        }}</span>
+                </div>
+            </a>
+        </li>
+
+
+    </ul>
+
+</div>
+
+
+
+<popover-content #myPopover popoverPlacement="bottom right" [closeOnClickOutside]="true" [closeOnMouseOutside]="true">
+    <div style=" width: 15rem; ">
+
+        <div class="row">
+            <div class="col "> <a href="">
+                    <div class="rounded-circle d-flex justify-content-center  bg-secondary "
+                        style="width: 60px; height: 60px">
+                        <span class="h5 p-3 text-white">{{
+                            genarteChar(myname)
+                            }}</span>
+                    </div>
+                </a></div>
+            <div class="col text-left mr-3 ">
+                <p>Sara Galal</p>
+                <p class="text-muted">saragalal@gmail.com</p>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-borderless" style="width: 18rem; text-align: left;">
+                <tr>
+                    <td> My notifications</td>
+                </tr>
+                <tr>
+                    <td>Public Profile</td>
+                </tr>
+                <tr>
+                    <td> Account</td>
+                </tr>
+                <tr>
+                    <td>Payout settings</td>
+                </tr>
+                <tr>
+                    <td> Logout</td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="card-footer text-left">
+            <h3>Udemy For Business</h3>
+            <p>Bring learning to your company</p>
+        </div>
+    </div>
+</popover-content>
+
+<popover-content #myPopover1 [closeOnClickOutside]="true" [closeOnMouseOutside]="true">
+    <div style=" width: 10rem; margin-top:5px;">
+        <div class="row">
+            <p class="h6">Notifications<i class="fa fa-gear text-secondary ml-5"></i></p>
+        </div>
+        <hr style="height: 0.2px;">
+        <div class="row text-center">
+            <p class="text-muted">No Notifications</p>
+        </div>
+    </div>
+</popover-content>
+
+<div class="container">
+    <p class="h2">Profile & settings</p>
+    <mat-tab-group mat-align-tabs="start" color="accent">
+        <mat-tab label="Udemy Profile">
+            <div class="mt-5">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group  col-md-6">
+                            <label for="fname">Frist Name</label>
+                            <input type="text" class="  form-control inputWidth" id="fname" placeholder="Frist Name">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="site">Website</label>
+                            <input type="text" class="form-control inputWidth" id="site" placeholder="Website">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="lname">Last Name</label>
+                            <input type="text" class="form-control inputWidth" id="lname" placeholder="Last Name">
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label for="inlineFormInputGroup">Twitter</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">http://www.twitter.com/</div>
+                                </div>
+                                <input type="text" class="form-control inputWidth" id="Twitter" placeholder="Username">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label for="Headline">Headline</label>
+                            <div class="input-group mb-2">
+
+                                <input type="text" class="form-control inputWidth" id="Headline"
+                                    placeholder="'Engineer at Udemy' or 'Architect'">
+                                <div class="input-group-append ">
+                                    <div class="input-group-text ">60</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="inlineFormInputGroup">Facebook</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">http://www.facebook.com/</div>
+                                </div>
+                                <input type="text" class="form-control inputWidth" id="Facebook" placeholder="Username">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6 ">
+                            <label for="Biography">Biography</label>
+                            <input type="email" class="form-control " id="Biography">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="LinkedIn">LinkedIn</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">http://www.linkedin.com/</div>
+                                </div>
+                                <input type="text" class="form-control inputWidth" id="LinkedIn"
+                                    placeholder="Resourse ID">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6 ">
+                            <label for="Biography">Biography</label>
+                            <input type="email" class="form-control " id="Biography">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="Youtube">Youtube</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">http://www.youtube.com/</div>
+                                </div>
+                                <input type="text" class="form-control inputWidth" id="Youtube" placeholder="Username">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6 ">
+
+                            <label for="Language">Language</label>
+                            <select class="custom-select inputWidth" id="Language">
+                                <option value="1">Arabic</option>
+                                <option value="2">Bengali</option>
+                                <option value="2">Chinese</option>
+                                <option value="3" selected>English</option>
+                                <option value="4">German</option>
+                                <option value="5">Hindi</option>
+                                <option value="6">Japanese</option>
+                                <option value="7">Portuguese</option>
+                                <option value="8">Russian</option>
+                                <option value="9">Spanish</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    <button type="submit" class="btn right-align"
+                        style="float: right; background-color: #EC5252; color: white;">Sign in</button>
+                </form>
+            </div>
+        </mat-tab>
+        <mat-tab label="Profile Picture">Content 2</mat-tab>
+        <mat-tab label="Privacy settings">Privacy settings</mat-tab>
+    </mat-tab-group>
+</div>

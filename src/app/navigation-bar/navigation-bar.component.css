@@ -16,12 +16,12 @@ nav{
   position: initial;
 }
 #search{
-    width: 5rem;
+    width: 28rem;
     margin: .5rem;
     border-radius: 2rem;
     height: 2rem;
     padding: 1.3rem;
-    border: 2px solid gray;
+    border: 2px solid rgba(231, 229, 229, 0.904);
     /* box-shadow: 5px 5px 5px rgba(78, 78, 78, 0.5); */
 
 }

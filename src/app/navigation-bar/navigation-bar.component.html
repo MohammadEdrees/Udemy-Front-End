@@ -16,20 +16,41 @@
         class="btn btn-outline-default border-0 text-secondary  ">Categories</button>
     </div>
     <mat-menu #Categories="matMenu" class="Categories">
-      <a mat-menu-item  [matMenuTriggerFor]="reptiles" routerLink="category" *ngFor="let item of categories" (mouseenter)="AddId(item.categoryId)" >{{item.categoryName}}</a>
-   </mat-menu>
-      <mat-menu  #reptiles="matMenu" class="dropdown-submenu">
-      <button mat-menu-item [matMenuTriggerFor]="repo" *ngFor="let item of subcateg " (mouseenter)="AddTopic(item.supCatId )"  >{{item.supCatTitle}}</button>
-    
-    </mat-menu> 
-    <mat-menu  #repo="matMenu">
-      <button mat-menu-item  *ngFor="let item of topics " >{{item.topName}}</button>
-      </mat-menu>
-    <form class="form-inline my-2 my-lg-0 ">
-      <input class="form-control mr-sm-2 " type="text" placeholder="Search for anything" id="search">
 
+
+      <a mat-menu-item [matMenuTriggerFor]="reptiles" routerLink="category" *ngFor="let item of categories"
+        (mouseenter)="AddId(item.categoryId)">{{item.categoryName}}</a>
+    </mat-menu>
+    <mat-menu #reptiles="matMenu" class="dropdown-submenu">
+      <button mat-menu-item [matMenuTriggerFor]="repo" *ngFor="let item of subcateg "
+        (mouseenter)="AddTopic(item.supCatId )">{{item.supCatTitle}}</button>
+
+    </mat-menu>
+    <mat-menu #repo="matMenu">
+      <button mat-menu-item *ngFor="let item of topics ">{{item.topName}}</button>
+    </mat-menu>
+
+
+
+    <!------ Start Search ------>
+    <form class="form-inline my-2 my-lg-0      ">
+      <input class="form-control mr-sm-2  " type="text" placeholder="Search for anything" id="search"
+        [matAutocomplete]="auto" [(ngModel)]="searchText" [ngModelOptions]="{ standalone: true }">
+      <mat-autocomplete #auto="matAutocomplete" class="mt-4">
+
+        <mat-option *ngFor="let option of Instructors | filterByIns:searchText;" [value]="option">
+          <fa-icon [icon]="faUser" class="fa-sm fa-fw text-info"></fa-icon> {{option.fname}}
+        </mat-option>
+        <mat-option *ngFor="let option of Courses | filterByCrs:searchText;" [value]="option">
+          <fa-icon [icon]="faFile" class="fa-sm fa-fw text-info"></fa-icon> {{option.title}}
+        </mat-option>
+      </mat-autocomplete>
     </form>
 
+
+
+
+    <!------ End Search ------>
     <li class="nav-link myDIV  "> <a> Udemy for Bussines</a></li>
 
     <div class="card hide" style="width: 18rem;">
@@ -40,7 +61,7 @@
       </div>
     </div>
 
-    <li class="nav-link myDIV1 "> <a routerLink="instreg"> Teach On udemy</a></li>
+    <li class="nav-link myDIV1 "><a routerLink="instreg"> Teach On udemy</a></li>
 
     <div class="card hide1" style="width: 18rem;">
       <div class="card-body">
@@ -64,16 +85,17 @@
 
     <button class="btn btn-outline-info d-lg-inline   border navBtnz mr-3" routerLink="login">Log in </button>
     <button class="btn btn-info border navBtnz mr-3 " routerLink="studentreg">Sign Up</button>
-    
-    <select class="form-input btn btn-outline-default  d-lg-inline slang"  aria-label="Default select example"  >
-      <option selected>Lang</option>
-      <option  value="en" >English</option>
-      <option value="ar" >Arabic</option>
-  </select>
+   <button class="btn btn-outline-secondary border " routerLink="studentreg"><i
+        class="fa fa-globe text-secondary" aria-hidden="true"></i></button>
 
-  
+
+    <!-- <select class="form-input btn btn-outline-default  d-lg-inline slang" aria-label="Default select example">
+        <option selected>Lang</option>
+        <option value="en">English</option>
+        <option value="ar">Arabic</option>
+      </select> -->
+
   </div>
 
 
 </nav>
-end navbar

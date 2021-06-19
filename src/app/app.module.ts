@@ -11,15 +11,17 @@ import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
 import {ScrollingModule} from '@angular/cdk/scrolling';
-import { CategoryComponent } from './category/category.component'; 
+import { CategoryComponent } from './category/category.component';
 import {MatTabsModule} from '@angular/material/tabs';
  import {MatCardModule} from '@angular/material/card';
  import {IvyCarouselModule} from 'angular-responsive-carousel';
  import { CarouselModule } from 'ngx-owl-carousel-o';
- import {TranslateHttpLoader} from'@ngx-translate/http-loader';
+
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
+import { FilterByInsPipe } from './navigation-bar/filter-by-ins.pipe';
+import { FilterByCrsPipe } from './navigation-bar/filter-by-crs.pipe'
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TopCategoriesComponent } from './top-categories/top-categories.component';
@@ -33,6 +35,14 @@ import { PerformanceComponent } from './performance/performance.component';
 import { ToolsComponent } from './tools/tools.component';
 import { ResourseComponent } from './resourse/resourse.component';
 
+
+import { EditInstrucrorComponent } from './edit-instrucror/edit-instrucror.component';
+
+import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
+import { DescriptionVideoComponent } from './description-video/description-video.component'
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {PopoverModule} from "ngx-smart-popover";
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,8 +59,13 @@ import { ResourseComponent } from './resourse/resourse.component';
     UdemyProfileComponent,
     PerformanceComponent,
     ToolsComponent,
-    ResourseComponent
+    ResourseComponent,
    
+    EditInstrucrorComponent,
+    FilterByInsPipe,
+    FilterByCrsPipe,
+    DescriptionVideoComponent
+
   ],
   imports: [
     BrowserModule,
@@ -68,16 +83,13 @@ import { ResourseComponent } from './resourse/resourse.component';
 
     ScrollingModule,
     CarouselModule,
-     MatCardModule,
+    MatCardModule,
     IvyCarouselModule,
-    TranslateModule.forRoot({
-      defaultLanguage:'en',
-      loader:{
-        provide:TranslateLoader,
-        useFactory:createTranslateLoader,
-        deps:[HttpClient]
-      }
-    })
+    MatAutocompleteModule,
+    MatToolbarModule,
+    MatIconModule ,
+    PopoverModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent],
@@ -88,6 +100,3 @@ import { ResourseComponent } from './resourse/resourse.component';
 })
 export class AppModule { }
 
-export function createTranslateLoader(http:HttpClient){
-return new TranslateHttpLoader(http,'./assets/i18n/','.json')
-}

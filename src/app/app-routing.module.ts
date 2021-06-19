@@ -15,9 +15,11 @@ import { XyzComponent } from './xyz/xyz.component';
 import {PerformanceComponent} from './performance/performance.component';
 import { ToolsComponent } from './tools/tools.component';
 import { ResourseComponent } from './resourse/resourse.component';
+import {DescriptionVideoComponent} from './description-video/description-video.component';
+
 const routes: Routes = [
   {component:RegistrationStudentComponent,path:'studentreg'},
-  {component:TopCategoriesComponent,path:'home/topcateg'},
+  // {component:TopCategoriesComponent,path:'home/topcateg'},
   {component:HomePageComponent,path:'home'}
   ,
   {component:LoginPageComponent,path:'login' } ,
@@ -32,6 +34,8 @@ const routes: Routes = [
   {component:PerformanceComponent,path:'performance'},
   {component:ToolsComponent,path:'Tools'},
   {component:ResourseComponent,path:'resourse'},
+  {component:CategoryComponent,path:'category'},
+  {component:DescriptionVideoComponent,path:"DescriptionVideo"},
   {path:"",redirectTo:"home",pathMatch:"full"}
 
 

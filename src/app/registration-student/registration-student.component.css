@@ -1,4 +1,4 @@
-#submitBtn {
+/* #submitBtn {
   width: 100%
 }
 
@@ -16,13 +16,15 @@
 
 .lock {
   padding: 10px;
-}
+} */
 
 
 
 #container{
-  margin-top: 130px;
+  margin: auto;
+  margin-top: 100px;
 }
+
 
 .col {
   margin: 0 auto;

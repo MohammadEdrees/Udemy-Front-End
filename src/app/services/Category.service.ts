@@ -23,6 +23,9 @@ export class CategoryService {
         return this.http.get<SubCateg[]>("http://localhost:28037/api/SupCats/GetSupCategoryByCategoryId?id="+id)
     }
     constructor(private http:HttpClient) { }
+    // getSubSelect(id:number){
+    //   return this.http.get<SubCateg[]>("http://localhost:28037/api/SupCats/GetSupCategoryByCategoryId/"+id);
+    // }
 
     getTopicBySubId(id:number){
         return this.http.get<Topic[]>("http://localhost:28037/api/Topics/GetTopicsBySupCatId?supCatId="+id)

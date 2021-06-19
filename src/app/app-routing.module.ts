@@ -6,6 +6,8 @@ import { RegistrationInstructorComponent } from './registration-instructor/regis
 import {RegistrationStudentComponent} from './registration-student/registration-student.component'
 import {CategoryComponent}from './category/category.component';
 import {DescriptionVideoComponent} from './description-video/description-video.component';
+import { CreatVideoComponent } from './creat-video/creat-video.component';
+
 
 const routes: Routes = [
   {component:RegistrationStudentComponent,path:'studentreg'},
@@ -17,6 +19,7 @@ const routes: Routes = [
   {component:RegistrationInstructorComponent,path:'instreg' } ,
   {component:CategoryComponent,path:'category'},
   {component:DescriptionVideoComponent,path:"DescriptionVideo"},
+  {component:CreatVideoComponent,path:"CreatVideo"},
   {path:"",redirectTo:"home",pathMatch:"full"}
 
 

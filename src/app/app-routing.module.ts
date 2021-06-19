@@ -6,6 +6,9 @@ import { RegistrationInstructorComponent } from './registration-instructor/regis
 import {RegistrationStudentComponent} from './registration-student/registration-student.component'
 import {CategoryComponent}from './category/category.component';
 import {DescriptionVideoComponent} from './description-video/description-video.component';
+import { EditInstrucrorComponent } from './edit-instrucror/edit-instrucror.component';
+import { EditStudentComponent } from './edit-student/edit-student.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {component:RegistrationStudentComponent,path:'studentreg'},
@@ -13,6 +16,8 @@ const routes: Routes = [
   {component:HomePageComponent,path:'home'}
   ,
   {component:LoginPageComponent,path:'login' } ,
+  {component:EditInstrucrorComponent,path:'editIns' } ,
+  {component:EditStudentComponent,path:'editStd' } ,
 
   {component:RegistrationInstructorComponent,path:'instreg' } ,
   {component:CategoryComponent,path:'category'},

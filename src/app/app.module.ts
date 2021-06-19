@@ -32,6 +32,7 @@ import { DescriptionVideoComponent } from './description-video/description-video
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {PopoverModule} from "ngx-smart-popover";
+import { EditStudentComponent } from './edit-student/edit-student.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import {PopoverModule} from "ngx-smart-popover";
     EditInstrucrorComponent,
     FilterByInsPipe,
     FilterByCrsPipe,
-    DescriptionVideoComponent
+    DescriptionVideoComponent,
+    EditStudentComponent
 
   ],
   imports: [

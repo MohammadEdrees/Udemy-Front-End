@@ -1,6 +1,5 @@
 export class Instructor {
     constructor(
-    
       public address:string,
       public password:string,
       public imagPath:string,

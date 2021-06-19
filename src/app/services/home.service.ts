@@ -22,11 +22,13 @@ export class HomeService {
     return this.http.get<Topic[]>(this.api+"Topics/GetAllTopics");
   }
 
-  getTopicRelatCourse( id:number){
-   return this.http.get<Course[]>(this.api+"Courses​/GetTopCoursesbyStudents/"+id);
+  
+  getSortedCourseRelatToTopic( id:number){
+    return this.http.get<Course[]>(this.api+"Courses/GetSortedCoursesRelatedToTopic?id="+id);
+   }
 
-
-  }
-
+   getCourseRelatToTopic( id:number){
+    return this.http.get<Course[]>(this.api+"Courses/GetCoursesByTopicId?id="+id);
+   }
 
 }

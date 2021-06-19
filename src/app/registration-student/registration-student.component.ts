@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import { StudentService } from '../services/student.service';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { Student } from '../models/Student';
 
 @Component({
   selector: 'app-registration-student',
@@ -22,14 +23,22 @@ export class RegistrationStudentComponent implements OnInit {
   constructor(private student:StudentService,private router: Router) { }
 
   registerForm: FormGroup = new FormGroup({
-    FullName: new FormControl('', [Validators.required, Validators.minLength(5),Validators.maxLength(25),Validators.pattern(this.namePattern)]),
-    email: new FormControl('', [Validators.required, Validators.email,Validators.pattern(this.emailPattern)]),
+    studentCourses:new FormControl(),
+    shoppingCard:new FormControl(),
+    fname: new FormControl('', [Validators.required, Validators.minLength(5),Validators.maxLength(25),Validators.pattern(this.namePattern)]),
+    lname:new FormControl(' '),
+    phone:new FormControl(),
+    imagePath:new FormControl(),
+    mail: new FormControl('', [Validators.required, Validators.email,Validators.pattern(this.emailPattern)]),
     password : new FormControl('', [Validators.required, Validators.minLength(8),Validators.maxLength(20)]),
-    
+    address:new FormControl(),
+   
   });
    submitted = false;
   hide = true;
+  errorMessage:string='';
 
+  //icons
   faUser=faUser;
   faEnvelope=faEnvelope;
   faLock=faLock;
@@ -39,29 +48,56 @@ export class RegistrationStudentComponent implements OnInit {
   faEvernote=faEvernote;
   faBootstrap=faBootstrap;
  faEyeSlash=faEyeSlash;
+
+ //new Object 
+ newStudent: Student =new Student ('','','','','','','','','');
+
   //Add user form actions
   get f() { return this.registerForm.controls; }
 
 
   submit() {
 
-   
+    this.submitted = true;
     // stop here if form is invalid
-    if (this.registerForm.valid) {
-      this.submitted = true;
-      console.log(this.registerForm.value);
-    this.student.PutStudent(this.registerForm.value)
-    .pipe(first())
-    .subscribe(
-      result => this.router.navigate(['login'])
-    )
+    if (this.registerForm.invalid) {
+
+      return;
     }
+
+
+    //True if all the fields are filled
+    if (this.submitted) {
+      this.newStudent = this.registerForm.value;
+      console.log(this.newStudent);
+      //call function on service
+      this.student.PutStudent(this.newStudent).subscribe(
+        data => {
+          console.log(data);
+          // this.router.navigate(['login'])
+        }, err => {
+          console.log(err);
+          this.errorMessage = err.error;
+        }
+      );
+    }
+
+    // stop here if form is invalid
+    // if (this.registerForm.valid) {
+    //   this.submitted = true;
+    //   console.log(this.registerForm.value);
+    // this.student.PutStudent(this.registerForm.value)
+    // .pipe(first())
+    // .subscribe(
+    //   result => this.router.navigate(['login'])
+    // )
+    // }
   
     //True if all the fields are filled
-    if(this.submitted)
-    {
-        console.log("registeration success");
-    }
+    // if(this.submitted)
+    // {
+    //     console.log("registeration success");
+    // }
 
   }
 

@@ -19,7 +19,7 @@ export class InstructorService {
 
   AddInstructor(ins:Instructor):Observable<any>{
 
-    return this.http.post<Instructor>(this.api +'Instructors',ins);
+    return this.http.post<Instructor>(this.api +'Instructors/InstructorRegistration',ins);
   }
 
 

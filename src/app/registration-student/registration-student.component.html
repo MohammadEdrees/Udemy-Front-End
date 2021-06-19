@@ -1,15 +1,13 @@
-<div id="container" class=' d-flex justify-content-center '>
+<div id="container" class="col-sm-10 col-md-7 col-lg-6 col-xl-4">
 
-  <div class=" col-12  mt-5  d-flex justify-content-center   ">
+  <div >
 
-
-
-    <div class=" p-1 col-10 col-sm-8 col-md-6 col-lg-4  mt-1 p-1  ">
+    <div>
       <div class=" p-3 mb-3    border border-top-0 border-right-0 border-left-0  ">
         <b>Sign Up and Start Learning!</b>
       </div>
       <div class="card-body">
-     
+        <div *ngIf="errorMessage" class="alert alert-warning">{{errorMessage}}</div>
         <form [formGroup]="registerForm" (ngSubmit)="submit()">
 
             <!------- Full Name ------->
@@ -17,28 +15,28 @@
           <!-- <label for="exampleInputName1" class="form-label">Full Name</label> -->
 
           <div class="input-group CustomBorder rounded d-flex p-2 align-items-center"
-            [ngClass]="{'OnErrorBorder': submitted && f.FullName.errors }">
+            [ngClass]="{'OnErrorBorder': submitted && f.fname.errors }">
             <div class="input-group-prepend">
               <fa-icon [icon]="faUser" class="fa-sm fa-fw text-muted"></fa-icon>
             </div>
-            <input type="name" class="form-control border-0" placeholder="Full Name" formControlName="FullName"
-              id="exampleInputName1" [ngClass]="{ 'is-invalid': submitted && f.FullName.errors }">
+            <input type="name" class="form-control border-0" placeholder="First Name" formControlName="fname"
+              id="exampleInputName1" [ngClass]="{ 'is-invalid': submitted && f.fname.errors }">
 
 
 
           </div>
           <!------- Full Name validation------->
-          <div *ngIf="submitted && f.FullName.errors" class="error">
-            <div *ngIf="f.FullName.errors.required">
-              FullName is required
+          <div *ngIf="submitted && f.fname.errors" class="error">
+            <div *ngIf="f.fname.errors.required">
+              fullName is required
             </div>
-            <div *ngIf="f.FullName.errors.minlength">
-              FullName must be at least 5 characters
+            <div *ngIf="f.fname.errors.minlength">
+              Name must be at least 5 characters
             </div>
-            <div *ngIf="f.FullName.errors.maxlength">
-              FullName must be max 25 characters
+            <div *ngIf="f.fname.errors.maxlength">
+              Name must be max 25 characters
             </div>
-            <div *ngIf="f.FullName.errors.pattern">
+            <div *ngIf="f.fname.errors.pattern">
               contain only characters
             </div>
           </div>
@@ -50,19 +48,19 @@
         <!------- Email ------->
         <div class="mb-3">
           <div class="input-group CustomBorder rounded d-flex p-2 align-items-center"
-            [ngClass]="{'OnErrorBorder': submitted && f.email.errors }">
+            [ngClass]="{'OnErrorBorder': submitted && f.mail.errors }">
             <div class="input-group-prepend">
               <fa-icon [icon]="faEnvelope" class="fa-sm fa-fw text-muted"></fa-icon>
             </div>
             <input type="email" class="form-control border-0" placeholder="Email" id="exampleInputEmail1"
-              formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+              formControlName="mail" [ngClass]="{ 'is-invalid': submitted && f.mail.errors }">
 
 
           </div>
           <!------- Email validation------->
-          <div *ngIf="submitted && f.email.errors" class="error">
-            <div *ngIf="f.email.errors.required">Email is required</div>
-            <div *ngIf="f.email.errors.pattern">
+          <div *ngIf="submitted && f.mail.errors" class="error">
+            <div *ngIf="f.mail.errors.required">Email is required</div>
+            <div *ngIf="f.mail.errors.pattern">
               invalid email address must be in form xxx@xxxx.com &lower
               charcters
             </div>
@@ -146,11 +144,11 @@
 
 
 
-<div class=" p-3 mb-1   border  border-right-0 border-left-0 text-wrap  ">
+<!-- <div class=" p-3 mb-1   border  border-right-0 border-left-0 text-wrap  ">
   <p class="text-wrap  p-2">
     <label style="font-weight: bold; font-size: 24px;">
       Top companies choose<a href="#" style="font-weight: bold;">Udemy for Business</a>to build in-demand career
-      skills.
+      skills. -->
       <!-- <label class=" fa fa-github-alt fa-3x text-muted  icon"></label> -->
 
       <!-- <fa-icon [icon]="faLyft" ></fa-icon>
@@ -160,13 +158,13 @@
 
 
 
-      <label class=" fa fa-stack-overflow fa-3x text-muted  icon"></label>
+      <!-- <label class=" fa fa-stack-overflow fa-3x text-muted  icon"></label>
       <label class=" fa fa-trello fa-3x text-muted icon"></label>
       <label class=" fa fa-linux fa-3x text-muted icon"></label>
-      <label class=" fa fa-linkedin fa-3x text-muted icon"></label>
+      <label class=" fa fa-linkedin fa-3x text-muted icon"></label> -->
       <!-- <label class=" fa fa-lyft "></label> -->
 
-    </label>
+    <!-- </label>
 
   </p>
-</div>
+</div> -->

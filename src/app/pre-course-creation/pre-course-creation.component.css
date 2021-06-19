@@ -1,0 +1,78 @@
+.h{
+    text-align: center;
+    margin: 0px auto;
+    display: block;
+}
+.hh{
+    text-align: center;
+    display: block;
+}
+.card-body{
+   
+    padding: 30px 15px;
+    display: inline;
+}
+.card{
+    padding: 20px 15px;
+    
+}
+.card-text2{
+    text-align: center;
+}
+
+.card-title{
+    text-align: center;
+}
+#button{
+    text-align:right;
+    height: 50px;
+    float:right;
+}
+.logo{
+    position: relative;
+    padding: 0.5rem 0.7rem;
+    z-index: 4;
+}
+.logo a.logo-mini{
+    opacity:1;
+    float:left;
+    width:34px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 12px;
+}
+.logo a.logo-normal{
+    display: block;
+    opacity: 1;
+     -webkit-transform :translate3d(0px,0,0);
+     -moz-transform: translate3d(0px,0,0);
+     -o-transform: translate3d(0px,0,0);
+     -ms-transform: translate3d(0px,0,0);
+     transform: translate3d(0px,0,0);
+}
+.logo:after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 15;
+    height: 1px;
+    width:calc(100%-30px);
+    background:rgba(255,255,255,0.5);
+}
+.logo .simple-text{
+    text-transform:inherit;
+    padding: 0.5rem 0;
+    display:block;
+    white-space: nowrap;
+    color:#ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 30px;
+    overflow: hidden; 
+}
+.logo-img img{
+    width:50px;
+}
+.logo-img2 img{
+    width:100px;
+}

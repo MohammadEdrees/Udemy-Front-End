@@ -27,12 +27,15 @@ export class HomePageComponent implements OnInit {
 GetTopRelateCourse(id:number){
 this.activeRout.params.subscribe(
   a=>{
-    this.homeServices.getTopicRelatCourse(id).subscribe(
+    this.homeServices.getCourseRelatToTopic(id).subscribe(
       b=>{
         console.log("Success RelateByCourse",b);
         this.courses=b;
       },
-      err=>{console.log("error of Relate Course",err)}
+      err=>{
+        this.courses=[];
+        console.log("error of Relate Course",err)
+      }
     )
   }
 )
@@ -65,7 +68,7 @@ this.activeRout.params.subscribe(
     // this.homeServices.getAllCourses().subscribe(
     //   a=>{
     //     console.log("success");
-    //     this.courses=a;
+    //     //this.courses=a;
     //     console.log(a);
     //   },
     //   err=>{

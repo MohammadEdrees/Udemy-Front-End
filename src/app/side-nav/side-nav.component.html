@@ -1,0 +1,40 @@
+
+<div style="width: 100%;">
+    <app-toolbar [inputSideNav]="sideNav"></app-toolbar>
+  <mat-sidenav-container  >
+           <mat-sidenav #sideNav mode="side"  >
+             <!--component sid-nav-->
+             <div class="sidenav" >
+                <div class="logo">
+                <a href="/"class="simple-text logo-mini">
+                <div class="logo-img">
+                <img src="../../assets/iconUdemy.ico">
+                </div>
+                </a>
+                <a href="/"class="simple-text logo-normal">
+               <h3> Udemy</h3>
+                </a>
+                </div>
+                <ul class="nav">
+                   <!-- <li  class="active"><a routerLink="/defaulr-route"><i class="fas fa-chart-line"></i>Dashboard</a></li>-->
+                    <li ><a routerLink="/preCourseCreation"><i class="fa fa-caret-square-o-right"></i>cources</a></li>
+                        <li ><a routerLink="/communication" ><i class="fa fa-commenting" ></i>Communication </a></li>
+                        <li ><a routerLink="/performance"><i class="fa fa-bar-chart"></i>Performance</a></li>
+                        <li ><a routerLink="/Tools"><i class="fa fa-pencil-square-o"></i>Tools</a></li>
+                        <li ><a routerLink="/resourse"><i class="fa fa-question-circle-o"></i>Resources</a></li>
+                </ul>
+                </div>
+            </mat-sidenav>
+            <mat-sidenav-content  >
+                   <!-- <router-outlet></router-outlet>-->
+                   
+                 
+                   <!-- <app-pre-course-creation></app-pre-course-creation> -->
+                   <!-- <app-xyz></app-xyz> -->
+               <app-performance></app-performance> 
+                  <!-- <app-tools></app-tools>  -->
+                  <!-- <app-resourse></app-resourse> -->
+            </mat-sidenav-content>
+            
+          </mat-sidenav-container>
+        </div> 

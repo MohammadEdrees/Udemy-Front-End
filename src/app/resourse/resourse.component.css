@@ -1,0 +1,40 @@
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+}
+
+.row {margin: 0 -5px;}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+ 
+
+.card{
+    width:350px;
+    height: 250px;
+    display:block;
+    margin: 20px;
+    padding:15px;
+  
+}
+@media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+.logo-img{
+    margin-bottom: 5px;
+    text-align: center;
+    margin-block-start: 10px;
+    padding-left: 100px;
+}
+ .card-text{
+     font-size: 1rem;
+     font-family: sans-serif;
+ }  

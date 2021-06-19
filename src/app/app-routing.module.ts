@@ -6,6 +6,15 @@ import { RegistrationInstructorComponent } from './registration-instructor/regis
 import {RegistrationStudentComponent} from './registration-student/registration-student.component' 
 import {CategoryComponent}from './category/category.component'
 import { TopCategoriesComponent } from './top-categories/top-categories.component';
+import { PreCourseCreationComponent } from './pre-course-creation/pre-course-creation.component';
+import { SideNavComponent} from './side-nav/side-nav.component';
+import { UdemyProfileComponent } from './udemy-profile/udemy-profile.component';
+import { Course } from './models/Course';
+import { CourseComponent } from './course/course.component';
+import { XyzComponent } from './xyz/xyz.component';
+import {PerformanceComponent} from './performance/performance.component';
+import { ToolsComponent } from './tools/tools.component';
+import { ResourseComponent } from './resourse/resourse.component';
 const routes: Routes = [
   {component:RegistrationStudentComponent,path:'studentreg'},
   {component:TopCategoriesComponent,path:'home/topcateg'},
@@ -15,7 +24,14 @@ const routes: Routes = [
 
   {component:RegistrationInstructorComponent,path:'instreg' } ,
  
-  
+  {component:PreCourseCreationComponent,path:'preCourseCreation' } ,
+  {component:SideNavComponent,path:'SideNav' } ,
+  {component:UdemyProfileComponent,path:'udemy-profile' } ,
+  {component:XyzComponent,path:'communication'},
+/*{component:CourseComponent,path:'course'},*/
+  {component:PerformanceComponent,path:'performance'},
+  {component:ToolsComponent,path:'Tools'},
+  {component:ResourseComponent,path:'resourse'},
   {path:"",redirectTo:"home",pathMatch:"full"}
 
 
@@ -28,4 +44,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule {  }
 export const  routingComponents=[RegistrationStudentComponent,
-  HomePageComponent,LoginPageComponent,RegistrationInstructorComponent]
+  HomePageComponent,LoginPageComponent,RegistrationInstructorComponent,PreCourseCreationComponent]

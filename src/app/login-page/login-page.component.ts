@@ -47,6 +47,9 @@ errorMessage: string = '';
     //True if all the fields are filled
     if (this.submitted) {
       
+      if(localStorage.getItem('token')!=null){
+        localStorage.removeItem('token');
+      }
     console.log(this.registerForm.value);
     this.loginService.login(this.registerForm.value.mail,this.registerForm.value.password).subscribe(
       (data : any )  => {
@@ -56,9 +59,9 @@ errorMessage: string = '';
        this.loginService.isAuthenticated = true;
        this.loginService.loggedIn.next(true)
 
-        if (data?.class=="student"){
+        if (data?._Class=="student"){
           this.router.navigate(['editStd'])
-        } else if (data?.class=="instructor"){
+        } else if (data?._Class=="instructor"){
           this.router.navigate(['editIns'])
         }
         // this.router.navigate(['login'])

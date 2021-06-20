@@ -45,7 +45,7 @@ import { UdemyProfileComponent } from './udemy-profile/udemy-profile.component';
 import { PerformanceComponent } from './performance/performance.component';
 import { ToolsComponent } from './tools/tools.component';
 import { ResourseComponent } from './resourse/resourse.component';
-
+import { ProfileComponent } from './profile/profile.component';
 
 import { EditInstrucrorComponent } from './edit-instrucror/edit-instrucror.component';
 
@@ -55,6 +55,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {PopoverModule} from "ngx-smart-popover";
 import { EditStudentComponent } from './edit-student/edit-student.component';
+import { CourseContentComponent } from './course-content/course-content.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,17 +73,19 @@ import { EditStudentComponent } from './edit-student/edit-student.component';
     PerformanceComponent,
     ToolsComponent,
     ResourseComponent,
-   
+    ProfileComponent,
     EditInstrucrorComponent,
     FilterByInsPipe,
     FilterByCrsPipe,
     DescriptionVideoComponent,
     EditStudentComponent,
-    CreatVideoComponent
+    CreatVideoComponent,
+    CourseContentComponent
 
   ],
   imports: [
-    BrowserModule,
+
+  BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -112,4 +115,5 @@ import { EditStudentComponent } from './edit-student/edit-student.component';
   ]
 })
 export class AppModule { }
+
 

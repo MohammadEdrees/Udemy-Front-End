@@ -18,7 +18,7 @@ import {MatTabsModule} from '@angular/material/tabs';
  //import { CarouselModule } from 'ngx-owl-carousel-o';
  //import {TranslateHttpLoader} from'@ngx-translate/http-loader';
  // For MDB Angular Free
-import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
+import { CarouselModule } from 'angular-bootstrap-md';
 import {MatInputModule} from '@angular/material/input';
 import{MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -49,8 +49,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { EditInstrucrorComponent } from './edit-instrucror/edit-instrucror.component';
 
-import { NavbarModule, ButtonsModule } from 'angular-bootstrap-md';
-import { DescriptionVideoComponent } from './description-video/description-video.component'
+import { DescriptionVideoComponent } from './description-video/description-video.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {PopoverModule} from "ngx-smart-popover";

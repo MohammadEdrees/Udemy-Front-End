@@ -35,10 +35,9 @@ const routes: Routes = [
       { component: PerformanceComponent, path: 'performance' },
       { component: ToolsComponent, path: 'Tools' },
       { component: ResourseComponent, path: 'resourse' },
-      { component: XyzComponent, path: 'communication' },
       { component: CreatVideoComponent, path: "pre/CreatVideo" },
       { component: CourseContentComponent, path: "content" },
-
+      {component:EditInstrucrorComponent,path:'editIns/:id' } ,
 
       { path: '', redirectTo: 'pre', pathMatch: 'full' }
 

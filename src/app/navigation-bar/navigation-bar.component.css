@@ -17,14 +17,21 @@ nav{
   position: initial;
 }
 #search{
-    width: 16rem;
+    width: 20rem;
     margin: .3rem;
     border-radius: 2rem;
-    height: 2rem;
-    padding: 1.3rem;
-    border: 2px solid rgba(231, 229, 229, 0.904);
+    font-size: 14px;
+    background-color: #FBFBF8;
+    /* height: 2.4rem; */
+    /* padding: 1.3rem; */
+    border: 1px solid #989586;
     /* box-shadow: 5px 5px 5px rgba(78, 78, 78, 0.5); */
+  
+}
 
+.inputbg{
+  background-color: #FBFBF8;
+  font-size: 14px;
 }
 .dropdown-submenu>.dropdown-menu {
   top: 0;
@@ -87,7 +94,7 @@ nav{
 .myDIV,.myDIV1{
   text-align: center;
   margin-left: 5px;
-  font-size: 16px;
+  font-size: 14px;
   /* width:30%; */
 
 

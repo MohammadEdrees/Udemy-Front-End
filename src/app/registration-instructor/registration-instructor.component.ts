@@ -11,6 +11,7 @@ import { InstructorService } from '../services/instructor.service';
   styleUrls: ['./registration-instructor.component.css']
 })
 export class RegistrationInstructorComponent implements OnInit {
+  // fullnamePattern="(^[A-Za-z]{3,16})([ ]{1})([A-Za-z]{3,16})$"
   namePattern = "^[a-zA-Z_-]{5,25}$";
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,7}.com$";
   pwdPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,20}$";

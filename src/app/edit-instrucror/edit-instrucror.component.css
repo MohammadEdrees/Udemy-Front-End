@@ -1,5 +1,6 @@
 
 /* start nav */
+
 .navbar ul{
     list-style: none;
     background-color: white;
@@ -33,6 +34,17 @@
 
 .inputWidth{
 height: 50px;
+}
+
+
+#Biography{
+    height: 110px;
+}
+
+.picDiv{
+    width: 100%;
+    height:260px;
+   
 }
 /* end content */
 

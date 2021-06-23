@@ -84,115 +84,195 @@
 <div class="container">
     <p class="h2">Profile & settings</p>
     <mat-tab-group mat-align-tabs="start" color="accent">
+        <!-- Start Profile setting  -->
         <mat-tab label="Udemy Profile">
             <div class="mt-5">
-                <form>
-                    <div class="form-row">
-                        <div class="form-group  col-md-6">
-                            <label for="fname">Frist Name</label>
-                            <input type="text" class="  form-control inputWidth" id="fname" placeholder="Frist Name">
-                        </div>
 
-                        <div class="form-group col-md-6">
-                            <label for="site">Website</label>
-                            <input type="text" class="form-control inputWidth" id="site" placeholder="Website">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="lname">Last Name</label>
-                            <input type="text" class="form-control inputWidth" id="lname" placeholder="Last Name">
-                        </div>
+                <form [formGroup]="editForm" (ngSubmit)="editFormSubmit()">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <!-- left inputs  -->
+                                    <div class="col-md-6">
+                                        <div class="form-group ">
+                                            <label for="fname">Frist Name</label>
+                                            <input type="text" class="  form-control inputWidth" id="fname"
+                                                placeholder="Frist Name" [value]="insDetails?.fname" formControlName="fname">
+                                        </div>
 
 
-                        <div class="form-group col-md-6">
-                            <label for="inlineFormInputGroup">Twitter</label>
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">http://www.twitter.com/</div>
+                                        <div class="form-group ">
+                                            <label for="lname">Last Name</label>
+                                            <input type="text" class="form-control inputWidth" id="lname"
+                                                placeholder="Last Name"  [value]="insDetails?.lname" formControlName="lname">
+                                        </div>
+
+
+                                        <div class="form-group ">
+                                            <label for="Headline">Headline</label>
+                                            <div class="input-group mb-2">
+
+                                                <input type="text" class="form-control inputWidth" id="Headline"
+                                                    placeholder="'Engineer at Udemy' or 'Architect'"
+                                                    [(ngModel)]="headline" maxlength="60"
+                                                    formControlName="headLine"
+                                                    (ngModelChange)="onChange()"
+                                                    [value]="insDetails?.headLine"
+                                                    >
+                                                <div class="input-group-append ">
+                                                    <div class="input-group-text ">{{length}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group  ">
+
+                                            <label for="Biography">Biography</label>
+                                            <div
+                                                class="input-group-prepend col-12 bg-white p-2 border border-bottom-0  rounded-top rounded-bottom-0">
+                                                <div class=" border-0">
+                                                    <i class="fa fa-bold mr-4 ml-1" (click)="isBold =!isBold"></i>
+                                                    <i class="fa fa-italic" (click)="isItalic =!isItalic"></i>
+                                                </div>
+                                            </div>
+                                            <textarea type="email" minlength="50"
+                                                class="form-control inputWidth rounded-0" id="Biography"
+                                                [style.font-weight]="isBold ? 'bold' : 'normal'"
+                                                [style.font-style]="isItalic ? 'italic' : 'normal'"
+                                                    formControlName="biography"
+                                                    [value]="insDetails?.biography" ></textarea>
+                                            <p class="text-muted "><small>
+                                                    Your biography should have at least 50 characters.</small></p>
+                                        </div>
+
+
+                                        <div class="form-group  ">
+
+                                            <label for="Language">Language</label>
+                                            <select class="custom-select inputWidth" id="Language" >
+                                                <option value="1">Arabic</option>
+                                                <option value="2">Bengali</option>
+                                                <option value="2">Chinese</option>
+                                                <option value="3" selected>English</option>
+                                                <option value="4">German</option>
+                                                <option value="5">Hindi</option>
+                                                <option value="6">Japanese</option>
+                                                <option value="7">Portuguese</option>
+                                                <option value="8">Russian</option>
+                                                <option value="9">Spanish</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <!-- right inputs  -->
+                                    <div class="col-md-6">
+                                        <div class="form-group ">
+                                            <label for="address">Address</label>
+                                            <input type="text" class="form-control inputWidth" id="address"
+                                                placeholder="Address" formControlName="address">
+                                        </div>
+
+                                        <div class="form-group ">
+                                            <label for="phone">Phone</label>
+                                            <input type="text" class="form-control inputWidth" id="phone"
+                                                placeholder="Phone" formControlName="phone">
+                                        </div>
+
+
+
+                           
+
+                                        <div class="form-group ">
+                                            <label for="inlineFormInputGroup">Facebook</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">http://www.facebook.com/</div>
+                                                </div>
+                                                <input type="text" class="form-control inputWidth" id="Facebook"
+                                                    placeholder="Username">
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group ">
+                                            <label for="LinkedIn">LinkedIn</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">http://www.linkedin.com/</div>
+                                                </div>
+                                                <input type="text" class="form-control inputWidth" id="LinkedIn"
+                                                    placeholder="Resourse ID">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group ">
+                                            <label for="Youtube">Youtube</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">http://www.youtube.com/</div>
+                                                </div>
+                                                <input type="text" class="form-control inputWidth" id="Youtube"
+                                                    placeholder="Username">
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
-                                <input type="text" class="form-control inputWidth" id="Twitter" placeholder="Username">
                             </div>
                         </div>
 
-
-                        <div class="form-group col-md-6">
-                            <label for="Headline">Headline</label>
-                            <div class="input-group mb-2">
-
-                                <input type="text" class="form-control inputWidth" id="Headline"
-                                    placeholder="'Engineer at Udemy' or 'Architect'">
-                                <div class="input-group-append ">
-                                    <div class="input-group-text ">60</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <label for="inlineFormInputGroup">Facebook</label>
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">http://www.facebook.com/</div>
-                                </div>
-                                <input type="text" class="form-control inputWidth" id="Facebook" placeholder="Username">
-                            </div>
-                        </div>
-
-                        <div class="form-group col-md-6 ">
-                            <label for="Biography">Biography</label>
-                            <input type="email" class="form-control " id="Biography">
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <label for="LinkedIn">LinkedIn</label>
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">http://www.linkedin.com/</div>
-                                </div>
-                                <input type="text" class="form-control inputWidth" id="LinkedIn"
-                                    placeholder="Resourse ID">
-                            </div>
-                        </div>
-
-                        <div class="form-group col-md-6 ">
-                            <label for="Biography">Biography</label>
-                            <input type="email" class="form-control " id="Biography">
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <label for="Youtube">Youtube</label>
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">http://www.youtube.com/</div>
-                                </div>
-                                <input type="text" class="form-control inputWidth" id="Youtube" placeholder="Username">
-                            </div>
-                        </div>
-
-                        <div class="form-group col-md-6 ">
-
-                            <label for="Language">Language</label>
-                            <select class="custom-select inputWidth" id="Language">
-                                <option value="1">Arabic</option>
-                                <option value="2">Bengali</option>
-                                <option value="2">Chinese</option>
-                                <option value="3" selected>English</option>
-                                <option value="4">German</option>
-                                <option value="5">Hindi</option>
-                                <option value="6">Japanese</option>
-                                <option value="7">Portuguese</option>
-                                <option value="8">Russian</option>
-                                <option value="9">Spanish</option>
-                            </select>
-                        </div>
+                        <button type="submit" class="btn right-align"
+                            style="float: right; background-color: #EC5252; color: white;">Save</button>
                     </div>
-
-
-
-                    <button type="submit" class="btn right-align"
-                        style="float: right; background-color: #EC5252; color: white;">Sign in</button>
                 </form>
+
             </div>
         </mat-tab>
-        <mat-tab label="Profile Picture">Content 2</mat-tab>
+        <!-- End Profile setting  -->
+
+        <!-- Start Profile Picture  -->
+        <mat-tab label="Profile Picture">
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <form  [formGroup]="myForm" >
+                            <label class="h6">Image preview</label>
+                            <div class=" mt-2 picDiv p-4 text-center rounded border img-thumbnail ">
+                                <img [src]="url" height="200px" >
+                            </div>
+                            
+                        <div class="form-group mb-3 mt-3">
+                                <input 
+                                formControlName="file"
+                                id="file" type="file" 
+                                class="form-control"  #file
+                                (change)="onSelectImg($event)" accept=".jpg,.png">
+                            </div>
+                            <div *ngIf="imgSubmitted && f.file.errors" class="alert alert-danger">
+                                <div *ngIf="f.file.errors.required">Image is required.</div> 
+                            </div>
+                            <div class="alert alert-success" role="alert" *ngIf="isAlert">
+                                Image Saved Successfully <strong>100 %</strong>
+                              </div>
+                            <button type="submit" class="btn right-align mb-5" (click)="submitImg(file.files)"
+                            style="float: right; background-color: #EC5252; color: white;">Save</button>
+                
+                        </form>
+                       
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+            </div>
+
+        </mat-tab>
+        <!-- End Profile Picture  -->
+
         <mat-tab label="Privacy settings">Privacy settings</mat-tab>
     </mat-tab-group>
 </div>

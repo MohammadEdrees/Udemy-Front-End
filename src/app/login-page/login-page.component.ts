@@ -50,19 +50,22 @@ errorMessage: string = '';
       if(localStorage.getItem('token')!=null){
         localStorage.removeItem('token');
       }
+
     console.log(this.registerForm.value);
     this.loginService.login(this.registerForm.value.mail,this.registerForm.value.password).subscribe(
       (data : any )  => {
         console.log(data);
        localStorage.setItem('token',data?.token);
-       localStorage.setItem('LoginedId',data['stdId']  || data['instId'] );
+       localStorage.setItem('LoginedId', data['stdId']  || data['instId'] );
+       localStorage.setItem('class',data?._Class);
+
        this.loginService.isAuthenticated = true;
        this.loginService.loggedIn.next(true)
 
         if (data?._Class=="student"){
           this.router.navigate(['editStd'])
         } else if (data?._Class=="instructor"){
-          this.router.navigate(['editIns'])
+          this.router.navigate(['home'])
         }
         // this.router.navigate(['login'])
       }, err => {

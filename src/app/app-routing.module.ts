@@ -22,24 +22,23 @@ import { AuthGuard } from './guards/auth.guard';
 import { CreatVideoComponent } from './creat-video/creat-video.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CourseContentComponent } from './course-content/course-content.component';
+import { InstructorProfileComponent } from './instructor-profile/instructor-profile.component';
+import { StudentCoursesComponent } from './student-courses/student-courses.component';
 
 const routes: Routes = [
 
   //------------------ sidnav router outlet -----------------
   {
-    component: SideNavComponent, path: 'sidnav', 
+    component: SideNavComponent, path: 'sidnav',
     children: [
 
       { path: 'pre', component: PreCourseCreationComponent },
-      { component: XyzComponent, path: 'communication'  },
+      { component: XyzComponent, path: 'communication' },
       { component: PerformanceComponent, path: 'performance' },
       { component: ToolsComponent, path: 'Tools' },
       { component: ResourseComponent, path: 'resourse' },
       { component: XyzComponent, path: 'communication' },
       { component: CreatVideoComponent, path: "pre/CreatVideo" },
-      { component: CourseContentComponent, path: "content" },
-
-
       { path: '', redirectTo: 'pre', pathMatch: 'full' }
 
     ]
@@ -55,7 +54,9 @@ const routes: Routes = [
       { component: RegistrationInstructorComponent, path: 'instreg' },
       { component: RegistrationStudentComponent, path: 'studentreg' },
       { component: CategoryComponent, path: 'category' },
-
+      { component: InstructorProfileComponent, path: 'InsProfile/:id' },
+      {component:CourseContentComponent,path:'Content/:id'},
+      {component:StudentCoursesComponent,path:'StdCrs/:id'},
       { path: '', redirectTo: 'home', pathMatch: 'full' }
 
     ]
@@ -69,7 +70,6 @@ const routes: Routes = [
   // {component:EditInstrucrorComponent,path:'editIns' } ,
   // {component:EditStudentComponent,path:'editStd' } ,
   // {component:DescriptionVideoComponent,path:"DescriptionVideo"},
-
 ];
 
 @NgModule({

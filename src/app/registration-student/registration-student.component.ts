@@ -50,7 +50,7 @@ export class RegistrationStudentComponent implements OnInit {
  faEyeSlash=faEyeSlash;
 
  //new Object 
- newStudent: Student =new Student ('','','','','','','','','');
+ newStudent: Student =new Student (0,'','','','','','','','','');
 
   //Add user form actions
   get f() { return this.registerForm.controls; }

@@ -24,7 +24,6 @@ import{MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
 
-
 import { CreatVideoComponent } from './creat-video/creat-video.component'
 //  import { CarouselModule } from 'ngx-owl-carousel-o';
 
@@ -56,6 +55,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {PopoverModule} from "ngx-smart-popover";
 import { EditStudentComponent } from './edit-student/edit-student.component';
 import { CourseContentComponent } from './course-content/course-content.component';
+import { InstructorProfileComponent } from './instructor-profile/instructor-profile.component';
+import { StudentCoursesComponent } from './student-courses/student-courses.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,7 +81,9 @@ import { CourseContentComponent } from './course-content/course-content.componen
     DescriptionVideoComponent,
     EditStudentComponent,
     CreatVideoComponent,
-    CourseContentComponent
+    CourseContentComponent,
+    InstructorProfileComponent,
+    StudentCoursesComponent
 
   ],
   imports: [
@@ -105,7 +108,7 @@ import { CourseContentComponent } from './course-content/course-content.componen
     MatSelectModule,
     MatAutocompleteModule,
     MatIconModule ,
-    PopoverModule
+    PopoverModule,
   ],
   providers: [],
   bootstrap:[AppComponent],

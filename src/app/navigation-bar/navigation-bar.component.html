@@ -31,14 +31,15 @@
     </mat-menu>
 
 
-
     <!------ Start Search ------>
     <form class="form-inline my-2 my-lg-0      ">
       <input class="form-control mr-sm-2  " type="text" placeholder="Search for anything" id="search"
         [matAutocomplete]="auto" [(ngModel)]="searchText" [ngModelOptions]="{ standalone: true }">
       <mat-autocomplete #auto="matAutocomplete" class="mt-4">
 
-        <mat-option *ngFor="let option of Instructors | filterByIns:searchText;" [value]="option">
+        <mat-option *ngFor="let option of Instructors | filterByIns:searchText;" [value]="option" 
+        [routerLink]="['/topnav/InsProfile/',option.instId]"
+        >
           <fa-icon [icon]="faUser" class="fa-sm fa-fw text-info"></fa-icon> {{option.fname}}
         </mat-option>
         <mat-option *ngFor="let option of Courses | filterByCrs:searchText;" [value]="option">

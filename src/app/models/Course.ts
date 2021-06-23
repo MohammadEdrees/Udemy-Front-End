@@ -1,3 +1,6 @@
+import { Instructor } from "./Instructor"; 
+import { StudentCourses } from "./student-courses";
+
 export class Course {
     constructor(
         public crsId: number,
@@ -14,11 +17,11 @@ export class Course {
         public state: string,
         public topId: number,
         public top :any,
-        public studentCourses :any,
+        public studentCourses :StudentCourses[],
         public courseVideos :any,
         public cardId :number,
-        public shoppingCard :any
-      
+        public shoppingCard :any,
+        public instructor:Instructor 
     ) { }
 
 }

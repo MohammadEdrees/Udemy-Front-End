@@ -1,0 +1,39 @@
+<pre>
+
+
+</pre>
+
+
+  <div class="jumbotron bg-dark">
+    <p class="h3">My Learning</p>
+  </div>
+<div class="container">
+    <div class="breadcrumb">
+        <p> Here is your enrollment courses {{student?.fname}} {{student?.lname}}.</p>
+    </div>
+    <div class="row">
+        <div *ngFor="let course of courses" class="col-12 col-md-6 col-lg-4  p-2"
+        [routerLink]="['/topnav/Content/',course.crsId]"
+        >
+          <div class="card card-border-none">
+            <img class="card-img-top img-fluid" 
+            [src]="course.imagePath!= null? course.imagePath : CourseImgUrl"
+            />
+            <div class="card-body">
+              <h3 class="card-title">{{course.title}}</h3>
+              <div class="card-text">
+                <span class="text-warning mr-3"> 4.5</span>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning m-1"></i>
+                <span>{{course.studentCourses.length}}</span>
+                <p>price</p><span>discount</span>
+                <span><i class="fa fa-trash" style="font-size:20px;color:red;margin: 10px;" (click)="deleteEnroll(course.crsId)"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

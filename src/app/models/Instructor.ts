@@ -14,7 +14,8 @@ export class Instructor {
       public lname: string,
       public language: string,
       public headLine: string,
-      public biography: any
+      public biography: string,
+      public instId?:number
     ) { }
 
 }

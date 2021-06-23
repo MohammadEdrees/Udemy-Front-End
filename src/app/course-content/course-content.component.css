@@ -1,0 +1,87 @@
+.parent{
+    margin-top: 15vh;
+    height: 100vh;
+    overflow-y: auto;
+    user-select: none;
+
+}
+.rightChild{
+    height: 100%;
+    margin-left: 70%;
+    position: fixed;
+    width: 30%;
+
+}
+.rhead{
+    font-weight: bold;
+    font-size:16px;
+    height: 10%;
+    background-color: white;
+    border-bottom: 2px solid black ;
+    padding-top: 6%;
+    padding-left: 5%;
+}
+.mat-tab-group {
+    margin-bottom: 48px;
+  }
+
+.sectionsCont{
+    overflow-y: auto;
+
+  }
+.sectiondiv{
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:16px;
+    border-bottom: 1px   solid gray;
+    background-color: rgb(240, 235, 235);
+
+    width: 100%;
+    padding-top: 7%;
+}
+.sectiondiv:hover{
+    background-color: rgb(235, 233, 233);
+
+}
+.sectionName{
+width: 75%; 
+padding-bottom: 3%;
+
+
+}
+.icon{
+font-size:16px;
+width: 25%;
+
+}
+
+
+.inside{
+    
+    
+    width: 100%;
+    background-color: white;
+
+}
+
+.inside:hover{
+    background-color: rgb(245, 245, 245);
+
+
+}
+.chek{
+    width: 20%;
+    padding: 2
+}
+.lect{
+    width: 75%;
+    /* background-color: orange; */
+    margin-left: 5%;
+    
+}
+.lecttitle{
+    text-align: left;
+    font-size: 14px;
+    font-weight: normal;
+    padding-bottom: 2%;
+}

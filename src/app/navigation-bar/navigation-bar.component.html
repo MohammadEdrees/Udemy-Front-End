@@ -35,7 +35,6 @@
      <!-- end categories menu  -->
 
 
-
     <!------ Start Search ------>
     <form class="form-inline my-2 my-lg-0      ">
       <div class="input-group d-flex align-items-center pr-3 pl-1 py-1 " id="search" >
@@ -49,7 +48,9 @@
       
       <mat-autocomplete #auto="matAutocomplete" class="mt-4">
 
-        <mat-option *ngFor="let option of Instructors | filterByIns:searchText;" [value]="option">
+        <mat-option *ngFor="let option of Instructors | filterByIns:searchText;" [value]="option.fname" 
+        [routerLink]="['/topnav/InsProfile/',option.instId]"
+        >
           <fa-icon [icon]="faUser" class="fa-sm fa-fw text-info"></fa-icon> {{option.fname}}
         </mat-option>
         <mat-option *ngFor="let option of Courses | filterByCrs:searchText;" [value]="option">
@@ -98,7 +99,7 @@
     <button *ngIf="!login" class="btn btn-info border navBtnz mr-1 " routerLink="studentreg">Sign Up</button>
     <button *ngIf="!login" class="btn btn-outline-secondary border " ><i class="fa fa-globe text-secondary" aria-hidden="true"></i></button>
     <a *ngIf="login" class="text-secondary mr-3" routerLink="../sidnav">instructor</a>
-    <a *ngIf="login" class="text-secondary  mr-3 " >My learning</a>
+    <a *ngIf="login" class="text-secondary  mr-3 " [routerLink]="['StdCrs', ins?.instId]">My learning</a>
     <a *ngIf="login">
       <div class="rounded-circle d-flex justify-content-center bg-success" style="width: 60px; height: 60px"
           [popover]="myPopover" [popoverOnHover]="true" [popoverCloseOnMouseOutside]="true">

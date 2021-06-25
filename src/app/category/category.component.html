@@ -1,396 +1,172 @@
-
-<pre>
-
-
-
-
-<pre> 
-
-</pre>
+<app-navbar-category></app-navbar-category>
 <div class="container mt-5 ">
-  <h1>Web Development Courses</h1>
-  <h3>Courses to get you started</h3>
+  <h1>{{category?.categoryName}} Courses</h1>
+  <h3 class="font-weight-bold">Courses to get you started</h3>
   <mat-tab-group>
     <mat-tab label="Most Popular">
-       <!-- Content 1 -->
-       <div class=" offset-md-1 col-md-11">
-         <carousel [loop]="true" [cellsToScroll]="1" [objectFit]="'cover'"    [lightDOM]="true" class="carousel--slider-alignment  w-100 ">
+      <!-- Content 1 -->
+      <div class=" offset-md-1 col-md-11 ">
+        <carousel [loop]="true" [cellsToScroll]="1" [objectFit]="'cover'" [lightDOM]="true"
+          class="carousel--slider-alignment  w-100 ">
 
-          <div class="carousel-cell ">
-            <div class="card card-border-none ">
-              <img  class="card-img-top img-fluid" src="../../assets/4.jpg"/>
+          <div class="carousel-cell  " routerLink="/topnav/course/{{item?.crsId}}" *ngFor="let item of courses"
+            id="all">
+            <div class="card card-border-none " id="cours">
+              <img class="card-img-top img-fluid" src="{{item.imagePath}}" />
               <div class="card-body">
-                <h3 class="card-title"> Web Development Bootcap 2021</h3>
+                <h3 class="card-title"> {{item.title}}</h3>
                 <div class="card-text">
-                  <p > name of auther</p>
-                  <span class="text-warning mr-3"> 4.5</span>
+                  <p> Jose Portilla</p>
+                  <span class="text-warning mr-3"> {{item.rate}}</span>
                   <i class="fa fa-star text-warning mr-1"></i>
                   <i class="fa fa-star text-warning mr-1"></i>
                   <i class="fa fa-star text-warning mr-1"></i>
                   <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning m-1"></i>
                   <span>(number of using)</span>
-                  <p>price</p><span>discount</span>
+                  <p>price</p><span>{{item.state}}</span>
                 </div>
               </div>
             </div>
           </div>
-
-
-          <div class="carousel-cell ">
-            <div class="card card-border-none ">
-              <img  class="card-img-top img-fluid" src="../../assets/3.jpg"/>
-              <div class="card-body">
-                <h3 class="card-title"> Web Development Bootcap 2021</h3>
-                <div class="card-text">
-                  <p > name of auther</p>
-                  <span class="text-warning mr-3"> 4.5</span>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning m-1"></i>
-                  <span>(number of using)</span>
-                  <p>price</p><span>discount</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-cell ">
-           <div class="card card-border-none ">
-              <img  class="card-img-top img-fluid" src="../../assets/5.jpg"/>
-              <div class="card-body">
-                <h3 class="card-title"> Web Development Bootcap 2021</h3>
-                <div class="card-text">
-                  <p > name of auther</p>
-                  <span class="text-warning mr-3"> 4.5</span>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning m-1"></i>
-                  <span>(number of using)</span>
-                  <p>price</p><span>discount</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-cell ">
-            <div class="card card-border-none ">
-              <img  class="card-img-top img-fluid" src="../../assets/3.jpg"/>
-              <div class="card-body">
-                <h3 class="card-title"> Web Development Bootcap 2021</h3>
-                <div class="card-text">
-                  <p > name of auther</p>
-                  <span class="text-warning mr-3"> 4.5</span>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning m-1"></i>
-                  <span>(number of using)</span>
-                  <p>price</p><span>discount</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-cell ">
-            <div class="card card-border-none ">
-              <img  class="card-img-top img-fluid" src="../../assets/4.jpg"/>
-              <div class="card-body">
-                <h3 class="card-title"> Web Development Bootcap 2021</h3>
-                <div class="card-text">
-                  <p > name of auther</p>
-                  <span class="text-warning mr-3"> 4.5</span>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning mr-1"></i>
-                  <i class="fa fa-star text-warning m-1"></i>
-                  <span>(number of using)</span>
-                  <p>price</p><span>discount</span>
-                </div>
-              </div>
-            </div>
-          </div>
-         </carousel>
-
-       </div>
-
-       <!-- content1 -->
-       </mat-tab>
-    <mat-tab label="Trend">
-       <!-- Content 2  -->
-       <div class=" offset-md-1 col-md-11">
-        <carousel [loop]="true" [cellsToScroll]="1" [objectFit]="'cover'"   [lightDOM]="true" class="carousel--slider-alignment  w-100 ">
-
-         <div class="carousel-cell ">
-           <div class="card card-border-none ">
-             <img  class="card-img-top img-fluid" src="../../assets/6.jpg"/>
-             <div class="card-body">
-               <h3 class="card-title"> Become A Development from </h3>
-               <div class="card-text">
-                 <p > name of auther</p>
-                 <span class="text-warning mr-3"> 4.5</span>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning m-1"></i>
-                 <span>(number of using)</span>
-                 <p>price</p><span>discount</span>
-               </div>
-             </div>
-           </div>
-         </div>
-
-
-         <div class="carousel-cell ">
-           <div class="card card-border-none ">
-             <img  class="card-img-top img-fluid" src="../../assets/7.jpg"/>
-             <div class="card-body">
-               <h3 class="card-title"> learn Html and Css</h3>
-               <div class="card-text">
-                 <p > name of auther</p>
-                 <span class="text-warning mr-3"> 4.5</span>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning m-1"></i>
-                 <span>(number of using)</span>
-                 <p>price</p><span>discount</span>
-               </div>
-             </div>
-           </div>
-         </div>
-
-         <div class="carousel-cell ">
-           <div class="card card-border-none ">
-             <img  class="card-img-top img-fluid" src="../../assets/8.jpg"/>
-             <div class="card-body">
-               <h3 class="card-title"> Learn full Stack Development </h3>
-               <div class="card-text">
-                 <p > name of auther</p>
-                 <span class="text-warning mr-3"> 4.5</span>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning m-1"></i>
-                 <span>(number of using)</span>
-                 <p>price</p><span>discount</span>
-               </div>
-             </div>
-           </div>
-         </div>
-         <div class="carousel-cell ">
-           <div class="card card-border-none ">
-             <img  class="card-img-top img-fluid" src="../../assets/6.jpg"/>
-             <div class="card-body">
-               <h3 class="card-title"> Web Development Bootcap 2021</h3>
-               <div class="card-text">
-                 <p > name of auther</p>
-                 <span class="text-warning mr-3"> 4.5</span>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning m-1"></i>
-                 <span>(number of using)</span>
-                 <p>price</p><span>discount</span>
-               </div>
-             </div>
-           </div>
-         </div>
-
-         <div class="carousel-cell ">
-           <div class="card card-border-none ">
-             <img  class="card-img-top img-fluid" src="../../assets/7.jpg"/>
-             <div class="card-body">
-               <h3 class="card-title"> Web Development Bootcap 2021</h3>
-               <div class="card-text">
-                 <p > name of auther</p>
-                 <span class="text-warning mr-3"> 4.5</span>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning mr-1"></i>
-                 <i class="fa fa-star text-warning m-1"></i>
-                 <span>(number of using)</span>
-                 <p>price</p><span>discount</span>
-               </div>
-             </div>
-           </div>
-         </div>
         </carousel>
-
       </div>
 
-       <!-- Content2  -->
+      <!-- content1 -->
+    </mat-tab>
+    <mat-tab label="Trend">
+      <!-- Content 2  -->
+      <div class=" offset-md-1 col-md-11 ">
+        <carousel [loop]="true" [cellsToScroll]="1" [objectFit]="'cover'" [lightDOM]="true"
+          class="carousel--slider-alignment  w-100 ">
+
+          <div class="carousel-cell " routerLink="/topnav/course/{{item?.crsId}}" *ngFor="let item of courses">
+            <div class="card card-border-none ">
+              <img class="card-img-top img-fluid" src="{{item.imagePath}}" />
+              <div class="card-body">
+                <h3 class="card-title">{{item.title}}</h3>
+                <div class="card-text">
+                  <p> Jose Portilla</p>
+                  <span class="text-warning mr-3"> {{item.rate}}</span>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning mr-1"></i>
+                  <i class="fa fa-star text-warning m-1"></i>
+                  <span>(number of using)</span>
+                  <p>price</p><span>{{item.state}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </carousel>
+      </div>
+
+      <!-- Content2  -->
     </mat-tab>
 
   </mat-tab-group>
 
   <!--   Start Feature coures  -->
-  <div class="h2">
-    Feature Coures
-  </div>
+  <div class="h2 ">Featured Courses</div>
+  <div class="border m-5 ">
 
-  <div class="border ">
-    <mdb-carousel [animation]="'slide'"  >
+    <mdb-carousel [animation]="'slide'">
       <!--start 1 -->
-      <mdb-carousel-item>
+      <mdb-carousel-item routerLink="/topnav/course/{{item?.crsId}}" *ngFor="let item of courses">
 
-        <div class="row">
+        <div class="row p-4">
           <div class="col">
-            <img  class="m-3 w-100"  src="../../assets/10.png"  alt="Featur Image"/>
+            <img class="m-3 w-100" src="{{item.imagePath}}" alt="Featur Image" />
           </div>
           <div class="col m-3">
-            <h1> Node.js  -- to learn more</h1>
-            <p> Learn how to  build wenb site using node.js and angular</p>
-            <span> By name of auther </span><br/>
-            <span class="text-success" > Update </span><span> 20-5-2021 Beginner  . 22 lecture .122 hour </span><br/>
-            <span class="text-warning mr-3"> 4.5</span>
+            <h1>{{item.title}}</h1>
+            <p> {{item. description}}</p>
+            <span> By name of auther </span><br />
+            <span class="text-success"> Update </span><span> 20-5-2021 Beginner . 22 lecture .122 hour </span><br />
+            <span class="text-warning mr-3"> {{item.rate}} 4.5</span>
             <i class="fa fa-star text-warning mr-1"></i>
             <i class="fa fa-star text-warning mr-1"></i>
             <i class="fa fa-star text-warning mr-1"></i>
             <i class="fa fa-star text-warning mr-1"></i>
-            <i class="fa fa-star text-warning m-1"></i>
-            <span>(200)</span>
-            <small  style="background-color: rgb(241, 153, 153); color: #000;"> Hot& new</small>
 
-            </div>
+            <span>(200)</span>
+            <small style="background-color: rgb(241, 153, 153); color: #000;"> Hot& new</small>
+
+          </div>
 
         </div>
 
       </mdb-carousel-item>
+
       <!--end 1 -->
+
     </mdb-carousel>
-
   </div>
 
+  <!-- end Featured-Courses-->
 
-  <!--  End Feature Coures -->
-
-  <!-- Start Popular Topic -->
-
-<div class="h2">
-Popular Topic
-</div>
-<carousel [loop]="true" [cellsToScroll]="1" [objectFit]="'cover'"    [lightDOM]="true">
-<!-- start carousel-cell-->
-  <div class="carousel-cell ">
-  
+<!-- Start Popular Topic -->
+  <div class="h2">
+    Popular Topic
+  </div>
+  <!-- start carousel-cell-->
+  <mdb-carousel class="  carousel slide carousel-silde" [animation]="'slide'">
     <!-- start container of row -->
-    <div class="row">
-    <div class="col m-3">
+    <mdb-carousel-item class="m-3">
       <div class="row ">
-       <button  class="btn btn-outline-default border p-3 btn-lg">Python </button>
+        <div class="col">
+          <div class="row">
+            <div class=" m-3 col w-100" *ngFor="let item of Topics">
+              <button class="btn  text-primary border p-3" id="topic">{{item.topName}} </button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="row mt-3">
-        <button  class="btn btn-outline-default border p-3 btn-lg"> Web Developer</button>
-      </div>
-    </div>
-    </div>
-<!-- end carousel-cell -->
-  </div>
-<!-- start carousel-cell-->
-<div class="carousel-cell ">
-<div class="row">
-    <div class="col m-3">
-      <div class="row ">
-       <button  class="btn btn-outline-default border p-3 btn-lg ">Java Script </button>
-      </div>
-      <div class="row mt-3">
-        <button  class="btn btn-outline-default border p-3 btn-lg "> Data Science</button>
-      </div>
-    </div>
-  </div>
-    
-<!-- end carousel-cell -->
-  </div>
+      <!-- end carousel-cell -->
+    </mdb-carousel-item>
 
-<!-- start carousel-cell-->
-<div class="carousel-cell ">
-  <div class="row">
-
-    <div class="col m-3">
-      <div class="row ">
-       <button  class="btn btn-outline-default border p-3  btn-lg">C++ </button>
-      </div>
-      <div class="row mt-3">
-        <button  class="btn btn-outline-default border p-3 btn-lg "> Java</button>
-      </div>
-    </div>
-
-  </div>
-    
-  <!-- end carousel-cell -->
-    </div>
-
-    <!-- start carousel-cell-->
-<div class="carousel-cell ">
-  <div class="row">
-
-    <div class="col m-3">
-      <div class="row ">
-       <button  class="btn btn-outline-default border p-3 btn-lg ">React </button>
-      </div>
-      <div class="row mt-3">
-        <button  class="btn btn-outline-default border p-3 btn-lg"> C</button>
-      </div>
-    </div>
-  </div>
-    
-  <!-- end carousel-cell -->
-    </div>
-
-        <!-- start carousel-cell-->
-<div class="carousel-cell ">
-  <div class="row">
-
-    <div class="col m-3">
-      <div class="row ">
-       <button  class="btn btn-outline-default border p-3  btn-lg">C# </button>
-      </div>
-      <div class="row mt-3">
-        <button  class="btn btn-outline-default border p-3  btn-lg"> Node.js</button>
-      </div>
-    </div>
-  </div>
-    
-  <!-- end carousel-cell -->
-    </div>
-
-           <!-- start carousel-cell-->
-<div class="carousel-cell ">
-  <div class="row">
-
-    <div class="col m-3">
-      <div class="row ">
-       <button  class="btn btn-outline-default border p-3  btn-lg">C# </button>
-      </div>
-      <div class="row mt-3">
-        <button  class="btn btn-outline-default border p-3  btn-lg"> Node.js</button>
-      </div>
-    </div>
-  </div>
-    
-  <!-- end carousel-cell -->
-    </div>
-
-  </carousel >
-
-
+  </mdb-carousel>
   <!-- End Popular Topic  -->
+
   <!-- Start Popular Instructors -->
-
+  <div class="h2">
+    Popular Instructors
+  </div>
+  <div class="content">
+    <div class=" offset-md-1 ">
+  
+      <carousel [loop]="true" [cellsToScroll]="1" [objectFit]="'cover'" [lightDOM]="true"
+        class="carousel--slider-alignment-students  w-100 ">
+  
+        <div class="carousel-cell col p-3 w-25 ml-1 " *ngFor="let item of Instructors " id="instructor">
+          <div class="card  w-100 " routerLink="/topnav/instructor/{{item?.instId}}">
+            <div class="m-0">
+              <img id="img" src="{{item.imagPath }}" />
+            </div>
+  
+            <div class="card-body  ">
+  
+              <h3 class="card-title m-0">{{item.fname+''+item.lname}}</h3>
+              <div class="card-text m-0">
+                <p class="m-0"> {{item.headLine}}</p>
+                <span class="text-warning mr-2 text-lg m-0 "> 4.5</span>
+                <i class="fa fa-star text-warning mr-2"></i>
+                <i class="fa fa-star text-warning mr-2"></i>
+                <i class="fa fa-star text-warning mr-2"></i>
+                <i class="fa fa-star text-warning mr-2"></i>
+                <br>
+                <span class="text-danger m-0 ">Instructor Rating</span>
+                <p class="m-0 text-dark text-lg"><b>765,345</b> Students </p>
+                <p class="m-0 text-dark"><b>8</b> Courses</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </carousel>
+    </div>
+  </div>
   <!-- End Popular Instructors -->
-
-
-
 
 </div>

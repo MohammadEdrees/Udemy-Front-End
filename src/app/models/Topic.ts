@@ -8,3 +8,4 @@ export class Topic {
     public supCatTitle:string
   ){};
 }
+

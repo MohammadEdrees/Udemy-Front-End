@@ -4,11 +4,11 @@
 
 
 
-  <!-- <button class="navbar-toggler d-lg-none " type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+  <button class="navbar-toggler d-lg-none " type="button" data-toggle="collapse" data-target="#collapsibleNavId"
     aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse  " id="collapsibleNavId"> -->
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
 
 
     <!-- start categories menu  -->
@@ -20,7 +20,9 @@
     <mat-menu #Categories="matMenu" class="Categories">
 
 
-      <a mat-menu-item [matMenuTriggerFor]="reptiles" routerLink="category" *ngFor="let item of categories"
+      <a mat-menu-item [matMenuTriggerFor]="reptiles" 
+      *ngFor="let item of categories"
+      [routerLink]="['/topnav/category/',item.categoryId]"
         (mouseenter)="AddId(item.categoryId)">{{item.categoryName}}</a>
     </mat-menu>
     <mat-menu #reptiles="matMenu" class="dropdown-submenu">
@@ -47,7 +49,9 @@
 
       
       <mat-autocomplete #auto="matAutocomplete" class="mt-4">
-
+        <mat-option *ngFor="let option of Topics | filterByTopic:searchText;" [value]="option">
+          <i class="fa fa-search fa-sm fa-fw text-info"></i> {{option.topName}}
+        </mat-option>
         <mat-option *ngFor="let option of Instructors | filterByIns:searchText;" [value]="option.fname" 
         [routerLink]="['/topnav/InsProfile/',option.instId]"
         >
@@ -98,22 +102,29 @@
     <button *ngIf="!login" class="btn btn-outline-info d-lg-inline   border navBtnz mr-1" routerLink="login">Log in </button>
     <button *ngIf="!login" class="btn btn-info border navBtnz mr-1 " routerLink="studentreg">Sign Up</button>
     <button *ngIf="!login" class="btn btn-outline-secondary border " ><i class="fa fa-globe text-secondary" aria-hidden="true"></i></button>
-    <a *ngIf="login" class="text-secondary mr-3" routerLink="../sidnav">instructor</a>
-    <a *ngIf="login" class="text-secondary  mr-3 " [routerLink]="['StdCrs', ins?.instId]">My learning</a>
+    <a *ngIf="isInstructor" class="text-secondary mr-3" routerLink="../sidnav">instructor</a>
+    <a *ngIf="isStudent" class="text-secondary  mr-3 " [routerLink]="['StdCrs', user?.stdId]">My learning</a>
     <a *ngIf="login">
-      <div class="rounded-circle d-flex justify-content-center bg-success" style="width: 60px; height: 60px"
+      <div *ngIf="!isImg" class="rounded-circle d-flex justify-content-center bg-success ml-4" style="width: 60px; height: 60px"
           [popover]="myPopover" [popoverOnHover]="true" [popoverCloseOnMouseOutside]="true">
-          <span [routerLink]="['../sidnav/editIns', ins?.instId]" class="h5 p-3 text-white">{{
-              char
+          <span [routerLink]="isInstructor ? ['../sidnav/editIns', user?.instId] : ['../sidnav/editStd', user?.stdId]"
+           class="h5 p-3 text-white">{{
+             char 
               }}</span>
       </div>
-  </a>
+      <div *ngIf="isImg"  [popover]="myPopover" [popoverOnHover]="true" [popoverCloseOnMouseOutside]="true">
+      <span [routerLink]="isInstructor ? ['../sidnav/editIns', user?.instId] : ['../sidnav/editStd', user?.stdId]"
+       class="h5 p-3 text-white">
+      <img [src]="isInstructor ? user?.imagPath : user?.imagePath" class="rounded-circle  ml-4" width="50px" height="50px">
+      </span>
+  </div>
+   </a>
   <popover-content #myPopover popoverPlacement="bottom right" [closeOnClickOutside]="true" [closeOnMouseOutside]="true">
     <div style=" width: 15rem; ">
 
         <div class="row">
           
-            <div class="col "> <a [routerLink]="['../sidnav/editIns', ins?.instId]">
+            <div class="col "> <a [routerLink]="['../sidnav/editIns', user?.instId]">
                     <div class="rounded-circle d-flex justify-content-center  bg-success "
                         style="width: 60px; height: 60px">
                         <span class="h5 p-3 text-white">{{
@@ -122,8 +133,8 @@
                     </div>
                 </a></div>
             <div class="col text-left  ">
-                <p>{{ins?.fname}}</p>
-                <p class="text-muted">{{ins?.mail}}</p>
+                <p>{{user?.fname}}</p>
+                <p class="text-muted">{{user?.mail}}</p>
             </div>
         </div>
         <div class="card-body">
@@ -159,7 +170,7 @@
         <option value="ar">Arabic</option>
       </select> -->
 
-  <!-- </div> -->
+  </div>
 
 
 </nav>

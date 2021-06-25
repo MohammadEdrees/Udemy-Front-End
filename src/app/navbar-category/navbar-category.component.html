@@ -1,0 +1,9 @@
+<nav class="navbar navbar-expand-sm navbar-light">
+    
+    <div >
+  
+      <button class="btn   text-wrap font-weight-bold" >{{category?.categoryName}}</button>
+      <button class="btn   text-wrap " *ngFor="let item of subcateg " routerLink= "/topnav/subcategory/{{item?.supCatId}}"   >{{item.supCatTitle}}</button>
+    </div>
+    </nav>
+  

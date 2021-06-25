@@ -1,10 +1,13 @@
-
 .carousel--slider-alignment{
   height:30rem !important;
  margin-bottom:0 ;
   position: static;
 
 
+}
+.carousel--slider-topic {
+  position: relative;
+  width: 100vw !important;
 }
 .carousel--slider-alignment p, .carousel--slider-alignment h3{
   margin: 0%;
@@ -24,5 +27,39 @@
  margin-bottom:0 ;
   position: static;
  }
+h1{
+  font-size:xx-large;
+}
+h3{
+  font-size: large;
+}
 
+#cours {
+  /* float: left; */
+   display:inline-block ; 
+  /* display:table-cell; */
+ }  
+#all{
+ 
+  overflow: auto;
+ 
+}
+#instructor{
+ 
+  height:22rem;
 
+}
+#img{
+ width:120px;
+ height: 60px;
+border-radius: 30px;
+ margin:0px;
+
+ 
+}
+/* button{
+  background-color: white;
+} */
+#topic{
+  width:13rem;
+}

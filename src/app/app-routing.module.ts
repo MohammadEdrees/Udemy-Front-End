@@ -20,7 +20,6 @@ import { EditInstrucrorComponent } from './edit-instrucror/edit-instrucror.compo
 import { EditStudentComponent } from './edit-student/edit-student.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CreatVideoComponent } from './creat-video/creat-video.component';
-import { ProfileComponent } from './profile/profile.component';
 import { CourseContentComponent } from './course-content/course-content.component';
 import { InstructorProfileComponent } from './instructor-profile/instructor-profile.component';
 import { StudentCoursesComponent } from './student-courses/student-courses.component';
@@ -54,10 +53,12 @@ const routes: Routes = [
       { component: LoginPageComponent, path: 'login' },
       { component: RegistrationInstructorComponent, path: 'instreg' },
       { component: RegistrationStudentComponent, path: 'studentreg' },
-      { component: CategoryComponent, path: 'category' },
+      { component: CategoryComponent, path: 'category/:categoryId' },
       { component: InstructorProfileComponent, path: 'InsProfile/:id' },
       {component:CourseContentComponent,path:'Content/:id'},
+      {component: CourseComponent, path: 'course/:crsId'},
       {component:StudentCoursesComponent,path:'StdCrs/:id'},
+      {component:EditStudentComponent,path:'editStd/:id' } ,
       { path: '', redirectTo: 'home', pathMatch: 'full' }
 
     ]

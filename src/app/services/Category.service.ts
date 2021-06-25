@@ -3,7 +3,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { Category ,SubCateg,Topic } from '../models/Category';
+import { Category ,SubCateg } from '../models/Category';
+import { Course } from '../models/Course';
+import { Section } from '../models/Section';
+import { lecture } from '../models/lecture';
+import { Topic } from '../models/Topic';
 
 
 
@@ -30,5 +34,38 @@ export class CategoryService {
     getTopicBySubId(id:number){
         return this.http.get<Topic[]>("http://localhost:28037/api/Topics/GetTopicsBySupCatId?supCatId="+id)
     }
+
+
+       getTopCategories(){
+       return this.http.get<Category[]>("http://localhost:28037/api/Categories/GetTop8Categories")
+       }
+       getCategById(id:number){
+           return this.http.get<Category>("http://localhost:28037/api/Categories/GetCategoryById?id="+id)
+       }
+       
+       getCoursesByCategId(id:number){
+           return this.http.get<Course[]>("http://localhost:28037/api/Courses/GetAllCoursesInOneCateg?id="+id)
+       }
+       getOrderedCoursesInCateg(id:number){
+          return this.http.get<Course[]>("http://localhost:28037/api/Courses/GetOrderedCoursesInCategory?id="+id)
+       }
+       getOrderedCoursesInSubCateg(id:number){
+           return this.http.get<Course[]>("http://localhost:28037/api/Courses/GetOrderedCoursesInSupCategory?id="+id)
+        }
+       getTopicsByCateg(id:number){
+           return this.http.get<Topic[]>("http://localhost:28037/api/Topics/GetTopicsInCategory?id="+id)
+       }
+       getCoursesBySubcategId(id:number){
+   
+       }
+      getcourseBycourseId(id:number){
+         return this.http.get<Course>("http://localhost:28037/api/Courses/GetCourseById?id="+id)
+      }
+      getAllsectionsByCourseId(id:number){
+          return this.http.get<Section[]>("http://localhost:28037/api/Courses/GetAllCourseSections?courseId="+id)
+      }
+      getAllLecturesBySectionId(id:number){
+       return this.http.get<lecture[]>("http://localhost:28037/api/Courses/LecuresInSection?sectionId="+id)
+   }
 
 }

@@ -4,8 +4,9 @@ import { Component, OnInit,ChangeDetectionStrategy,ViewEncapsulation} from '@ang
 import { HomeService } from '../services/home.service';
 import{Course} from '../models/Course';
 import{Topic} from '../models/Topic';
-import {Category} from '../models/categery';
+
 import { ActivatedRoute } from '@angular/router';
+import { Category } from '../models/Category';
 
 
 
@@ -19,6 +20,7 @@ import { ActivatedRoute } from '@angular/router';
 export class HomePageComponent implements OnInit {
 
   Categories=[];
+  categories:Category[]=[];
   categ:Category[]=[]
   courses:Course[] =[];
   topic:Topic[]=[];
@@ -57,7 +59,8 @@ this.activeRout.params.subscribe(
         this.homeServices.getAllCategruery().subscribe(
           a=>{
             console.log("success Categerory");
-            this.categ=a
+            this.categ=a;
+            
           },
           err=>{
             console.log("error"+ err);
@@ -96,7 +99,4 @@ this.activeRout.params.subscribe(
 
   items = Array.from({length: 30}).map((_, i) => `Item #${i}`);
 
-  GetCategories(){
-
-  }
 }

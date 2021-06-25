@@ -52,6 +52,10 @@ getToken(){
   return localStorage.getItem('token');
 }
 
+// return role ( Instructor or Student)
+getRole(){
+  return localStorage.getItem('class');
+}
 
 autoDetactUser(){
   const userToken = this.getToken();

@@ -1,7 +1,105 @@
-<div class="row" style="height: 600px;">
-    <div> 
-        
-        <h1 > Courses</h1>
+<!-- start Definition of Instructor -->
+<div id="all">
+    <br /><br />
+    <div class="container m-8 row">
+        <div class="col ml-4">
+            <h1 class="font-weight-bold">{{course?.title}}</h1>
+            <h2 class="m-0">{{course?.description}}</h2>
+            <p> created by Jose Portilla</p>
+            <button class="btn btn-warning p-1">BestSeller</button>
+            <span class="text-warning mr-3"> {{course?.rate}}</span>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <br>
+            <span>(number of using)</span>
+            <p>Price : <span>{{course?.state}}</span></p>
+        </div>
+        <!-- end Definition of Instructor -->
+        <!-- start what you learn -->
+        <div class=" col" id="card">
+            <!-- <mat-card class=" m-0" >
+      <img src="{{course?.imagePath }}" alt="Photo of a Shiba Inu" class="mb-2" id="imag">
+      
+      <mat-card-header>
+        <h1> 94.99$ </h1>
+      </mat-card-header>
+       <mat-card-actions>
+        <button  class="btn btn-danger m-1 w-100">Add To Card</button><br>
+        <button  class="btn btn-outline-info  m-1 w-100">Buy Now</button>
+      </mat-card-actions>
+      <hr style="height:0px ">
+      <mat-card-content>
+       <h1> Training 5 or more people?</h1>
+  <p>Get your team access to 5,500+ top Udemy courses anytime, anywhere. </p>
+  <button  class="btn btn-outline-info  m-1 w-100">Try Udemy For Business</button>
+      </mat-card-content>
+  
+    </mat-card> -->
+        </div>
     </div>
-    
+</div>
+<div class=" row content">
+    <div class="col p-2">
+        <h1 class="fw-bold ">What You Will Learn</h1>
+        <li>Learn to use {{course?.title}} professionally</li>
+        <li>Learn advanced{{course?.title}} features, like the collections module and how to work with timestamps!</li>
+        <li>Get an understanding of how to create GUIs in the Jupyter Notebook system!</li>
+        <li>Build an army of powerful {{course?.title}} models and know how to combine them to solve any problem</li>
     </div>
+    <div class=" m-4 col p-2">
+        <li> Build a complete understanding of{{course?.title}} Python from the ground up! </li>
+        <li>Learn to use Object Oriented Programming with classes!</li>
+        <li>Understand how to use both the Jupyter Notebook and create .py files</li>
+        <li>Have a great intuition of many {{course?.title}} models</li>
+
+    </div>
+</div>
+<!-- End what you learn -->
+<!-- start Business Udemy -->
+<div class="business overflow-auto ml-5 ">
+    <div class=" float-left ml-3">
+        <img src="../../assets/iconUdemy.ico" />
+    </div>
+    <div class="float-left ml-3">
+        <h3>Curated for the<a class="text-info"> Udemy for Business</a> collection</h3>
+    </div>
+</div>
+<!-- end Business Udemy -->
+
+<!-- Start Collapse Courses -->
+
+<div class="h3 m-5">Course content</div>
+<div class="cllapsecontainer  ml-5">
+  
+    <!-- <mat-accordion multi>
+        <mat-expansion-panel hideToggle *ngFor="let item of sections">
+            <mat-expansion-panel-header id="header">
+                <mat-panel-title class="text-dark p-6" (mouseenter)="AddLecture(item.sectionId)">
+                    <h3>{{item?.title}}</h3>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div>
+                <mat-accordion multi>
+                    <mat-expansion-panel id="panel" class="bg-white" *ngFor="let item of lectures">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title class="text-info">
+                                {{item?.title}}
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div>
+                            <h4>{{item?.description}}</h4><br>
+                            <video width="350px" height="200px" src="{{item?.link}}" controls>
+                            </video>
+
+                        </div>
+
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+
+        </mat-expansion-panel>
+
+</mat-accordion> -->
+        <!-- end Collapse Courses -->

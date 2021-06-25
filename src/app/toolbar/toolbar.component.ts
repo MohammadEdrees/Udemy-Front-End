@@ -13,5 +13,9 @@ export class ToolbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  myname: string = 'sara';
+  toggle: boolean = false;
+  genarteChar(name: string) {
+    return name.charAt(0).toUpperCase();
+  }
 }

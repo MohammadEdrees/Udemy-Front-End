@@ -4,7 +4,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Category, Topic,SubCateg } from '../models/Category';
+import { Category, SubCateg } from '../models/Category';
 
 
 import {CategoryService} from '../services/Category.service'
@@ -22,17 +22,23 @@ export class CreatVideoComponent implements OnInit {
   isEditable = true;
   clicked=true;
   // categorID!: number;
+  panelOpenState = false;
 
   categories:Category[]=[];
 
   subcateg:SubCateg []=[];
-  
+  GeneralSection=[];
+  generVide=[]
+
  _id!:number;
   // SelectCategory:any={
   //   supCatId:0,
   //   supCatTitle:""
   // }
-  constructor(private _formBuilder: FormBuilder,public categoryService:CategoryService, public ar:ActivatedRoute) {}
+  constructor(private _formBuilder: FormBuilder,public categoryService:CategoryService, public ar:ActivatedRoute) {
+  //  this.GeneralSection.push(this.GeneralSection.length);
+  //  this.generVide.push(this.generVide.length)
+  }
   Display(){
     this.clicked=false;
 
@@ -90,6 +96,12 @@ export class CreatVideoComponent implements OnInit {
 
          }
       )
+  }
+  addGenter(){
+  //  this.GeneralSection.push(this.GeneralSection.length);
+  }
+  addCreateVideo(){
+   // this.generVide.push(this.generVide.length)
   }
 
 

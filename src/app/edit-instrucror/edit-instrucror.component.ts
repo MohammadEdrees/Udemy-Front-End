@@ -83,11 +83,29 @@ imgSubmitted = false;
           this.insDetails = res;
           if(res.imagPath){
           this.url=res.imagPath;
+
+          this.editForm = new FormGroup({
+            instId:new FormControl(res['instId']),
+            fname: new FormControl(res['fname']),
+            lname:new FormControl(res['lname']),
+            phone:new FormControl(res['phone']),
+            language: new FormControl(res['language']),
+            headLine:new FormControl(res['headLine']),
+            biography: new FormControl(res['biography']),
+            address:new FormControl(res['address']),
+            mail:new FormControl(res['mail']),
+            password:new FormControl(res['password']),
+
+
+        
+          });
+
         }
           console.log(this.insDetails);
         });
     })
 
+ 
 
 
   }
@@ -113,6 +131,7 @@ imgSubmitted = false;
   // });
 
   editForm: FormGroup = new FormGroup({
+
     fname: new FormControl(''),
     lname:new FormControl(' '),
     phone:new FormControl(''),

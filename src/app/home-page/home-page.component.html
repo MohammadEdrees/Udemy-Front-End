@@ -23,6 +23,7 @@
 </div>
 <!--End Jumbo-->
 
+
 <!--Start text-->
 <div class="m-3">
   <div class="h3">
@@ -400,9 +401,9 @@
 
 
 
-
 <div class="container-fluid  d-flex justify-content-center  ">
-  <!--TopCategories-->
+
+  <!-- Start of TopCategories-->
   <div class="container  topcategdiv  ">
 
     <h1 class="topCat ml-1 ">
@@ -410,82 +411,23 @@
     </h1>
 
 
-    <div class=" parent" *ngFor="let item of categ">
-      <div class="header">
-        <img alt="design" src="https://s.udemycdn.com/home/top-categories/lohp-category-design.jpg" />
+    <div class=" parent" *ngFor="let item of categ" routerLink="/topnav/category/{{item.categoryId}}">
+      <div class="header">  
+        <img alt="design"  [src]="item.imgPath"  />
       </div>
-      <div class="footer">
-        <h3>{{item.categoryName}}</h3>
-      </div>
+      <button class="footer">
+        <h2>{{item.categoryName}}</h2>
+      </button>
     </div>
 
-    <!-- <div class=" parent">
-      <div class="header">
-        <img alt="music" src="https://s.udemycdn.com/home/top-categories/lohp-category-development.jpg" />
-      </div>
-      <div class="footer">
-        <h3>Development</h3>
-      </div>
-    </div>
 
-    <div class=" parent">
-      <div class="header">
-        <img alt="marketing" src="https://s.udemycdn.com/home/top-categories/lohp-category-marketing.jpg">
-      </div>
-      <div class="footer">
-        <h3>Markting</h3>
-      </div>
-    </div>
-
-    <div class=" parent">
-      <div class="header">
-        <img alt="it-and-software" src="https://s.udemycdn.com/home/top-categories/lohp-category-it-and-software.jpg">
-      </div>
-      <div class="footer">
-        <h3>IT and Software</h3>
-      </div>
-    </div>
-    <div class="parent">
-      <div class="header">
-        <img alt="personal-development"
-          src="https://s.udemycdn.com/home/top-categories/lohp-category-personal-development.jpg">
-      </div>
-      <div class="footer">
-        <h3>Personal Development</h3>
-      </div>
-    </div>
-
-    <div class="parent">
-      <div class="header">
-        <img alt="business" src="https://s.udemycdn.com/home/top-categories/lohp-category-business.jpg">
-      </div>
-      <div class="footer">
-        <h3>Business</h3>
-      </div>
-    </div>
-
-    <div class="parent">
-      <div class="header">
-        <img alt="photography" src="https://s.udemycdn.com/home/top-categories/lohp-category-photography.jpg">
-      </div>
-      <div class="footer">
-        <h3>Photography</h3>
-      </div>
-    </div>
-
-    <div class="parent">
-      <div class="header">
-        <img alt="music" src="https://s.udemycdn.com/home/top-categories/lohp-category-music.jpg">
-      </div>
-      <div class="footer">
-        <h3>Music</h3>
-      </div>
-    </div> -->
 
   </div>
   <!--End Of Top Categories-->
 
 </div>
+
+
 
 
 

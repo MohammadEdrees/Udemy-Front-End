@@ -26,6 +26,9 @@ import {MatStepperModule} from '@angular/material/stepper';
 
 import { CreatVideoComponent } from './creat-video/creat-video.component'
 //  import { CarouselModule } from 'ngx-owl-carousel-o';
+import {CdkAccordionModule} from '@angular/cdk/accordion';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -44,7 +47,7 @@ import { UdemyProfileComponent } from './udemy-profile/udemy-profile.component';
 import { PerformanceComponent } from './performance/performance.component';
 import { ToolsComponent } from './tools/tools.component';
 import { ResourseComponent } from './resourse/resourse.component';
-import { ProfileComponent } from './profile/profile.component';
+
 
 import { EditInstrucrorComponent } from './edit-instrucror/edit-instrucror.component';
 
@@ -56,6 +59,8 @@ import { EditStudentComponent } from './edit-student/edit-student.component';
 import { CourseContentComponent } from './course-content/course-content.component';
 import { InstructorProfileComponent } from './instructor-profile/instructor-profile.component';
 import { StudentCoursesComponent } from './student-courses/student-courses.component';
+import { FilterByTopicPipe } from './navigation-bar/filter-by-topic.pipe';
+import { NavbarCategoryComponent } from './navbar-category/navbar-category.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +78,6 @@ import { StudentCoursesComponent } from './student-courses/student-courses.compo
     PerformanceComponent,
     ToolsComponent,
     ResourseComponent,
-    ProfileComponent,
     EditInstrucrorComponent,
     FilterByInsPipe,
     FilterByCrsPipe,
@@ -82,7 +86,9 @@ import { StudentCoursesComponent } from './student-courses/student-courses.compo
     CreatVideoComponent,
     CourseContentComponent,
     InstructorProfileComponent,
-    StudentCoursesComponent
+    StudentCoursesComponent,
+    FilterByTopicPipe,
+    NavbarCategoryComponent
 
   ],
   imports: [
@@ -96,6 +102,8 @@ import { StudentCoursesComponent } from './student-courses/student-courses.compo
     HttpClientModule,
     MatMenuModule,
     MatTabsModule,
+    CdkAccordionModule,
+    MatExpansionModule,
     MatSidenavModule,
     ScrollingModule,
     CarouselModule,

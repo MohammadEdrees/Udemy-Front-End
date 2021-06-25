@@ -36,4 +36,12 @@ line-height: 1.9;
 
 }
 
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.gener{
+  background-color: rgb(228, 227, 226);
+}
+
 

@@ -20,16 +20,19 @@ export class StudentService {
 
   constructor(private http:HttpClient) { }
 
+  // get student by Id
   GetStudent(StdId:number)
   {
     return this.http.get<any>(this.api +'Students/GetStudentById?StdId='+StdId);
   }
 
+  // add new student
   PutStudent(std:Student){
 
     return this.http.post<Student>(this.api +'Students/StudentRegistration',std);
   }
 
+  // delete enroll on course
   deleteEnroll(StdId:number,crsId:number)
   {
     return this.http.delete<Course[]>(this.api +'Courses/DeleteCourseEnrollment?crsId=' + crsId +'&stdId='+ StdId );

@@ -19,6 +19,10 @@ export class NavbarService {
     return this.http.get(this.api +'Courses/GetAllCourses');
   }
 
+  GetAllTopics():Observable<any>{
+    return this.http.get(this.api +'Topics/GetAllTopics');
+  } 
+
   GetAllCategory():Observable<any>{
     return this.http.get(this.api +'Categories/GetAllCategories');
   }

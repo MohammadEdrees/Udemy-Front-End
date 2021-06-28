@@ -1,0 +1,72 @@
+.content-404 h1{
+	font-size: 30px;
+}
+
+.content-404 h2 a{
+	font-size: 20px;
+}
+.response-area .media img{
+	width: auto;
+    
+}
+
+content-404{
+    float:inline-start;
+}
+img-fluid{
+    width: 100%; 
+    height: 500px;
+}
+
+
+
+
+
+
+
+/* .logo-img img{
+    width:35px;
+}
+.logo{
+    position: relative;
+    padding: 0.5rem 0.7rem;
+    z-index: 4;
+}
+.logo a.logo-mini{
+    opacity:1;
+    float:left;
+    width:34px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 12px;
+}
+.logo a.logo-normal{
+    display: block;
+    opacity: 1;
+     -webkit-transform :translate3d(0px,0,0);
+     -moz-transform: translate3d(0px,0,0);
+     -o-transform: translate3d(0px,0,0);
+     -ms-transform: translate3d(0px,0,0);
+     transform: translate3d(0px,0,0);
+}
+.logo:after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 15;
+    height: 1px;
+    width:calc(100%-30px);
+    background:rgba(255,255,255,0.5);
+}
+.logo .simple-text{
+    text-transform:inherit;
+    padding: 0.5rem 0;
+    display:block;
+    white-space: nowrap;
+    color:#ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 30px;
+    overflow: hidden; 
+
+} */

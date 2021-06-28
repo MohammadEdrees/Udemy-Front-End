@@ -23,6 +23,8 @@ import { CreatVideoComponent } from './creat-video/creat-video.component';
 import { CourseContentComponent } from './course-content/course-content.component';
 import { InstructorProfileComponent } from './instructor-profile/instructor-profile.component';
 import { StudentCoursesComponent } from './student-courses/student-courses.component';
+import { UdemyErorrComponent } from './udemy-erorr/udemy-erorr.component';
+import { CommingSoonComponent } from './comming-soon/comming-soon.component';
 
 const routes: Routes = [
 
@@ -59,13 +61,15 @@ const routes: Routes = [
       {component: CourseComponent, path: 'course/:crsId'},
       {component:StudentCoursesComponent,path:'StdCrs/:id'},
       {component:EditStudentComponent,path:'editStd/:id' } ,
+      {component:UdemyErorrComponent,path:'erorr'},
+      {component:CommingSoonComponent,path:'comming'},
       { path: '', redirectTo: 'home', pathMatch: 'full' }
 
     ]
   },
 
   { path: "", redirectTo: "topnav", pathMatch: "full" },
-  { path: "**", redirectTo: "topnav" },
+  { path: "**", redirectTo: "topnav/erorr" },
 
   //-----------------------------------------------------
 

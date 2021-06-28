@@ -33,7 +33,7 @@ export class InstructorService {
 return this.http.get<Instructor>(this.api + 'Instructors/GetInstructorById?id=' + id);
   }
 
-  // upload image
+  // upload instructor image
   uploadImg(id:number,img:any){
 return this.http.post(this.api + 'Instructors/InsttImg/' + id , img);
   }
@@ -53,7 +53,7 @@ return this.http.post(this.api + 'Instructors/InsttImg/' + id , img);
 
   // edit instructor
   editInstructor(id:number,instructor:any){
-    return this.http.put(this.api + 'Instructors/EditInstructor/' + id , instructor);
+    return this.http.put(this.api + 'Instructors/EditInstructor?id=' + id , instructor);
   }
 
 // get all instructors by category Id

@@ -9,43 +9,44 @@ import { CourseLecture } from '../models/course-lecture';
 })
 export class CourseService {
 
-  private readonly api ='http://localhost:28037/api/'
+  private readonly api = 'http://localhost:28037/api/'
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  GetCourseById(crsId:number){
+  GetCourseById(crsId: number) {
 
-    return this.http.get<Course>(this.api +'Courses/GetCourseById?id='+crsId);
-
-  }
-  GetAllSectionsByCrsId(courseId:number):Observable<any>
-  {
-
-   
-    return this.http.get<CourseSections>(this.api +'Courses/GetAllCourseSections?courseId='+courseId);
-    
+    return this.http.get<Course>(this.api + 'Courses/GetCourseById?id=' + crsId);
 
   }
-  GetAllLecturesBySectionId(SectionId:number):Observable<any>
-  {
+  GetAllSectionsByCrsId(courseId: number): Observable<any> {
+    return this.http.get<CourseSections>(this.api + 'Courses/GetAllCourseSections?courseId=' + courseId);
+  }
+
+  GetAllLecturesBySectionId(SectionId: number): Observable<any> {
     //Generate Lectures Id
-    return this.http.get<CourseLecture[]>(this.api +'Courses/LecuresInSection?sectionId='+SectionId);
-
+    return this.http.get<CourseLecture[]>(this.api + 'Courses/LecuresInSection?sectionId=' + SectionId);
   }
 
-  GetLectureById(LecId:number)
-  {
-    return this.http.get<CourseLecture>(this.api +'Courses/GetLecture?LecID='+LecId);
-  }
-  
-  GetFirstLecture(CrsID:number):Observable<any>
-  {
-    return this.http.get<CourseLecture>(this.api+'Courses/GetFirstLectue?CrsID='+CrsID);
+  GetLectureById(LecId: number) {
+    return this.http.get<CourseLecture>(this.api + 'Courses/GetLecture?LecID=' + LecId);
   }
 
-  GetStudentCourses(id:number)
-  {
-    return this.http.get<Course[]>(this.api+'Courses/GetStudentCourses?StdId='+id);
+  GetFirstLecture(CrsID: number): Observable<any> {
+    return this.http.get<CourseLecture>(this.api + 'Courses/GetFirstLectue?CrsID=' + CrsID);
   }
 
+  GetStudentCourses(id: number) {
+    return this.http.get<Course[]>(this.api + 'Courses/GetStudentCourses?StdId=' + id);
+  }
+
+
+  // create new course 
+  addNewCourse(instId: number, course: any) {
+    return this.http.put(this.api + 'Courses/AddInstructorCourse/' + instId, course);
+  }
+
+   // upload course image
+   uploadCrsImg(id:number,img:any){
+    return this.http.put(this.api + 'Courses/CousreImageUpload/' + id , img);
+      }
 }

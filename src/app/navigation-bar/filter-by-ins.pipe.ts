@@ -7,7 +7,7 @@ import { Instructor } from '../models/Instructor';
 export class FilterByInsPipe implements PipeTransform {
 
   transform(items: Instructor[], searchText: string): Instructor[] {
-
+ 
 
     if (!items) {
       return [];

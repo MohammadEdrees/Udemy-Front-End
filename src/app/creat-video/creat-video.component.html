@@ -5,166 +5,188 @@
 </pre>
 
 <mat-horizontal-stepper linear #stepper>
-<!-- start step one -->
-  <mat-step [stepControl]="firstFormGroup" [editable]="isEditable"  >
+  <!-- start step one -->
+  <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Step 1</ng-template>
       <div class="h3 text-center m-3">
         Change The World Throw Your Ideas
       </div>
       <div class=" text-center border w-25 m-auto" (click)="Display()" required>
-        <i class="fa fa-file-video-o fa-3x mt-4 m-3 text-primary"  aria-hidden="true"></i>
+        <i class="fa fa-file-video-o fa-3x mt-4 m-3 text-primary" aria-hidden="true"></i>
         <div class="m-3 h5 Video-header">Courses</div>
-        <p class="mt-3 ml-5 mr-5 mb-5 Video-pragraph"> Create rich learning experiences with the help of video lectures , quizzes , coding exercises , etc </p>
+        <p class="mt-3 ml-5 mr-5 mb-5 Video-pragraph"> Create rich learning experiences with the help of video lectures
+          , quizzes , coding exercises , etc </p>
       </div>
       <div class="text-right mr-5">
-        <button class="btn btn-outline-default border mr-5 p-3 " matStepperNext  [disabled]="clicked" >continue</button>
+        <button class="btn btn-outline-default border mr-5 p-3 " matStepperNext [disabled]="clicked">continue</button>
       </div>
     </form>
   </mat-step>
-<!--  end step one -->
+  <!--  end step one -->
 
-<!-- start step two -->
-<!-- [stepControl]="secondFormGroup" [formGroup]="secondFormGroup" -->
-<mat-step  [editable]="isEditable" >
+  <!-- start step two -->
+  <!-- [stepControl]="secondFormGroup" [formGroup]="secondFormGroup" -->
+  <mat-step  [editable]="isEditable">
     <form >
       <ng-template matStepLabel>Step 2</ng-template>
-      <div class="h4 text-center Video-header">What Field best fits the Knowledge you'll share?  </div>
+      <div class="h4 text-center Video-header">What Field best fits the Knowledge you'll share? </div>
       <p class="text-center m-4 Video-pragraph">you can change it later , if you 're not sure</p>
 
 
-              <div class=" mb-4">
-                <!--[(ngModel)]="SelectCategory.supCatId" -->
-              <select class="form-select w-50 m-auto "  formControlName="secondCtrl"   required   >
-                <option disabled value="" selected hidden>Choose Your Category ...</option>
-                <option [value]="item.categoryId" *ngFor="let item of categories  " (selectionChange)="OnSelect(item.categoryId)" >{{item.categoryName}}</option>
+      <div class=" mb-4">
+        <!--[(ngModel)]="SelectCategory.supCatId" -->
+        <select class="form-select w-50 m-auto " formControlName="firstCtrl" (change)="onSelectCategory($event)"
+          required>
+          <option disabled value="" selected hidden>Choose Your Category ...</option>
+          <option [value]="item.categoryId" *ngFor="let item of categories">{{item.categoryName}}</option>
 
-              </select>
-            </div>
+        </select>
+      </div>
 
-              <select class="form-select w-50 m-auto"  formControlName="secondCtrl"  required >
-                <option disabled value="" selected hidden>Choose Your Supcategory ... </option>
-                <option *ngFor="let items of subcateg"  [ngValue]="items.supCatId"> {{items.supCatTitle}}</option>
+      <select class="form-select w-50 m-auto" formControlName="secondCtrl" required>
+        <option disabled value="" selected hidden>Choose Your Supcategory ... </option>
+        <option *ngFor="let items of subcateg" [value]="items?.supCatId"> {{items.supCatTitle}}</option>
 
-              </select>
+      </select>
 
 
       <!-- start button -->
       <div class="mt-5 border-top row">
-      <div class="ml-5 text-left col ">
+        <div class="ml-5 text-left col ">
 
-        <button class="btn btn-outline-default border mt-5 text-info  ml-5" mat-button matStepperPrevious>Previos</button>
+          <button class="btn btn-outline-default border mt-5 text-info  ml-5" mat-button
+            matStepperPrevious>Previos</button>
+        </div>
+        <div class=" mr-5 text-right col">
+          <button class="btn btn-outline-default border mt-5 text-secondary  ml-5" mat-button
+            matStepperNext>Continue</button>
+        </div>
       </div>
-      <div class=" mr-5 text-right col">
-        <button class="btn btn-outline-default border mt-5 text-secondary  ml-5" mat-button matStepperNext>Continue</button>
-      </div>
-    </div>
-    <!-- end button -->
+      <!-- end button -->
     </form>
   </mat-step>
   <!-- end step two -->
 
   <!-- start step three -->
-  <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
-    <form >
+  <mat-step [stepControl]="courseFormGroup" [editable]="isEditable">
+    <form [formGroup]="courseFormGroup" >
       <ng-template matStepLabel>step 3</ng-template>
-     <div class="h4 m-3 Video-header "> Course Landing page</div>
-     <hr/>
-     <label class="Video-pragraph mr-5 ml-5 ">Course title</label><br/>
-     <div class="mr-5 ml-5  mb-5 input-group ">
-      <input type="text" class="form-control w-50  " placeholder="Insert your course title"/>
-      <div class="input-group-append mr-5">
-        <span class="input-group-text mr-5">130</span>
+      <div class="h4 m-3 Video-header "> Course Landing page</div>
+      <hr />
+      <label class="Video-pragraph mr-5 ml-5 ">Course title</label><br />
+      <div class="mr-5 ml-5  mb-5 input-group ">
+        <input type="text" class="form-control w-50 " placeholder="Insert your course title" formControlName="title"
+          [(ngModel)]="title" (ngModelChange)="onTitleChange()" />
+        <div class="input-group-append mr-5">
+          <span class="input-group-text mr-5">{{titleLength}}</span>
+        </div>
       </div>
-     </div>
 
-     <label class="Video-pragraph mt-5 mr-5 ml-5 ">Course subtitle</label><br/>
-     <div class="mr-5 ml-5  input-group">
-      <input type="text" class="form-control  w-50" placeholder="Insert your course subtitle"/>
-      <div class="input-group-append mr-5">
-        <span class="input-group-text mr-5">130</span>
+      <label class="Video-pragraph mt-5 mr-5 ml-5 ">Course subtitle</label><br />
+      <div class="mr-5 ml-5  input-group">
+        <input type="text" class="form-control  w-50" placeholder="Insert your course subtitle"
+          formControlName="subtitle" [(ngModel)]="subtitle" (ngModelChange)="onSubTitleChange()" />
+        <div class="input-group-append mr-5">
+          <span class="input-group-text mr-5">{{subtitleLength}}</span>
+        </div>
       </div>
-     </div>
 
-     <label class="Video-pragraph mt-5 mr-5 ml-5 ">Course Description</label><br/>
-     <div class="mx-5 border">
-       <div class="border-bottom mt-2">
-        <i class="fa fa-bold m-3" aria-hidden="true"></i>
-        <i class="fa fa-italic m-3" aria-hidden="true"></i>
-        <i class="fa fa-list-ol m-3" aria-hidden="true"></i>
-        <i class="fa fa-list-ul m-3" aria-hidden="true"></i>
-       </div>
-       <div class="mr-5 ml-5">
-        <div class="form-group  ">
-          <label for="Insert Your Course Description " class="Video-pragraph mt-4"> Insert Your Course Description</label>
-          <textarea class="form-control text " id="Video-pragraph" rows="3" ></textarea>
+      <label class="Video-pragraph mt-5 mr-5 ml-5 ">Course Description</label><br />
+      <div class="mx-5 border">
+        <div class="border-bottom mt-2">
+          <i class="fa fa-bold mr-4 ml-1" (click)="isBold =!isBold"></i>
+          <i class="fa fa-italic" (click)="isItalic =!isItalic"></i>
         </div>
-        </div>
-     </div>
-     <label class="Video-pragraph mt-5 mr-5 ml-5 ">Basic info</label><br/>
-     <form>
-      <div class="form-row  mr-5 ml-5">
-        <div class="col">
-          <select id="inputState" class="form-select">
-            <option selected>Englis</option>
-            <option>...</option>
-          </select>
-        </div>
-        <div class="col">
-          <select id="inputState" class="form-select">
-            <option selected>Select Level</option>
-            <option>...</option>
-          </select>
-        </div>
-        <div class="col">
-          <select id="inputState" class="form-select">
-            <option selected>Select Topic</option>
-            <option>...</option>
-          </select>
+        <div class="mr-5 ml-5">
+          <div class="form-group  ">
+            <label for="Insert Your Course Description " class="Video-pragraph mt-4"> Insert Your Course
+              Description</label>
+            <textarea class="form-control border text" id="Video-pragraph" rows="3" formControlName="description"
+              [style.font-weight]="isBold ? 'bold' : 'normal'"
+              [style.font-style]="isItalic ? 'italic' : 'normal'"></textarea>
+          </div>
         </div>
       </div>
+      <label class="Video-pragraph mt-5 mr-5 ml-5 ">Basic info</label><br />
+        <div class="form-row  mr-5 ml-5">
+          <div class="col">
+            <select id="inputState" class="form-select" formControlName="languge">
+              <option value="" selected disabled>Select Languge</option>
+              <option value="Arabic">Arabic</option>
+              <option value="Bengali">Bengali</option>
+              <option value="Chinese">Chinese</option>
+              <option value="English">English</option>
+              <option value="German">German</option>
+              <option value="Hindi">Hindi</option>
+              <option value="Japanese">Japanese</option>
+              <option value="Portuguese">Portuguese</option>
+              <option value="Russian">Russian</option>
+              <option value="Spanish">Spanish</option>
+            </select>
+          </div>
+          <div class="col">
+            <select id="inputState" class="form-select" formControlName="levels">
+              <option value="" selected disabled>Select Level</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+          </div>
+          <div class="col">
+            <select id="inputState" class="form-select" formControlName="topId">
+              <option value="" selected disabled>Select Topic</option>
+              <option>...</option>
+            </select>
+          </div>
+        </div>
+    
+      <div class="form-check form-check-inline  m-5 ">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Free">
+        <label class="form-check-label mx-3" for="inlineRadio1">Free</label>
+      </div>
+      <div class="form-check form-check-inline  m-5 ">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Paid">
+        <label class="form-check-label mx-3" for="inlineRadio2">Paid</label>
+      </div>
+      <input type="text" class="form-control  w-25 ml-5" placeholder="-0.00$" formControlName="price" />
     </form>
-    <div class="form-check form-check-inline  m-5 ">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Free">
-      <label class="form-check-label mx-3" for="inlineRadio1">Free</label>
-    </div>
-    <div class="form-check form-check-inline  m-5 ">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Paid">
-      <label class="form-check-label mx-3" for="inlineRadio2">Paid</label>
-    </div>
-    <input type="text" class="form-control  w-25 ml-5" placeholder="-0.00$"/>
+      <form [formGroup]="crsImgForm">
+        <label class="Video-pragraph mt-5 mr-5 ml-5 ">Course Image</label><br />
+        <div class="row mx-5">
+          <div class="col">
+            <img [src]="url" class="w-100" alt="upload Image" />
+          </div>
+          <div class="col  ml-3">
+            <p class=" ml-3">UpLoad Your Course here. It must our course Image </p>
+            <input type="file" class="form-control   ml-3" placeholder="Upload Image" formControlName="file" id="file"
+              class="form-control" #file (change)="onSelectImg($event)" accept=".jpg,.png" />
+          </div>
+        </div>
+      </form>
 
-    <label class="Video-pragraph mt-5 mr-5 ml-5 ">Course Image</label><br/>
-    <div class="row mx-5">
-      <div class="col" >
-        <img src="../../assets/8.jpg" class="w-100" alt="upload Image"/>
+
+
+
+      <!-- start button -->
+      <div class="mt-5 border-top row">
+        <div class="ml-5 text-left col ">
+
+          <button class="btn btn-outline-default border mt-5 text-info  ml-5" mat-button
+            matStepperPrevious>Previos</button>
+        </div>
+        <div class=" mr-5 text-right col">
+          <button type="button" (click)="onSubmit(file.files)" class="btn btn-outline-default border mt-5 text-secondary  ml-5" mat-button
+            matStepperNext>Continue</button>
+        </div>
       </div>
-      <div class="col  ml-3">
-        <p class=" ml-3">UpLoad Your Course here. It must our course Image </p>
-        <input type="file" class="form-control   ml-3" placeholder="Upload Image"/>
-      </div>
-    </div>
-
-
-
-
-    <!-- start button -->
-    <div class="mt-5 border-top row">
-      <div class="ml-5 text-left col ">
-
-        <button class="btn btn-outline-default border mt-5 text-info  ml-5" mat-button matStepperPrevious>Previos</button>
-      </div>
-      <div class=" mr-5 text-right col">
-        <button class="btn btn-outline-default border mt-5 text-secondary  ml-5" mat-button matStepperNext>Continue</button>
-      </div>
-    </div>
-    <!-- end button -->
-    </form>
+      <!-- end button -->
+  
   </mat-step>
   <!-- end step three -->
 
-    <!-- start step four -->
-    <mat-step>
+  <!-- start step four -->
+  <!-- <mat-step>
       <ng-template matStepLabel>step 4</ng-template>
       <form>
         <div class="h4 m-3 Video-header ">Curriculum </div>
@@ -176,7 +198,8 @@
         <div class="m-3">
           <p class="text5 p-2"> Start Putting Together your Course by creating sections , lectures and practice(Quizzes ,codeing exercises and assignments). If you're interding to offer your course for Free , the Totle length of video content must be less than 2 hours.</p>
         </div>
-        <!-- Start dynamic div -->
+        
+
         <button class=" btn btn-outline-default border text-info  mt-5  ml-5 mb-1"(click)="addGenter()"> + new </button>
         <div class=" mx-3 gener mb-3"*ngFor="let item of GeneralSection">
           <span class="font-weight-bold m-1"> Section 1:</span>
@@ -204,9 +227,9 @@
            </mat-accordion>
            <button class=" btn btn-outline-info  border-light bg-light text-info  mt-1  ml-5 mb-1" (click)="addCreateVideo()"> + new </button>
         </div>
-        <!-- end dynamic div -->
+       
 
-         <!-- start button -->
+        
       <div class="mt-5 border-top row">
       <div class="ml-5 text-left col ">
 
@@ -216,10 +239,10 @@
         <button class="btn btn-danger mt-5  ml-5"  (click)="stepper.reset()">Submit</button>
       </div>
     </div>
-    <!-- end button -->
+   
 
       </form>
-    </mat-step>
-    <!-- end step four  (click)="stepper.reset()" -->
+    </mat-step> -->
+  <!-- end step four  (click)="stepper.reset()" -->
 
 </mat-horizontal-stepper>

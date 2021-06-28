@@ -97,14 +97,45 @@
                                         <div class="form-group ">
                                             <label for="fname">Frist Name</label>
                                             <input type="text" class="  form-control inputWidth" id="fname"
-                                                placeholder="Frist Name" [value]="insDetails?.fname" formControlName="fname">
+                                                placeholder="Frist Name" formControlName="fname"
+                                                [ngClass]="{ 'is-invalid': submitted && f2.fname.errors }">
+
+                                            <!------- First Name validation------->
+                                            <div *ngIf="submitted && f2.fname.errors"  class="invalid-feedback">
+                                                <div *ngIf="f2.fname.errors.required">
+                                                    First Name is required
+                                                </div>
+                                                <div *ngIf="f2.fname.errors.minlength">
+                                                    First Name must be at least 5 characters
+                                                </div>
+                                                <div *ngIf="f2.fname.errors.maxlength">
+                                                    First Name must be max 25 characters
+                                                </div>
+                                                <div *ngIf="f2.fname.errors.pattern">
+                                                    contain only characters
+                                                </div>
+                                            </div>
                                         </div>
 
 
                                         <div class="form-group ">
                                             <label for="lname">Last Name</label>
                                             <input type="text" class="form-control inputWidth" id="lname"
-                                                placeholder="Last Name"  [value]="insDetails?.lname" formControlName="lname">
+                                                placeholder="Last Name" formControlName="lname"
+                                                [ngClass]="{ 'is-invalid': submitted && f2.lname.errors }">
+
+                                                 <!------- Last Name validation------->
+                                            <div *ngIf="submitted && f2.lname.errors"  class="invalid-feedback">
+                                                <div *ngIf="f2.lname.errors.minlength">
+                                                    Last Name must be at least 5 characters
+                                                </div>
+                                                <div *ngIf="f2.lname.errors.maxlength">
+                                                    Last Name must be max 25 characters
+                                                </div>
+                                                <div *ngIf="f2.lname.errors.pattern">
+                                                    contain only characters
+                                                </div>
+                                            </div>
                                         </div>
 
 
@@ -114,15 +145,13 @@
 
                                                 <input type="text" class="form-control inputWidth" id="Headline"
                                                     placeholder="'Engineer at Udemy' or 'Architect'"
-                                                    [(ngModel)]="headline" maxlength="60"
-                                                    formControlName="headLine"
-                                                    (ngModelChange)="onChange()"
-                                                    [value]="insDetails?.headLine"
-                                                    >
+                                                    [(ngModel)]="headline" maxlength="60" formControlName="headLine"
+                                                    (ngModelChange)="onChange()">
                                                 <div class="input-group-append ">
                                                     <div class="input-group-text ">{{length}}</div>
                                                 </div>
                                             </div>
+
                                         </div>
 
 
@@ -141,8 +170,8 @@
                                                 class="form-control inputWidth rounded-0" id="Biography"
                                                 [style.font-weight]="isBold ? 'bold' : 'normal'"
                                                 [style.font-style]="isItalic ? 'italic' : 'normal'"
-                                                    formControlName="biography"
-                                                    [value]="insDetails?.biography" ></textarea>
+                                                formControlName="biography"
+                                                [ngClass]="{ 'is-invalid': submitted && f2.biography.errors }"></textarea>
                                             <p class="text-muted "><small>
                                                     Your biography should have at least 50 characters.</small></p>
                                         </div>
@@ -151,17 +180,18 @@
                                         <div class="form-group  ">
 
                                             <label for="Language">Language</label>
-                                            <select class="custom-select inputWidth" id="Language" >
-                                                <option value="1">Arabic</option>
-                                                <option value="2">Bengali</option>
-                                                <option value="2">Chinese</option>
-                                                <option value="3" selected>English</option>
-                                                <option value="4">German</option>
-                                                <option value="5">Hindi</option>
-                                                <option value="6">Japanese</option>
-                                                <option value="7">Portuguese</option>
-                                                <option value="8">Russian</option>
-                                                <option value="9">Spanish</option>
+                                            <select class="custom-select inputWidth" id="Language" 
+                                            formControlName="language">
+                                                <option value="Arabic">Arabic</option>
+                                                <option value="Bengali">Bengali</option>
+                                                <option value="Chinese">Chinese</option>
+                                                <option value="English">English</option>
+                                                <option value="German">German</option>
+                                                <option value="Hindi">Hindi</option>
+                                                <option value="Japanese">Japanese</option>
+                                                <option value="Portuguese">Portuguese</option>
+                                                <option value="Russian">Russian</option>
+                                                <option value="Spanish">Spanish</option>
                                             </select>
                                         </div>
 
@@ -171,18 +201,37 @@
                                         <div class="form-group ">
                                             <label for="address">Address</label>
                                             <input type="text" class="form-control inputWidth" id="address"
-                                                placeholder="Address" formControlName="address">
+                                                placeholder="Address" formControlName="address"
+                                                [ngClass]="{ 'is-invalid': submitted && f2.biography.errors }">
+
+                                                 <!------- address validation------->
+                                            <div *ngIf="submitted && f2.address.errors"  class="invalid-feedback">
+                                                <div *ngIf="f2.address.errors.minlength">
+                                                    address must be at least 4 characters
+                                                </div>
+                                                <div *ngIf="f2.address.errors.maxlength">
+                                                    address must be max 20 characters
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="form-group ">
                                             <label for="phone">Phone</label>
-                                            <input type="text" class="form-control inputWidth" id="phone"
-                                                placeholder="Phone" formControlName="phone">
+                                            <input type="text" maxlength="25" class="form-control inputWidth" id="phone"
+                                                placeholder="Phone" formControlName="phone"
+                                                [ngClass]="{ 'is-invalid': submitted && f2.phone.errors }">
+                                                
+                                                <!------- address validation------->
+                                            <div *ngIf="submitted && f2.phone.errors"  class="invalid-feedback">
+                                                <div *ngIf="f2.phone.errors.pattern">
+                                                   invalid phone number must be in form 02-0123456789 at least 7 digits
+                                                </div>
+                                            </div>  
                                         </div>
 
 
 
-                           
+
 
                                         <div class="form-group ">
                                             <label for="inlineFormInputGroup">Facebook</label>
@@ -239,30 +288,27 @@
             <div class="container mt-5">
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
-                        <form  [formGroup]="myForm" >
+                        <form [formGroup]="myForm">
                             <label class="h6">Image preview</label>
                             <div class=" mt-2 picDiv p-4 text-center rounded border img-thumbnail ">
-                                <img [src]="url" height="200px" >
+                                <img [src]="url" height="200px">
                             </div>
-                            
-                        <div class="form-group mb-3 mt-3">
-                                <input 
-                                formControlName="file"
-                                id="file" type="file" 
-                                class="form-control"  #file
-                                (change)="onSelectImg($event)" accept=".jpg,.png">
+
+                            <div class="form-group mb-3 mt-3">
+                                <input formControlName="file" id="file" type="file" class="form-control" #file
+                                    (change)="onSelectImg($event)" accept=".jpg,.png">
                             </div>
                             <div *ngIf="imgSubmitted && f.file.errors" class="alert alert-danger">
-                                <div *ngIf="f.file.errors.required">Image is required.</div> 
+                                <div *ngIf="f.file.errors.required">Image is required.</div>
                             </div>
                             <div class="alert alert-success" role="alert" *ngIf="isAlert">
                                 Image Saved Successfully <strong>100 %</strong>
-                              </div>
+                            </div>
                             <button type="submit" class="btn right-align mb-5" (click)="submitImg(file.files)"
-                            style="float: right; background-color: #EC5252; color: white;">Save</button>
-                
+                                style="float: right; background-color: #EC5252; color: white;">Save</button>
+
                         </form>
-                       
+
                     </div>
                     <div class="col-md-6">
                     </div>

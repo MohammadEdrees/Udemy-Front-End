@@ -1,7 +1,9 @@
+import { Course } from "./Course";
 
 // registeration model
 export class Instructor {
     constructor(
+      public instId:number,
       public address:string,
       public password:string,
       public imagPath:string,
@@ -15,7 +17,7 @@ export class Instructor {
       public language: string,
       public headLine: string,
       public biography: string,
-      public instId?:number
+      public courses:Course[]
     ) { }
 
 }

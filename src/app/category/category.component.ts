@@ -13,7 +13,7 @@ import { Topic } from '../models/Topic';
 
 })
 export class CategoryComponent implements OnInit {
-  category:Category | undefined;
+  category!:Category;
   courses:Course[]=[];
   subcateg:SubCateg []=[];
   Topics:Topic[]=[];
@@ -23,61 +23,65 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit(): void {
    
-    this.route.paramMap
-    .subscribe(params => {
-      let id =Number( params.get('categoryId'))|| 0;
-      console.log(id);
-      this.categoryService.getCategById(id ).subscribe(
-       (d)=>{
-         console.log(d);
-         this.category=d;
-        
-        }
-      )})
-      this.route.paramMap
-      .subscribe(params => {
-        let id =Number( params.get('categoryId'))|| 0;
-        console.log(id);
-        this.categoryService.getOrderedCoursesInCateg(id ).subscribe(
-         (d)=>{
-           console.log(d);
-           this.courses=d;
+   let id=0
+   this.route.params.subscribe(
+      a => {
+        id = a['categoryId'];
+      }
+    );
+    
 
+
+      this.categoryService.getCategById(id).subscribe(
+       d=>{
+         this.category=d;
+          console.log("Category",this.category);
+        },err =>
+        {
+          console.log("Get Categore Error",err);
         }
-        )})
-        this.route.paramMap
-        .subscribe(params => {
-          let id =Number( params.get('categoryId'))|| 0;
-          console.log(id);
+      );
+
+        this.categoryService.getOrderedCoursesInCateg(id).subscribe(
+         (d)=>{
+           this.courses=d;
+           console.log("courses",this.courses);
+        },err =>
+        {
+          console.log("Get getOrderedCoursesInCateg Error",err);
+        }
+        )
+
+
           this.categoryService.getTopicsByCateg(id ).subscribe(
            (d)=>{
-             console.log(d);
              this.Topics=d;
-  
-          }
-          )})
+            console.log("topics",this.Topics);
+          },err =>
+        {
+          console.log("Get getTopicsByCateg Error",err);
+        }
+          )
 
-          this.route.paramMap
-          .subscribe(params => {
-            let id =Number( params.get('categoryId'))|| 0;
-            console.log(id);
+ 
             this.InstructorService.GetInstructorsByCategId(id ).subscribe(
              (d)=>{
-               console.log(d);
                this.Instructors=d;
-             
-            }
-            )})
+               console.log("Instructors",this.Instructors);
+            },err =>
+        {
+          console.log("Get GetInstructorsByCategId Error",err);
+        }
+            )
           
             this.route.paramMap
             .subscribe(params => {
               let id =Number( params.get('supCatId'))|| 0;
               console.log(id);
-              this.categoryService.getOrderedCoursesInSubCateg(id ).subscribe(
+              this.categoryService.getOrderedCoursesInSubCateg(id).subscribe(
                (d)=>{
                  console.log(d);
                  this.courses=d;
-      
               }
               )})
      

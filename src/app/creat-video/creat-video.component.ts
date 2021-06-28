@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 // import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
-
 import { ActivatedRoute, Router } from '@angular/router';
-
 import { Category, SubCateg } from '../models/Category';
-
-
 import {CategoryService} from '../services/Category.service'
 import { CourseService } from './../services/course.service';
 @Component({
@@ -17,6 +13,7 @@ import { CourseService } from './../services/course.service';
   //   provide: STEPPER_GLOBAL_OPTIONS, useValue: {showError: true}
   // }]
 })
+
 export class CreatVideoComponent implements OnInit {
     firstFormGroup!: FormGroup;
   secondFormGroup!: FormGroup;

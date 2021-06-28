@@ -1,76 +1,67 @@
-#all{
-    margin-top: 60px;
-    background-color: black;
-    color: white;
-    height: 19rem;
-   
-
+#all {
+  margin-top: 60px;
+  background-color: black;
+  color: white;
+  height: 19rem;
 }
 
-mat-card{
-    width: 100%;
+mat-card {
+  width: 100%;
 }
-#card{
-  
-    height: 40rem;
-    width: 15vw;
-    margin-left: 20rem;
+#card {
+  height: 40rem;
+  width: 15vw;
+  margin-left: 20rem;
 }
-#imag{
-    width: 100%;
+#imag {
+  width: 100%;
 }
-.content{
-    margin: 3rem;
-    border: 1px solid rgb(236, 233, 233);
-    background-color:#fbfbf8;
-    padding:20px;
-    width: 50%;
-    height: 60%;
-    text-align:left;
-    border-radius: 5px;
-   
+.content {
+  margin: 3rem;
+  border: 1px solid rgb(236, 233, 233);
+  background-color: #fbfbf8;
+  padding: 20px;
+  width: 50%;
+  height: 60%;
+  text-align: left;
+  border-radius: 5px;
 }
-li{
-    margin-top: 2px;
+li {
+  margin-top: 2px;
 }
-.business{ 
-  
-    border: 1px solid rgb(248, 248, 248) ;
-    background-color:#fbfbf8;
-    padding:10px;
-    width: 50%;
-    border: 1px solid rgb(236, 233, 233);
-    border-radius: 5px;
-
-   
+.business {
+  border: 1px solid rgb(248, 248, 248);
+  background-color: #fbfbf8;
+  padding: 10px;
+  width: 50%;
+  border: 1px solid rgb(236, 233, 233);
+  border-radius: 5px;
 }
 .example-action-buttons {
-    padding-bottom: 20px;
-   
-  }
-  
-  .example-headers-align .mat-expansion-panel-header-title,
-  .example-headers-align .mat-expansion-panel-header-description {
-    flex-basis: 0;
-  }
-  
-  .example-headers-align .mat-expansion-panel-header-description {
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .example-headers-align .mat-form-field + .mat-form-field {
-    margin-left: 8px;
-  }
-  .cllapsecontainer{
-      width: 50%;
-    
-  }
-  mat-expansion-panel{
-    border: 1px solid rgb(226, 220, 220) ;
-    background-color:#fbfbf8;
+  padding-bottom: 20px;
+}
 
-  }
-  #panel,#header{
-    background-color: white;
-  }
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+.cllapsecontainer {
+  width: 50%;
+}
+mat-expansion-panel {
+  border: 1px solid rgb(226, 220, 220);
+  background-color: #fbfbf8;
+}
+#panel,
+#header {
+  background-color: white;
+}

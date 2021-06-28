@@ -6,8 +6,8 @@ export class CourseSections {
         public sectionId: number,
         public title: string,
         public crsId: number,
-        public course: Course,
-        public courseLecture:CourseLecture[]
+        public course?: Course,
+        public courseLecture?:CourseLecture[]
     ) { }
 
 }

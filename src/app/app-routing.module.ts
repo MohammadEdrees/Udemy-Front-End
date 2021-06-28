@@ -23,8 +23,11 @@ import { CreatVideoComponent } from './creat-video/creat-video.component';
 import { CourseContentComponent } from './course-content/course-content.component';
 import { InstructorProfileComponent } from './instructor-profile/instructor-profile.component';
 import { StudentCoursesComponent } from './student-courses/student-courses.component';
+import { UploadCourseComponent } from './upload-course/upload-course.component';
+
 import { UdemyErorrComponent } from './udemy-erorr/udemy-erorr.component';
 import { CommingSoonComponent } from './comming-soon/comming-soon.component';
+
 
 const routes: Routes = [
 
@@ -40,11 +43,12 @@ const routes: Routes = [
       { component: ResourseComponent, path: 'resourse' },
       { component: CreatVideoComponent, path: "pre/CreatVideo" },
       {component:EditInstrucrorComponent,path:'editIns/:id' } ,
-
       { path: '', redirectTo: 'pre', pathMatch: 'full' }
 
     ]
   },
+
+  {component:UploadCourseComponent,path:'ManageCourse/:id'},
 
   //------------------ topnav router outlet -----------------
   {
@@ -60,8 +64,7 @@ const routes: Routes = [
       {component:CourseContentComponent,path:'Content/:id'},
       {component: CourseComponent, path: 'course/:crsId'},
       {component:StudentCoursesComponent,path:'StdCrs/:id'},
-      {component:EditStudentComponent,path:'editStd/:id' } ,
-      {component:UdemyErorrComponent,path:'erorr'},
+      {component:EditStudentComponent,path:'editStd/:id' } , 
       {component:CommingSoonComponent,path:'comming'},
       { path: '', redirectTo: 'home', pathMatch: 'full' }
 
@@ -69,7 +72,7 @@ const routes: Routes = [
   },
 
   { path: "", redirectTo: "topnav", pathMatch: "full" },
-  { path: "**", redirectTo: "topnav/erorr" },
+  { path: "**", component:UdemyErorrComponent },
 
   //-----------------------------------------------------
 

@@ -51,6 +51,7 @@ export class InstructorProfileComponent implements OnInit {
       b => {
         this.courses = b;
         console.log(b);
+
       }
     );
   }

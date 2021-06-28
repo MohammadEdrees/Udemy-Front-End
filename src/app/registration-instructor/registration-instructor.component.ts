@@ -41,7 +41,7 @@ export class RegistrationInstructorComponent implements OnInit {
   hide = true;
   errorMessage: string = '';
   //new Object 
-  newInstructor: Instructor = new Instructor('', '', '', 0, '', '', '', '', '', '', '', '', '');
+  newInstructor: Instructor = new Instructor(0,'', '', '', 0, '', '', '', '', '', '', '', '', '',[]);
 
   //assign icons
   faUser = faUser;

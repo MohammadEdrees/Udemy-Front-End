@@ -1,1 +1,111 @@
-<p>upload-course works!</p>
+<div class="body">
+  <div class="container">
+    <div class="h4 m-3 Video-header">Curriculum </div>
+    <hr />
+
+
+    <div class="m-3">
+      <p class="text5">Welcome <b>" {{course.instructor.fname}} {{course.instructor.lname}} "</b></p>
+      <p class="text5">Manage your <b>{{course.title}}</b> course</p>
+      <p class="text5">There is {{course.studentCourses.length}} students enrolled in your course</p>
+    </div>
+
+    <div class="alert  alert-primary alert-dismissible fade show" role="alert">
+      <p>Here's Where you add course content -like lecture ,course sections,assignments,and more, Click a +icon on the
+        right to get start.</p>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+
+    <div class="m-3">
+      <p class="text5 p-2"> Start Putting Together your Course by creating sections , lectures and practice(Quizzes
+        ,codeing exercises and assignments). If you're interding to offer your course for Free , the Totle length of
+        video content must be less than 2 hours.</p>
+    </div>
+
+    <!-- Start dynamic div -->
+
+    <div *ngFor="let section of crsSections;index as i">
+      <div class=" mx-3 gener mb-3">
+        <span class="font-weight-bold m-1 lead"> Section {{i+1}} : {{section.title}}</span>
+        <span><i class="fa fa-trash" style="font-size:20px;color:red;margin: 10px;"
+            (click)="deleteSection(section.sectionId)"></i></span>
+        <button class=" btn btn-outline-info  border-light bg-light text-info  mt-1  ml-5 mb-1"
+          (click)="addLecture(section.sectionId)"> + Lecture </button>
+
+        <div *ngFor="let lect of crsLectures;index as x">
+          <div *ngIf="section.sectionId == lect.sectionId">
+            <span class="font-weight-bold m-1"> lecture {{x+1}} : {{lect.title}}</span>
+            <span><i class="fa fa-trash" style="font-size:20px;color:red;margin: 10px;"
+                (click)="deleteLecture(lect.lectureId)"></i></span>
+
+            <!--<span><i class="fa fa-file-video-o m-2" aria-hidden="true"></i></span>
+            <button class=" btn btn-outline-info  border-light bg-light text-info  mt-1  ml-5 mb-1"
+              (click)="uploadVideo()"> + Upload Video </button>-->
+
+            <!-- Start of upload video -->
+
+            <div class="col-12 Video-header">
+              <div class="row">
+                <div >
+                  <form [formGroup]="myForm">
+                    <label class="h6">Upload Lecture Video</label>
+
+                    
+                    <div class=" mt-2  p-4 text-center rounded border img-thumbnail "  *ngIf="lect.link!=''">  
+
+                      <video *ngIf="lect.link!=null" class="col-12" controls>
+                        <source [src]="lect.link" type="video/mp4" />
+                      </video>
+                      
+                    </div>
+                  
+
+                    <div class="form-group mb-3 mt-3">
+                      <input formControlName="file" id="file" type="file" class="form-control" #file
+                        (change)="onSelectVideo($event)"
+                        accept=".mp4">
+                    </div>
+
+                    <div *ngIf="imgSubmitted && f.file.errors" class="alert alert-danger">
+                      <div *ngIf="f.file.errors.required"> Is required.</div>
+                    </div>
+
+                    <div class="alert alert-primary" role="alert" *ngIf="isProgress">
+                      Uploading Your Video ......
+                    </div>
+
+                    <div class="alert alert-success" role="alert" *ngIf="isAlert">
+                      Video Saved Successfully <strong>100 %</strong>
+                    </div>
+
+                    <div class="alert alert-primary" role="alert" *ngIf="isError">
+                      Something Went Wrong , Please Try later !
+                    </div>
+
+
+                    <button type="submit" class="btn right-align mb-5" (click)="submitVideo(file.files,lect.lectureId)"
+                      style="float: right; background-color: #EC5252; color: white;">Save</button>
+
+                  </form>
+
+                </div>
+              </div>
+            </div>
+            <!--End Of Upload Video -->
+
+          </div>
+        </div>
+
+      </div>
+      <!-- end dynamic div -->
+    </div>
+    <div class="row p-5">
+    <input type="text" class="form-control col-8" placeholder="Your Section Title" [(ngModel)]='newsection.title'>
+    <button class="btn btn-outline-default border text-info ml-3 col-3"  (click)="addSection(course.crsId) "> +
+      Section </button>
+    </div>
+  </div>
+</div>

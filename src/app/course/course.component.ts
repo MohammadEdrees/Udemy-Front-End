@@ -9,6 +9,8 @@ import {MatAccordion} from '@angular/material/expansion';
 import { Section } from '../models/Section';
 import { lecture } from '../models/lecture';
 import { Topic } from '../models/Topic';
+import { Observable } from 'rxjs';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-course',
@@ -17,13 +19,23 @@ import { Topic } from '../models/Topic';
 })
 export class CourseComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute,private categoryService:CategoryService,private InstructorService:InstructorService,public ar:ActivatedRoute) { 
+  constructor(private loginService: LoginService,
+    private categoryService:CategoryService,
+    private InstructorService:InstructorService,
+    public ar:ActivatedRoute) { 
    
   }
+
   course:Course | undefined;
   sections:Section[]=[];
   lectures:lecture[]=[];
   step = 0;
+
+  login: boolean = false; // return observable
+  isLoggedIn: Observable<boolean> | undefined;
+  loginId = Number(localStorage.getItem('LoginedId'));
+
+
    //  get  Lectures by section Id
   AddLecture(_id:number){
     console.log(_id);
@@ -39,9 +51,10 @@ export class CourseComponent implements OnInit {
        }
     )
   }
+  
   ngOnInit(): void {
 
-    this.route.paramMap
+    this.ar.paramMap
     .subscribe(params => {
       let id =Number( params.get('crsId'))|| 0;
       console.log(id);
@@ -53,7 +66,7 @@ export class CourseComponent implements OnInit {
       )
     })
          //  get All Sections
-         this.route.paramMap
+         this.ar.paramMap
          .subscribe(params => {
            let id =Number( params.get('crsId'))|| 0;
            console.log(id);
@@ -64,9 +77,14 @@ export class CourseComponent implements OnInit {
            }
            )
          })
-        
- 
-  }
+      
+          this.loginService.isLoggedIn.subscribe((d: any) => {
+            this.login = d;
+            console.log("is login :", this.login);
+            let loginId = Number(localStorage.getItem('LoginedId'));           
+          });
+        }  
+
 
   @ViewChild(MatAccordion)accordion: MatAccordion | undefined;
 

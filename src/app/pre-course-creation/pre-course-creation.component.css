@@ -1,3 +1,25 @@
+h1{
+    font-family: sf pro display,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+    font-weight: 550;
+    line-height: 1.2;
+    letter-spacing: -.02rem;
+    font-size: 2rem;
+    margin: 0px;
+    padding: 4px;
+}
+#btn{
+    margin-left: 48rem;
+}
+#content{
+    margin:2rem;
+    border:lightgray 1px solid;
+    height: 9rem;
+}
+
+.container{
+    background-color: white;
+    height: 100%;
+}
 .h{
     text-align: center;
     margin: 0px auto;
@@ -57,7 +79,7 @@
     right: 15;
     height: 1px;
     width:calc(100%-30px);
-    background:rgba(255,255,255,0.5);
+    background:white;
 }
 .logo .simple-text{
     text-transform:inherit;

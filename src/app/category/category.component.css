@@ -63,3 +63,41 @@ border-radius: 30px;
 #topic{
   width:13rem;
 }
+.cardbord{
+  display:flex;
+  border:2px solid red;
+  background-color: lightgreen;
+  width: 20%;
+  height: 50%;
+  border-radius: 7%;
+}
+.crd{
+  width:20%;
+  height:20%;
+  padding-right: 5px;
+  border:2px solid burlywood;
+  background-color: lightsalmon;
+  border-radius: 7%;
+  overflow-x: scroll;
+
+}
+.mCard{
+  height: 50%;
+  width: 50%;
+  margin-right: 1%;
+  padding: .5%;
+  border: 1px solid red ;
+
+}
+.carouselcontainer{
+  margin-top: 17vh;
+  height: 70%;
+  width: 100%;
+  background-color: rgb(116, 135, 136);
+  border : 1px solid orchid;
+}
+.img{
+  width: 150px;
+  height: 150px;
+}
+

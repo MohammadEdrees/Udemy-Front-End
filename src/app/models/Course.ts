@@ -1,3 +1,4 @@
+import { CourseSections } from "./course-sections";
 import { Instructor } from "./Instructor"; 
 import { StudentCourses } from "./student-courses";
 
@@ -21,6 +22,7 @@ export class Course {
         public courseVideos :any,
         public cardId :number,
         public shoppingCard :any,
+        public courseSections:CourseSections[],
         public instructor:Instructor 
     ) { }
 

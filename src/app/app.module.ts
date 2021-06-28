@@ -61,6 +61,10 @@ import { InstructorProfileComponent } from './instructor-profile/instructor-prof
 import { StudentCoursesComponent } from './student-courses/student-courses.component';
 import { FilterByTopicPipe } from './navigation-bar/filter-by-topic.pipe';
 import { NavbarCategoryComponent } from './navbar-category/navbar-category.component';
+import { UploadCourseComponent } from './upload-course/upload-course.component';
+import { UdemyErorrComponent } from './udemy-erorr/udemy-erorr.component';
+import { CommingSoonComponent } from './comming-soon/comming-soon.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,7 +92,10 @@ import { NavbarCategoryComponent } from './navbar-category/navbar-category.compo
     InstructorProfileComponent,
     StudentCoursesComponent,
     FilterByTopicPipe,
-    NavbarCategoryComponent
+    NavbarCategoryComponent,
+    UploadCourseComponent,
+    UdemyErorrComponent,
+    CommingSoonComponent
 
   ],
   imports: [

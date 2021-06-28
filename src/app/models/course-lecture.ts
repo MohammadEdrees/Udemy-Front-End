@@ -4,11 +4,11 @@ export class CourseLecture {
     constructor(
         public lectureId: number,
         public title: string,
-        public description: number,
-        public duration: string,
+        public description: string,
+        public duration: number,
         public link:string,
         public sectionId:number,
-        public courseSection:CourseSections
+        public courseSection?:CourseSections
     )
     { }
 

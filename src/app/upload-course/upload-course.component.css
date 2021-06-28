@@ -1,0 +1,52 @@
+ 
+
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 100px;
+    border:solid whitesmoke;
+    border-radius: 2%;
+    background-color: white;
+    box-shadow:whitesmoke 10px 10px 20px;
+}
+  .Video-header{
+    background-color: white;
+    border-radius: 2%;
+    align-items: center;
+    width: 98%;
+    margin: 5px 5px 5px 5px;
+    padding: auto;
+    padding-top: 10px;
+  }
+  
+  .Video-pragraph{
+    color:#999;
+  
+  }
+  
+  
+  .text{
+     border: 1px solid #fff;
+  }
+  .text:focus{
+    border: 1px solid #fff;
+  }
+
+  .video
+  {
+     width:min-content;
+  }
+  
+  .text5{
+    font-size: medium;
+   line-height: 1.9; 
+  }
+  
+  .gener{
+    background-color:whitesmoke;
+    border-radius: 2%;
+    padding: 8px;
+  }
+  
+  
+  

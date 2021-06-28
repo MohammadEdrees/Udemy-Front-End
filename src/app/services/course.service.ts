@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Course } from '../models/Course';
 import { CourseSections } from '../models/course-sections';
 import { CourseLecture } from '../models/course-lecture';
+import { lecture } from '../models/lecture';
 @Injectable({
   providedIn: 'root'
 })
@@ -46,6 +47,43 @@ export class CourseService {
   GetStudentCourses(id:number)
   {
     return this.http.get<Course[]>(this.api+'Courses/GetStudentCourses?StdId='+id);
+  }
+
+  GetCourseSections(id:number)
+  {
+    return this.http.get<CourseSections[]>(this.api+'Courses/GetCourseSections?crsId='+id);
+
+  }
+
+  AddCourseSection(CrsId:number,courseSection:CourseSections)
+  {
+    return this.http.put<CourseSections[]>(this.api+'Courses/AddCourseSection/'+CrsId,courseSection);
+  }
+
+  AddSectionLecture(sectionId:number,sectionLecture:CourseLecture)
+  {
+    return this.http.put<CourseLecture[]>(this.api+'Courses/AddLecture/'+ sectionId ,sectionLecture);
+  }
+
+
+  GetCourseLectures(id:number)
+  {
+    return this.http.get<CourseLecture[]>(this.api+'Courses/GetCourseLectures?crsId='+id);
+  }
+
+  DeleteCourseSection(crsId:number,secId:number)
+  {
+    return this.http.delete<CourseSections[]>(this.api+'Courses/DeleteCourseSection?crsId='+crsId+'&secId='+secId);
+  }
+
+  DeleteSectionLectures(courseId:number,lectId:number)
+  {
+      return this.http.delete<CourseLecture[]>(this.api+'Courses/DeleteSectionLecture?crsId='+courseId+'&lectId='+lectId) ;
+  }
+
+  UploadLectureVideo(lectId:number,video:FormData)
+  {
+    return this.http.put<CourseLecture[]>(this.api+'Courses/Upload/'+lectId,video)
   }
 
 }

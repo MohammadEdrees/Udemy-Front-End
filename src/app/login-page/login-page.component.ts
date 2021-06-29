@@ -63,7 +63,7 @@ errorMessage: string = '';
        this.loginService.loggedIn.next(true)
 
         if (data?._Class=="student"){
-          this.router.navigate(['editStd'])
+          this.router.navigate(['topnav/editStd'])
         } else if (data?._Class=="instructor"){
           this.router.navigate(['home'])
         }

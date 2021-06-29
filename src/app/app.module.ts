@@ -64,6 +64,7 @@ import { NavbarCategoryComponent } from './navbar-category/navbar-category.compo
 import { UploadCourseComponent } from './upload-course/upload-course.component';
 import { UdemyErorrComponent } from './udemy-erorr/udemy-erorr.component';
 import { CommingSoonComponent } from './comming-soon/comming-soon.component';
+import { CourseComponent } from './course/course.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import { CommingSoonComponent } from './comming-soon/comming-soon.component';
     NavbarCategoryComponent,
     UploadCourseComponent,
     UdemyErorrComponent,
-    CommingSoonComponent
+    CommingSoonComponent,
+    CourseComponent
 
   ],
   imports: [

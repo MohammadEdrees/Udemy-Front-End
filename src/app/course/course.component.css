@@ -2,7 +2,8 @@
   margin-top: 60px;
   background-color: black;
   color: white;
-  height: 19rem;
+  /* height: 19rem; */
+  height: 60vh;
 }
 
 mat-card {
@@ -64,4 +65,7 @@ mat-expansion-panel {
 #panel,
 #header {
   background-color: white;
+}
+.courseTitle{
+  font-size: 5vw;
 }

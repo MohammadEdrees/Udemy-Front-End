@@ -3,17 +3,17 @@
   <br /><br />
   <div class="container m-8 row">
     <div class="col ml-4">
-      <h1 class="font-weight-bold">{{ course?.title }}</h1>
+      <h1 class="font-weight-bold  text-truncate courseTitle">{{ course?.title }}</h1>
       <h2 class="m-0">{{ course?.description }}</h2>
-      <p>created by Jose Portilla</p>
-      <button class="btn btn-warning p-1">BestSeller</button>
+      <p>created by : {{course?.instructor?.fname}}</p>
+      <button class="btn btn-warning p-1">Rising Star</button>
       <span class="text-warning mr-3"> {{ course?.rate }}</span>
-      <i class="fa fa-star text-warning mr-1"></i>
+      <i class="fa fa-star text-warning mr-1" ></i>
       <i class="fa fa-star text-warning mr-1"></i>
       <i class="fa fa-star text-warning mr-1"></i>
       <i class="fa fa-star text-warning mr-1"></i>
       <br />
-      <span>(number of using)</span>
+      <span>{{course?.studentCourses?.length}} Students are Enrolled </span>
       <p>
         Price : <span>{{ course?.state }}</span>
       </p>
@@ -25,7 +25,7 @@
 
     <!-- start what you learn -->
     <div class="col" id="card">
-      <!-- <mat-card class=" m-0" >
+     <!-- <mat-card class=" m-0" >
         <img src="{{course?.imagePath }}" alt="Photo of a Shiba Inu" class="mb-2" id="imag">
         
         <mat-card-header>
@@ -42,17 +42,21 @@
     <button  class="btn btn-outline-info  m-1 w-100">Try Udemy For Business</button>
         </mat-card-content>
     
-      </mat-card> -->
-
+      </mat-card>  -->
+      <!-- src="https://firebasestorage.googleapis.com/v0/b/udemy-3c633.appspot.com/o/data%2Ff17.jpg?alt=media&token=ddc7e99a-7b73-4166-acdd-a14e93e3e6c7" -->
       <div class="card" style="width: 18rem">
         <img
-          src="https://firebasestorage.googleapis.com/v0/b/udemy-3c633.appspot.com/o/data%2Ff17.jpg?alt=media&token=ddc7e99a-7b73-4166-acdd-a14e93e3e6c7"
+        src="{{course?.imagePath }}"  class="mb-2"
           class="card-img-top" alt=" Course Image must be here " />
 
         <div class="card-body d-inline justify-content-center">
-          <div class="container border">
-            <a href="#" class="btn btn-danger w-100">Enroll</a>
+          <div class="container border"  *ngIf="login && role =='student'" >
+            <button class="btn btn-danger w-100" #enroll (click)="Enroll(t)" #t  [disabled]='enrolled' > Enroll</button>
           </div>
+
+         <div class="text text-danger" *ngIf='alert'>
+           Enrolled
+         </div>
 
         </div>
       </div>
@@ -108,7 +112,7 @@
 <div class="h3 m-5">Course content</div>
 
 <div class="cllapsecontainer ml-5">
-  <div class="accordion" id="accordionExample">
+  <!-- <div class="accordion" id="accordionExample">
     <div class="card">
       <div class="card-header" id="headingOne">
         <h2 class="mb-0">
@@ -127,11 +131,11 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" >
       <div class="card-header" id="headingOne">
         <h2 class="mb-0">
           <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"  *ngFor="let item of sections">
             Section2
           </button>
         </h2>
@@ -146,9 +150,9 @@
     </div>
 
 
-  </div>
+  </div> -->
 
-  <!-- <mat-accordion multi>
+   <mat-accordion multi>
           <mat-expansion-panel hideToggle *ngFor="let item of sections">
               <mat-expansion-panel-header id="header">
                   <mat-panel-title class="text-dark p-6" (mouseenter)="AddLecture(item.sectionId)">
@@ -176,9 +180,20 @@
   
           </mat-expansion-panel>
   
-  </mat-accordion> -->
+  </mat-accordion> 
   <!-- end Collapse Courses -->
 
 
 
 </div>
+<!-- 
+
+  this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/following']);
+      });
+     }
+  )
+
+    }
+
+ -->

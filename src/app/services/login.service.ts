@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Student } from '../models/Student';
 import { Instructor } from './../models/Instructor';
 import { Router } from '@angular/router';
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class LoginService {
   constructor(private http:HttpClient , private router: Router) { }
 
   private readonly api ='http://localhost:28037/api/'
-
+ helper = new JwtHelperService();
   public loggedIn = new BehaviorSubject<boolean>(false); // {1}
   isAuthenticated: boolean =false;
 
@@ -37,7 +38,7 @@ logout(){
 
   this.loggedIn.next(false);
   this.isAuthenticated =false;
-  this.router.navigate(['/login']);
+ // this.router.navigate(['topnav/login']);
 }
 
 
@@ -58,10 +59,14 @@ getRole(){
 }
 
 autoDetactUser(){
-  const userToken = this.getToken();
-  if (userToken) {
+  const userToken = this.getToken()?.toString();
+  console.log('is expired',this.helper.isTokenExpired(userToken));
+
+  if (!this.helper.isTokenExpired(userToken)) {
     this.isAuthenticated = true;
     this.loggedIn.next(true);
+  }else{
+    this.logout();
   }
 }
 

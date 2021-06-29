@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { Category ,SubCateg } from '../models/Category';
@@ -17,6 +17,23 @@ import { Topic } from '../models/Topic';
 
 
 export class CategoryService {
+    
+    // Bearer token in header 
+    private getHeader( incommingHeaders?: HttpHeaders ): { headers: HttpHeaders; } {
+
+
+        return {
+            headers: incommingHeaders
+                ? incommingHeaders
+                : new HttpHeaders({
+                      Authorization:
+                          "Bearer " + localStorage.getItem("token"),
+      
+                  })
+        };
+      }
+
+
     getAll(){
      return this.http.get<Category[]>("http://localhost:28037/api/Categories/GetAllCategories")
     }
@@ -27,6 +44,7 @@ export class CategoryService {
         return this.http.get<SubCateg[]>("http://localhost:28037/api/SupCats/GetSupCategoryByCategoryId?id="+id)
     }
     constructor(private http:HttpClient) { }
+
     // getSubSelect(id:number){
     //   return this.http.get<SubCateg[]>("http://localhost:28037/api/SupCats/GetSupCategoryByCategoryId/"+id);
     // }

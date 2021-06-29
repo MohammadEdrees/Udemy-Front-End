@@ -29,7 +29,8 @@ export class NavigationBarComponent implements OnInit {
     public ar: ActivatedRoute,                     // Activate Route
     public loginService: LoginService,             // login
     private instrucrorService: InstructorService,  // instructor
-    private studentService :StudentService         // student
+    private studentService :StudentService  ,
+    private router:Router       // student
     ) { }
 
   searchText: string = '';
@@ -190,5 +191,6 @@ isImg:boolean=false;
   // logout 
   logout() {
     this.loginService.logout();
+    this.router.navigate(['home']);
   }
 }

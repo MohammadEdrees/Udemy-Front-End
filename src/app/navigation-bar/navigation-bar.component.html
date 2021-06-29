@@ -49,7 +49,7 @@
 
       
       <mat-autocomplete #auto="matAutocomplete" class="mt-4">
-        <mat-option *ngFor="let option of Topics | filterByTopic:searchText;" [value]="option">
+        <mat-option *ngFor="let option of Topics | filterByTopic:searchText;" [value]="option.topName">
           <i class="fa fa-search fa-sm fa-fw text-info"></i> {{option.topName}}
         </mat-option>
         <mat-option *ngFor="let option of Instructors | filterByIns:searchText;" [value]="option.fname" 
@@ -57,7 +57,7 @@
         >
           <fa-icon [icon]="faUser" class="fa-sm fa-fw text-info"></fa-icon> {{option.fname}}
         </mat-option>
-        <mat-option *ngFor="let option of Courses | filterByCrs:searchText;" [value]="option">
+        <mat-option *ngFor="let option of Courses | filterByCrs:searchText;" [value]="option.title">
           <fa-icon [icon]="faFile" class="fa-sm fa-fw text-info"></fa-icon> {{option.title}}
         </mat-option>
       </mat-autocomplete>

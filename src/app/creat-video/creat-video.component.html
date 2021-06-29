@@ -26,9 +26,9 @@
   <!--  end step one -->
 
   <!-- start step two -->
-  <!-- [stepControl]="secondFormGroup" [formGroup]="secondFormGroup" -->
-  <mat-step  [editable]="isEditable">
-    <form >
+  <!-- [stepControl]="secondFormGroup"-->
+  <mat-step [editable]="isEditable">
+    <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Step 2</ng-template>
       <div class="h4 text-center Video-header">What Field best fits the Knowledge you'll share? </div>
       <p class="text-center m-4 Video-pragraph">you can change it later , if you 're not sure</p>
@@ -44,7 +44,8 @@
         </select>
       </div>
 
-      <select class="form-select w-50 m-auto" formControlName="secondCtrl" required>
+      <select class="form-select w-50 m-auto" formControlName="secondCtrl" required
+        (change)="onSelectSubCategory($event)">
         <option disabled value="" selected hidden>Choose Your Supcategory ... </option>
         <option *ngFor="let items of subcateg" [value]="items?.supCatId"> {{items.supCatTitle}}</option>
 
@@ -70,7 +71,7 @@
 
   <!-- start step three -->
   <mat-step [stepControl]="courseFormGroup" [editable]="isEditable">
-    <form [formGroup]="courseFormGroup" >
+    <form [formGroup]="courseFormGroup">
       <ng-template matStepLabel>step 3</ng-template>
       <div class="h4 m-3 Video-header "> Course Landing page</div>
       <hr />
@@ -109,79 +110,99 @@
         </div>
       </div>
       <label class="Video-pragraph mt-5 mr-5 ml-5 ">Basic info</label><br />
-        <div class="form-row  mr-5 ml-5">
-          <div class="col">
-            <select id="inputState" class="form-select" formControlName="languge">
-              <option value="" selected disabled>Select Languge</option>
-              <option value="Arabic">Arabic</option>
-              <option value="Bengali">Bengali</option>
-              <option value="Chinese">Chinese</option>
-              <option value="English">English</option>
-              <option value="German">German</option>
-              <option value="Hindi">Hindi</option>
-              <option value="Japanese">Japanese</option>
-              <option value="Portuguese">Portuguese</option>
-              <option value="Russian">Russian</option>
-              <option value="Spanish">Spanish</option>
-            </select>
-          </div>
-          <div class="col">
-            <select id="inputState" class="form-select" formControlName="levels">
-              <option value="" selected disabled>Select Level</option>
-              <option value="Beginner">Beginner</option>
-              <option value="Intermediate">Intermediate</option>
-              <option value="Advanced">Advanced</option>
-            </select>
-          </div>
-          <div class="col">
-            <select id="inputState" class="form-select" formControlName="topId">
-              <option value="" selected disabled>Select Topic</option>
-              <option>...</option>
-            </select>
-          </div>
+      <div class="form-row  mr-5 ml-5">
+        <div class="col">
+          <select id="inputState" class="form-select" formControlName="languge">
+            <option value="" selected disabled>Select Languge</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Bengali">Bengali</option>
+            <option value="Chinese">Chinese</option>
+            <option value="English">English</option>
+            <option value="German">German</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Portuguese">Portuguese</option>
+            <option value="Russian">Russian</option>
+            <option value="Spanish">Spanish</option>
+          </select>
         </div>
-    
+        <div class="col">
+          <select id="inputState" class="form-select" formControlName="levels">
+            <option value="" selected disabled>Select Level</option>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+        </div>
+        <div class="col">
+          <select id="inputState" class="form-select" formControlName="topId">
+            <option disabled value="" selected hidden>Select Topic</option>
+            <option *ngFor="let items of topics" [value]="items?.topId">{{items.topName}}</option>
+
+          </select>
+
+
+
+
+
+        </div>
+      </div>
+
       <div class="form-check form-check-inline  m-5 ">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Free">
+        <input class="form-check-input" type="radio" value=0 name="inlineRadioOptions" id="inlineRadio1"
+          (change)="changeMethod($event)">
         <label class="form-check-label mx-3" for="inlineRadio1">Free</label>
       </div>
       <div class="form-check form-check-inline  m-5 ">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Paid">
+        <input class="form-check-input" type="radio" value=1 name="inlineRadioOptions" (change)="changeMethod($event)"
+          id="inlineRadio2">
         <label class="form-check-label mx-3" for="inlineRadio2">Paid</label>
       </div>
-      <input type="text" class="form-control  w-25 ml-5" placeholder="-0.00$" formControlName="price" />
+      <div *ngIf="showInput">
+        <input type="text" class="form-control  w-25 ml-5 " placeholder="-0.00$" formControlName="price" />
+      </div>
     </form>
-      <form [formGroup]="crsImgForm">
-        <label class="Video-pragraph mt-5 mr-5 ml-5 ">Course Image</label><br />
-        <div class="row mx-5">
-          <div class="col">
-            <img [src]="url" class="w-100" alt="upload Image" />
-          </div>
-          <div class="col  ml-3">
-            <p class=" ml-3">UpLoad Your Course here. It must our course Image </p>
-            <input type="file" class="form-control   ml-3" placeholder="Upload Image" formControlName="file" id="file"
-              class="form-control" #file (change)="onSelectImg($event)" accept=".jpg,.png" />
-          </div>
+    <form [formGroup]="crsImgForm">
+      <label class="Video-pragraph mt-5 mr-5 ml-5 ">Course Image</label><br />
+      <div class="row mx-5">
+        <div class="col">
+          <img [src]="url" class="w-100" alt="upload Image" />
         </div>
-      </form>
-
-
-
-
-      <!-- start button -->
-      <div class="mt-5 border-top row">
-        <div class="ml-5 text-left col ">
-
-          <button class="btn btn-outline-default border mt-5 text-info  ml-5" mat-button
-            matStepperPrevious>Previos</button>
-        </div>
-        <div class=" mr-5 text-right col">
-          <button type="button" (click)="onSubmit(file.files)" class="btn btn-outline-default border mt-5 text-secondary  ml-5" mat-button
-            matStepperNext>Continue</button>
+        <div class="col  ml-3">
+          <p class=" ml-3">UpLoad Your Course here. It must our course Image </p>
+          <input type="file" class="form-control   ml-3" placeholder="Upload Image" formControlName="file" id="file"
+            class="form-control" #file (change)="onSelectImg($event)" accept=".jpg,.png" />
         </div>
       </div>
-      <!-- end button -->
-  
+    </form>
+
+
+
+
+    <!-- start button -->
+    <div class="mt-5 border-top row">
+      <div class="ml-5 text-left col ">
+
+        <button class="btn btn-outline-default border mt-5 text-info  ml-5" mat-button
+          matStepperPrevious>Previos</button>
+      </div>
+      <div class=" mr-5 text-right col">
+        <button type="button" (click)="onSubmit(file.files)"
+          class="btn btn-outline-default border mt-5 text-secondary  ml-5" mat-button matStepperNext>Create</button>
+          <div *ngIf="loader" class="spinner-border text-secondary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div *ngIf="success" class="alert mt-3 alert-success alert-dismissible fade show" role="alert">
+            <h4 class="mb-2">Course Created Successfly</h4>
+            <a class="btn btn-light" [routerLink]="['/ManageCourse/',courseId]"> Build your Course Now </a>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+    </div>
+    <!-- end button -->
+
   </mat-step>
   <!-- end step three -->
 

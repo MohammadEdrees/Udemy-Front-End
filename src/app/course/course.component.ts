@@ -63,16 +63,16 @@ export class CourseComponent implements OnInit {
 
 
   Enroll(t: any) {
-    // this.studentService.AddEnroll(this.course?.crsId, this.loginId).subscribe(
-    //   d => {
-    //     this.course = d;
-    //     t.disabled = true;
-    //     this.alert = true;
-    //     console.log("enrolled", this.course.studentCourses.length);
-    //   }, err => {
-    //   console.log("error enrolled");
-    // }
-    // )
+    this.studentService.AddEnroll(this.course?.crsId, this.loginId).subscribe(
+      d => {
+        this.course = d;
+        t.disabled = true;
+        this.alert = true;
+        console.log("enrolled", this.course.studentCourses.length);
+      }, err => {
+      console.log("error enrolled");
+    }
+    )
   }
 
   ngOnInit(): void {

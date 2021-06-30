@@ -22,7 +22,7 @@ export class CreatVideoComponent implements OnInit {
 
 
   isEditable = true;
-  clicked = true;
+  clicked:boolean = true;
   // categorID!: number;
   panelOpenState = false;
 
@@ -34,7 +34,8 @@ export class CreatVideoComponent implements OnInit {
 
   selectedCategoryId: number | undefined
   selectedSubCategoryId: number | undefined
-
+ moveToStep3:boolean=false;
+ submitSuccess:boolean=false;
 
   _id!: number;
   // SelectCategory:any={
@@ -101,6 +102,7 @@ export class CreatVideoComponent implements OnInit {
           d => {
             console.log(d);
             this.subcateg = d;
+            
           }
         )
 
@@ -118,6 +120,7 @@ export class CreatVideoComponent implements OnInit {
           d => {
             console.log('topics ', d);
             this.topics = d;
+            this.moveToStep3=true;
 
           }
         )
@@ -173,22 +176,29 @@ export class CreatVideoComponent implements OnInit {
   }
 
   insId: number = Number(localStorage.getItem('LoginedId'));
+  submitted = false;
+  imgSubmitted=false;
 
   courseFormGroup: FormGroup = new FormGroup({
-
-    title: new FormControl(''),
-    description: new FormControl(''),
-    paymentMethod: new FormControl(0),
-    languge: new FormControl(''),
-    levels: new FormControl(''),
-    subtitle: new FormControl(''),
-    rate: new FormControl(4),
-    state: new FormControl('free'),
-    topId: new FormControl(''),
+    title: new FormControl('', [Validators.required, Validators.minLength(5),Validators.maxLength(51)]),
+    description: new FormControl('',[Validators.required, Validators.minLength(5),Validators.maxLength(100)]),
+    paymentMethod: new FormControl('' ,[Validators.required]),
+    languge: new FormControl('',[Validators.required]),
+    levels: new FormControl('',[Validators.required]),
+    subtitle: new FormControl('',[Validators.required, Validators.minLength(5),Validators.maxLength(60)]),
+    rate: new FormControl(0),
+    state: new FormControl('unpublished'),
+    topId: new FormControl('',[Validators.required]),
     instId: new FormControl(this.insId),
     price: new FormControl(''),
 
   });
+
+  // form 
+  get f() { return this.courseFormGroup.controls; }
+
+  //img form
+  get f2() { return this.crsImgForm.controls; }
 
   loader: boolean = false;
   success: boolean = false;
@@ -196,14 +206,31 @@ export class CreatVideoComponent implements OnInit {
 
 
   onSubmit(files: any) {
+    this.submitted = true;
+    this.imgSubmitted=true;
+    // stop here if form is invalid
+    if (this.courseFormGroup.invalid) {
+      console.log("invalid create course form");
+      return;
+    }
+    if (this.crsImgForm.invalid) {
+      console.log("invalid img course form");
+      return;
+    }
+
+
+this.submitSuccess=true;
+
+
     this.success=false;
     let uploadImage = <File>files[0];
     const formData = new FormData();
     formData.append('file', uploadImage, uploadImage.name);
 
-    // console.log(this.courseFormGroup.value);
+    console.log(this.courseFormGroup.value);
     if (this.showInput == false) {
       this.courseFormGroup.value.price = 0;
+      
     }
     this.loader = true;
     this.courseService.addNewCourse(this.insId, this.courseFormGroup.value).subscribe(
@@ -220,6 +247,8 @@ export class CreatVideoComponent implements OnInit {
             this.loader = false;
           }
         )
+      },err=>{
+        this.loader = false;
       }
     )
   }
@@ -234,10 +263,14 @@ export class CreatVideoComponent implements OnInit {
     let v = e.target.value;
     if (v == 0) {
       this.showInput = false;
+      this.f.price.clearValidators();
     }
     if (v == 1) {
       this.showInput = true;
+      this.f.price.setValidators(Validators.required);
     }
+
+    this.f.price.updateValueAndValidity();
   }
 
 

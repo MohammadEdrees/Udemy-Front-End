@@ -5,7 +5,7 @@
 
 
     <div class="m-3">
-      <p class="text5">Welcome <b>" {{course.instructor.fname}} {{course.instructor.lname}} "</b></p>
+      <p class="text5">Welcome <b>" {{course?.instructor?.fname}} {{course?.instructor?.lname}} "</b></p>
       <p class="text5">Manage your <b>{{course.title}}</b> course</p>
       <p class="text5">There is {{course.studentCourses.length}} students enrolled in your course</p>
     </div>

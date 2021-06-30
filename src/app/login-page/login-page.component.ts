@@ -65,7 +65,7 @@ errorMessage: string = '';
         if (data?._Class=="student"){
           this.router.navigate(['topnav/editStd'])
         } else if (data?._Class=="instructor"){
-          this.router.navigate(['home'])
+          this.router.navigate(['topnav/home'])
         }
         // this.router.navigate(['login'])
       }, err => {

@@ -191,6 +191,6 @@ isImg:boolean=false;
   // logout 
   logout() {
     this.loginService.logout();
-    this.router.navigate(['home']);
+    this.router.navigate(['topnav/home']);
   }
 }

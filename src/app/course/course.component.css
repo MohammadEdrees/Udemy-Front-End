@@ -4,6 +4,7 @@
   color: white;
   /* height: 19rem; */
   height: 60vh;
+  
 }
 
 mat-card {
@@ -13,9 +14,11 @@ mat-card {
   height: 40rem;
   width: 15vw;
   margin-left: 20rem;
+
 }
 #imag {
   width: 100%;
+
 }
 .content {
   margin: 3rem;
@@ -26,6 +29,7 @@ mat-card {
   height: 60%;
   text-align: left;
   border-radius: 5px;
+
 }
 li {
   margin-top: 2px;
@@ -66,6 +70,6 @@ mat-expansion-panel {
 #header {
   background-color: white;
 }
-.courseTitle{
-  font-size: 5vw;
+.courseInfo{
+  margin-left:18%
 }

@@ -43,12 +43,14 @@ const routes: Routes = [
       { component: ResourseComponent, path: 'resourse' },
       { component: CreatVideoComponent, path: "pre/CreatVideo" },
       {component:EditInstrucrorComponent,path:'editIns/:id' } ,
+  {component:UploadCourseComponent,path:'ManageCourse/:id'},
+
       { path: '', redirectTo: 'pre', pathMatch: 'full' }
 
     ]
   },
 
-  {component:UploadCourseComponent,path:'ManageCourse/:id'},
+  // {component:UploadCourseComponent,path:'ManageCourse/:id'},
 
   //------------------ topnav router outlet -----------------
   {

@@ -1,5 +1,5 @@
 #all {
-  margin-top: 60px;
+  margin-top: 70px;
   background-color: black;
   color: white;
   /* height: 19rem; */
@@ -12,8 +12,8 @@ mat-card {
 }
 #card {
   height: 40rem;
-  width: 15vw;
-  margin-left: 20rem;
+  /* width: 15vw; */
+  /* margin-left: 20rem; */
 
 }
 #imag {

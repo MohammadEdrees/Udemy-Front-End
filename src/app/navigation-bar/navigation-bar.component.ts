@@ -104,6 +104,8 @@ isImg:boolean=false;
     )
 
 
+ 
+
     this.loginService.isLoggedIn.subscribe(
       (d: any) => {
         this.login = d;
@@ -155,6 +157,20 @@ isImg:boolean=false;
   }
 
 
+  GoToInstructorProfile(instId:number)
+  {
+     this.router.navigateByUrl('/home', { skipLocationChange: false }).then(() => {
+          this.router.navigate(['/topnav/InsProfile/',instId]);
+     });
+  }
+
+  GoToCourse(crsId:number){
+    this.router.navigateByUrl('/home', { skipLocationChange: false }).then(() => {
+      this.router.navigate(['/topnav/course/',crsId]);
+ });
+  }
+
+
   AddId(_id: number) {
     console.log(_id);
     this.ar.params.subscribe(
@@ -191,6 +207,6 @@ isImg:boolean=false;
   // logout 
   logout() {
     this.loginService.logout();
-    this.router.navigate(['topnav/home']);
+    this.router.navigate(['topnav/login']);
   }
 }

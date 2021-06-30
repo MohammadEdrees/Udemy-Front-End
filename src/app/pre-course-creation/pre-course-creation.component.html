@@ -13,7 +13,7 @@
 <br>
 
 <!-- Start Manage Course -->
-<div class="row "id="content"  [routerLink]="['/ManageCourse/',item.crsId]" *ngFor="let item of courses">
+<div class="row "id="content"  [routerLink]="['../ManageCourse/',item.crsId]" *ngFor="let item of courses">
   <div class="col row" >
     <div class="col p-0">
     <img width="240" height="140rem" src="{{item.imagePath}}">

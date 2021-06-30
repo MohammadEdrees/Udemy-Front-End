@@ -6,6 +6,7 @@ import { StudentService } from '../services/student.service';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Student } from '../models/Student';
+import { LoginService } from './../services/login.service';
 
 @Component({
   selector: 'app-registration-student',
@@ -20,7 +21,8 @@ export class RegistrationStudentComponent implements OnInit {
  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,7}.com$";
 
   
-  constructor(private student:StudentService,private router: Router) { }
+  constructor(private student:StudentService,private router: Router,
+   private loginService:LoginService) { }
 
   registerForm: FormGroup = new FormGroup({
     studentCourses:new FormControl(),
@@ -59,6 +61,8 @@ export class RegistrationStudentComponent implements OnInit {
   submit() {
 
     this.submitted = true;
+    this.errorMessage='';
+
     // stop here if form is invalid
     if (this.registerForm.invalid) {
 
@@ -74,7 +78,7 @@ export class RegistrationStudentComponent implements OnInit {
       this.student.PutStudent(this.newStudent).subscribe(
         data => {
           console.log(data);
-          // this.router.navigate(['login'])
+         this.router.navigate(['topnav/login'])
         }, err => {
           console.log(err);
           this.errorMessage = err.error;

@@ -1,8 +1,11 @@
 <!-- start Definition of Instructor -->
-<div id="all">
+<div class="container">
+
+<div class="row" >
   <br /><br />
-  <div class="container m-8 row  ">
-    <div class="col ml-4">
+  <div  id="all">
+  <div class=" m-auto w-100 d-flex row border border-warning  ">
+    <div class="col-lg-9 col-sm-12 border border-danger  ">
       <h1 class="font-weight-bold  text-truncate ">{{ course?.title }}</h1>
       <h2 class="m-0 mb-2">{{ course?.description }}</h2>
       <p><b>Created by :</b><a routerLink="/topnav/InsProfile/{{course?.instructor?.instId}}"> {{course?.instructor?.fname}} {{course?.instructor?.lname}}</a></p>
@@ -26,7 +29,7 @@
 
     <!-- start what you learn -->
     <!---->
-    <div class="col" id="card">
+    <div class="col-lg-3 col-sm-12 border border-info" id="card">
      <mat-card class=" m-0" >
         <img src="{{course?.imagePath }}" alt="Photo of a Shiba Inu" class="mb-2" id="imag">
         
@@ -55,11 +58,13 @@
      
     </div>
   </div>
+  </div>
 </div>
 
 
-<div class="row content">
-  <div class="col p-2">
+<div class=" row border border-success content d-lg-block d-sm-none">
+  <div class="row">
+  <div class="col-lg-6 col-sm-6 ">
     <h1 class="fw-bold">What You Will Learn</h1>
     <li>Learn to use {{ course?.title }} professionally</li>
     <li>
@@ -74,7 +79,7 @@
       combine them to solve any problem
     </li>
   </div>
-  <div class="m-4 col p-2">
+  <div class=" col-lg-6 col-sm-6 ">
     <li>
       Build a complete understanding of{{ course?.title }} Python from the
       ground up!
@@ -86,11 +91,12 @@
     <li>Have a great intuition of many {{ course?.title }} models</li>
   </div>
 </div>
+</div>
 <!-- End what you learn -->
 
 
 <!-- start Business Udemy -->
-<div class="business overflow-auto ml-5">
+<!-- <div class="business overflow-auto ml-5">
   <div class="float-left ml-3">
     <img src="../../assets/iconUdemy.ico" />
   </div>
@@ -99,14 +105,14 @@
       Curated for the<a class="text-info" routerLink="comming"> Udemy for Business</a> collection
     </h3>
   </div>
-</div>
+</div> -->
 <!-- end Business Udemy -->
 
 <!-- Start Collapse Courses -->
+<div class="row">
+<div class="h3 mt-lg-0 mt-sm-5">Course content</div>
 
-<div class="h3 m-5">Course content</div>
-
-<div class="cllapsecontainer ml-5">
+<div class=" cllapsecontainer ml-5">
    <mat-accordion multi>
           <mat-expansion-panel hideToggle *ngFor="let item of sections">
               <mat-expansion-panel-header id="header">
@@ -141,9 +147,9 @@
 
 
 </div>
+</div>
 
-
-
+</div>
 
 <!--Refresh Page-->
 <!-- 

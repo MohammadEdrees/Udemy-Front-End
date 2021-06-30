@@ -13,14 +13,13 @@
     </div>
     <div class="row">
         <div *ngFor="let course of courses" class="col-12 col-md-6 col-lg-4  p-2"
-        [routerLink]="['Content/',course.crsId]"
         >
-          <div class="card card-border-none">
-            <img class="card-img-top img-fluid" 
+          <div class="card card-border-none" >
+            <img class="card-img-top img-fluid"  height="200px"  [routerLink]="['/topnav/Content/',course.crsId]" 
             [src]="course.imagePath!= null? course.imagePath : CourseImgUrl"
             />
             <div class="card-body">
-              <h3 class="card-title">{{course.title}}</h3>
+              <h3 class="card-title"  [routerLink]="['/topnav/Content/',course.crsId]" >{{course.title}}</h3>
               <div class="card-text">
                 <span class="text-warning mr-3"> 4.5</span>
                 <i class="fa fa-star text-warning mr-1"></i>
@@ -29,11 +28,39 @@
                 <i class="fa fa-star text-warning mr-1"></i>
                 <i class="fa fa-star text-warning m-1"></i>
                 <span>{{course.studentCourses.length}}</span>
-                
-                <span><i class="fa fa-trash" style="font-size:20px;color:red;margin: 10px;" (click)="deleteEnroll(course.crsId)"></i></span>
+                <!-- (click)="deleteEnroll(course.crsId)" -->
+                <span><i class="fa fa-trash" style="font-size:20px;color:red;margin: 10px;" 
+                  data-toggle="modal" data-target="#exampleModalCenter"></i></span>
               </div>
             </div>
           </div>
+
+          
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLongTitle">Delete {{course.title}} </h3 >
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-danger">
+       <p class="b"> Are you sure you want to delete ? </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" (click)="deleteEnroll(course.crsId)" data-dismiss="modal">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
         </div>
       </div>
 </div>
+
+
+

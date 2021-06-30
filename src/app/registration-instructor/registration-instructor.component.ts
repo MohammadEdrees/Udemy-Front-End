@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { faUser, faLock, faEnvelope, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { Instructor } from '../models/Instructor';
 import { InstructorService } from '../services/instructor.service';
@@ -17,7 +18,7 @@ export class RegistrationInstructorComponent implements OnInit {
   pwdPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,20}$";
 
   // add FormBuilder to constructor to suit password strength bar
-  constructor(private instructorService: InstructorService) { }
+  constructor(private instructorService: InstructorService , private router:Router) { }
 
   registerForm: FormGroup = new FormGroup({
 
@@ -56,6 +57,7 @@ export class RegistrationInstructorComponent implements OnInit {
   // submit function
   submit() {
     this.submitted = true;
+    this.errorMessage='';
     // stop here if form is invalid
     if (this.registerForm.invalid) {
 
@@ -71,7 +73,7 @@ export class RegistrationInstructorComponent implements OnInit {
       this.instructorService.AddInstructor(this.newInstructor).subscribe(
         data => {
           console.log(data);
-          // this.router.navigate(['login'])
+         this.router.navigate(['topnav/login'])
         }, err => {
           this.errorMessage = err.error;
         }

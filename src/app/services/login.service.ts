@@ -38,7 +38,7 @@ logout(){
 
   this.loggedIn.next(false);
   this.isAuthenticated =false;
- // this.router.navigate(['topnav/login']);
+  //this.router.navigate(['/topnav/login']);
 }
 
 

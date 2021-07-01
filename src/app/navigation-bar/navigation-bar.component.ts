@@ -137,7 +137,7 @@ isImg:boolean=false;
                 this.user = res;
                 this.char = res?.fname?.charAt(0).toUpperCase();
                 this.isStudent=true;
-                if(res.imagPath!=null){
+                if(res.imagePath!=null){
                   this.isImg=true;
                 }
               }
@@ -169,6 +169,13 @@ isImg:boolean=false;
       this.router.navigate(['/topnav/course/',crsId]);
  });
   }
+
+  GoTotopics(topId:number){
+    this.router.navigateByUrl('/home', { skipLocationChange: false }).then(() => {
+      this.router.navigate(['/topnav/topic/',topId]);
+ });
+  }
+  
 
 
   AddId(_id: number) {

@@ -65,6 +65,7 @@ import { UploadCourseComponent } from './upload-course/upload-course.component';
 import { UdemyErorrComponent } from './udemy-erorr/udemy-erorr.component';
 import { CommingSoonComponent } from './comming-soon/comming-soon.component';
 import { CourseComponent } from './course/course.component';
+import { DesignTopicComponent } from './design-topic/design-topic.component';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import { CourseComponent } from './course/course.component';
     UploadCourseComponent,
     UdemyErorrComponent,
     CommingSoonComponent,
-    CourseComponent
+    CourseComponent,
+    DesignTopicComponent
 
   ],
   imports: [

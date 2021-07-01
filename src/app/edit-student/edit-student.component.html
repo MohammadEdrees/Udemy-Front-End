@@ -1,1 +1,223 @@
-<p>edit-student works!</p>
+<div class="container bootstrap snippet border rounded p-4" id="container">
+    <div class="row">
+        <div class="col-sm-3 border border-top-0 border-bottom-0 border-left-0 ">
+            <!--left col-->
+
+
+            <div class="text-center">
+                <img [src]="profileImageUrl" class="avatar rounded-circle img-thumbnail" alt="avatar">
+                <h1 class="m-2">{{stdDetails?.fname}} {{stdDetails?.lname}}</h1>
+                <div class="panel panel-default">
+                    <div class="panel-body">{{stdDetails?.mail}}</div>
+                </div>
+            </div>
+            <hr><br>
+
+
+
+
+
+            <ul class="list-group">
+                <li class="list-group-item text-muted ">Activity <i class="fa fa-dashboard p-2"></i></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>courses</strong></span>
+                    {{stdDetails?.studentCourses?.length}}</li>
+            </ul>
+
+
+
+        </div>
+        <!--/col-3-->
+        <div class="col-sm-9">
+
+
+
+
+            <mat-tab-group mat-align-tabs="start" color="accent">
+                <!-- Start Profile setting  -->
+                <mat-tab label="Udemy Profile">
+                    <div class="mt-5">
+
+                        <form [formGroup]="editForm" (ngSubmit)="editFormSubmit()">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <!-- left inputs  -->
+                                            <div class="col-md-12">
+                                                <div class="form-group ">
+                                                    <label for="fname">Frist Name</label>
+                                                    <input type="text" class="  form-control inputWidth" id="fname"
+                                                        placeholder="Frist Name" formControlName="fname"
+                                                        [ngClass]="{ 'is-invalid': submitted && f2.fname.errors }">
+
+                                                    <!------- First Name validation------->
+                                                    <div *ngIf="submitted && f2.fname.errors" class="invalid-feedback">
+                                                        <div *ngIf="f2.fname.errors.required">
+                                                            First Name is required
+                                                        </div>
+                                                        <div *ngIf="f2.fname.errors.minlength">
+                                                            First Name must be at least 5 characters
+                                                        </div>
+                                                        <div *ngIf="f2.fname.errors.maxlength">
+                                                            First Name must be max 25 characters
+                                                        </div>
+                                                        <div *ngIf="f2.fname.errors.pattern">
+                                                            contain only characters
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group ">
+                                                    <label for="lname">Last Name</label>
+                                                    <input type="text" class="form-control inputWidth" id="lname"
+                                                        placeholder="Last Name" formControlName="lname"
+                                                        [ngClass]="{ 'is-invalid': submitted && f2.lname.errors }">
+
+                                                    <!------- Last Name validation------->
+                                                    <div *ngIf="submitted && f2.lname.errors" class="invalid-feedback">
+                                                        <div *ngIf="f2.lname.errors.minlength">
+                                                            Last Name must be at least 5 characters
+                                                        </div>
+                                                        <div *ngIf="f2.lname.errors.maxlength">
+                                                            Last Name must be max 25 characters
+                                                        </div>
+                                                        <div *ngIf="f2.lname.errors.pattern">
+                                                            contain only characters
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <div class="form-group ">
+                                                    <label for="address">Address</label>
+                                                    <input type="text" class="form-control inputWidth" id="address"
+                                                        placeholder="Address" formControlName="address"
+                                                        [ngClass]="{ 'is-invalid': submitted && f2.address.errors }">
+
+                                                    <!------- address validation------->
+                                                    <div *ngIf="submitted && f2.address.errors"
+                                                        class="invalid-feedback">
+                                                        <div *ngIf="f2.address.errors.minlength">
+                                                            address must be at least 4 characters
+                                                        </div>
+                                                        <div *ngIf="f2.address.errors.maxlength">
+                                                            address must be max 20 characters
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group ">
+                                                    <label for="phone">Phone</label>
+                                                    <input type="text" maxlength="25" class="form-control inputWidth"
+                                                        id="phone" placeholder="Phone" formControlName="phone"
+                                                        [ngClass]="{ 'is-invalid': submitted && f2.phone.errors }">
+
+                                                    <!------- address validation------->
+                                                    <div *ngIf="submitted && f2.phone.errors" class="invalid-feedback">
+                                                        <div *ngIf="f2.phone.errors.pattern">
+                                                            invalid phone number must be in form 02-0123456789 at least
+                                                            7 digits
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn right-align ml-2"
+                                    style="float: right; background-color: #EC5252; color: white;">Save</button>
+                                <div class="row mt-2 ">
+                                    <div *ngIf="editloader" class="spinner-border text-secondary" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                    <div *ngIf="savedSuccess"
+                                        class="alert mt-3 alert-success alert-dismissible fade show m-auto"
+                                        role="alert">
+                                        <h4 class="mb-2">Data Saved Successfully</h4>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </mat-tab>
+                <!-- End Profile setting  -->
+
+                <!-- Start Profile Picture  -->
+                <mat-tab label="Profile Picture">
+                    <div class="container mt-5">
+                        <div class="row">
+                            <div class=" col-sm-12">
+                                <form [formGroup]="myForm">
+                                    <label class="h6">Image preview</label>
+                                    <div class=" mt-2 picDiv p-4 text-center rounded border img-thumbnail ">
+                                        <img [src]="url" height="200px">
+                                    </div>
+
+                                    <div class="form-group mb-3 mt-3">
+                                        <input formControlName="file" id="file" type="file" class="form-control" #file
+                                            (change)="onSelectImg($event)" accept=".jpg,.png">
+                                    </div>
+                                    <div *ngIf="imgSubmitted && f.file.errors" class="alert alert-danger">
+                                        <div *ngIf="f.file.errors.required">Image is required.</div>
+                                    </div>
+                                    <div *ngIf="imageloader" class="spinner-border text-secondary" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                    <div class="alert alert-success" role="alert" *ngIf="isAlert">
+                                        Image Saved Successfully <strong>100 %</strong>
+                                    </div>
+                                    <button type="submit" class="btn right-align mb-5" (click)="submitImg(file.files)"
+                                        style="float: right; background-color: #EC5252; color: white;">Save</button>
+
+                                </form>
+
+                            </div>
+                            <div class="col-md-6">
+                            </div>
+                        </div>
+                    </div>
+
+                </mat-tab>
+                <!-- End Profile Picture  -->
+
+
+                <!-- Start Close account  -->
+                <mat-tab label="Close Account">
+                    <div class="container mt-5">
+                        <div class="row">
+
+                            <div class=" col-sm-12 text-center border border-left-0 border-top-0 border-right-0">
+                                <p class="h4 b">Close Account</p>
+                                <p class="text-muted ">Close your account permanently.</p>
+                            </div>
+
+                            <div class=" col-sm-12 p-5 ">
+                                <p>Close Your Account</p>
+                                <p><strong class=" text-danger"> Warning : </strong> If you close your account, you will
+                                    be
+                                    unsubscribed from your {{stdDetails?.studentCourses?.length}} course, and will lose
+                                    access forever.</p>
+                                <button class="btn btn-outline-danger">Close Account</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </mat-tab>
+                <!-- End Close account  -->
+            </mat-tab-group>
+
+        </div>
+        <!--/col-9-->
+    </div>
+    <!--/row-->

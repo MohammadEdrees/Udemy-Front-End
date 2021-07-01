@@ -7,11 +7,9 @@ h1{
     margin: 0px;
     padding: 4px;
 }
-#btn{
-    margin-left: 48rem;
-}
+
 #content{
-    margin:2rem;
+    /* margin:2rem; */
     border:lightgray 1px solid;
     height: 9rem;
 }

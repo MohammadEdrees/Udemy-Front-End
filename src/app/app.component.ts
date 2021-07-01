@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ClientSide';
+
+
+  onActivate(e:any){
+    //window.scroll(0,0);
+    document.body.scrollTop = 0;
+  }
 }

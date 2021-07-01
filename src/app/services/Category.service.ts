@@ -86,4 +86,5 @@ export class CategoryService {
        return this.http.get<lecture[]>("http://localhost:28037/api/Courses/LecuresInSection?sectionId="+id)
    }
 
+ 
 }

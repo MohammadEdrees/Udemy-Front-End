@@ -1,69 +1,74 @@
-<div class="container " ><pre>    
+<div class="container ">
+  <pre>
 </pre>
-<div class="row-fluid " >
-  <div class="overflow-auto ml-5" >
-    <div class="float-left">
-<h1>Courses</h1>
-</div>
-<div class="float-left  " id="btn">
-<button  routerLink="CreatVideo" class="btn btn-danger ">New course</button>
-</div>
+  <div class="row-fluid ">
 
-</div>
-<br>
+    <div class="row mb-5 mt-3 ">
+      <div class="col-9 float-left p-3">
+        <h1>Courses</h1>
+      </div>
+      <div class="col-3 float-left mt-3">
+        <button routerLink="CreatVideo" class="btn btn-danger btn-lg  mt-5"> New Course</button>
+      </div>
 
-<!-- Start Manage Course -->
-<div class="row "id="content"  [routerLink]="['../ManageCourse/',item.crsId]" *ngFor="let item of courses">
-  <div class="col row" >
-    <div class="col p-0">
-    <img width="240" height="140rem" src="{{item.imagePath}}">
     </div>
-    <div class="col" >
-    <h3 class="mt-3 font-weight-bold">{{item.title}}</h3>
-    <h3 class="mt-5 font-weight-bold">Draft</h3>
-  </div>
-  </div>
-  <div class="col mt-5">
-  <h2><a  class="text-info "  >Edit Or Manage Course</a></h2>
-  </div>
-</div>
-<!-- End Manage Course -->
+    <br>
 
-<h3 class="h m-5">Based on your experience, we think these resources will be helpful.</h3>
-<br>
-<br>
-
-<div class="card" style="height: 20rem; width: 150;">
-  <div class="card-body" style="height:100px;">
-    <h2 class="card-title"> Create an Engaging Course</h2>
-    <div class="logo-img2">
-      <img  class="card-img-top" src="../../assets/icon2.PNG">
-
-    <p class="hh">Whether you've been teaching for years or are teaching for the first time, you can
-      <p class="hh">make an engaging course.We've compiled resources and best practices to help you</p>
-        <p class="hh">  get to the next level, no matter where you're starting
-        
-          <br><a routerLink="/preCourseCreation" >get started</a></p>
+    <!-- Start Manage Course -->
+    <div class="row m-2" id="content" [routerLink]="['../ManageCourse/',item.crsId]" *ngFor="let item of courses">
+      <div class="col row">
+        <div class="col p-0">
+          <img width="240" height="140rem" src="{{item.imagePath}}">
         </div>
-  </div>
-  
-</div>
-<br>
-<div class="card container m-2">
-  <div class="row">
-    <div class="col">
-  <div class="card-body">
-    <h2 class="card-title" > Get Started with Video</h2>
-    <p class="hh">Quality video lectures can set your course apart. Use our resources to learn the basics..<br> <a routerLink="/preCourseCreation" >get started</a></p>   
-  </div>
+        <div class="col">
+          <h3 class="mt-3 font-weight-bold">{{item.title}}</h3>
+          <h3 class="font-weight-bold">{{item.subtitle}}}</h3>
+        </div>
+      </div>
+      <div class="col mt-5">
+        <h2><a class="text-info ">Edit / Manage Course</a></h2>
+      </div>
     </div>
-    <div class="col">
-  <div class="card-body">
-    <h2 class="card-title" >Build Your Audience</h2>
-    <p class="hh">Set your course up for success by building your audience.<br> <a routerLink="/preCourseCreation" >get started</a></p>  
-  </div>
+    <!-- End Manage Course -->
+
+    <h3 class="h m-5">Based on your experience, we think these resources will be helpful.</h3>
+    <br>
+    <br>
+
+    <div class="card" style="height: 20rem; width: 150;">
+      <div class="card-body" style="height:100px;">
+        <h2 class="card-title"> Create an Engaging Course</h2>
+        <div class="logo-img2">
+          <img class="card-img-top" src="../../assets/icon2.PNG">
+
+          <p class="hh">Whether you've been teaching for years or are teaching for the first time, you can
+          <p class="hh">make an engaging course.We've compiled resources and best practices to help you</p>
+          <p class="hh"> get to the next level, no matter where you're starting
+
+            <br><a routerLink="/preCourseCreation">get started</a>
+          </p>
+        </div>
+      </div>
+
     </div>
-</div>
-</div>
-</div>
+    <br>
+    <div class="card container m-2">
+      <div class="row">
+        <div class="col">
+          <div class="card-body">
+            <h2 class="card-title"> Get Started with Video</h2>
+            <p class="hh">Quality video lectures can set your course apart. Use our resources to learn the basics..<br>
+              <a routerLink="/preCourseCreation">get started</a></p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card-body">
+            <h2 class="card-title">Build Your Audience</h2>
+            <p class="hh">Set your course up for success by building your audience.<br> <a
+                routerLink="/preCourseCreation">get started</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

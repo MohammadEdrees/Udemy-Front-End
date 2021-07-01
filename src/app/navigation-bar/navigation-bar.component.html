@@ -50,7 +50,7 @@
       
       <mat-autocomplete #auto="matAutocomplete" class="mt-4">
         <mat-option *ngFor="let option of Topics | filterByTopic:searchText;" [value]="option.topName"
-        [routerLink]="['/topnav/comming']">
+        (click)="GoTotopics(option.topId)" >
           <i class="fa fa-search fa-sm fa-fw text-info"></i> {{option.topName}}
         </mat-option>
         <mat-option *ngFor="let option of Instructors | filterByIns:searchText;" [value]="option.fname" 

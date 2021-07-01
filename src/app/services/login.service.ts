@@ -6,6 +6,7 @@ import { Instructor } from './../models/Instructor';
 import { Router } from '@angular/router';
 import { JwtHelperService } from "@auth0/angular-jwt";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -57,6 +58,17 @@ getToken(){
 getRole(){
   return localStorage.getItem('class');
 }
+
+// isInstructror(){
+//   let role=localStorage.getItem('class');
+//   if(this.isLoggedIn){
+//     if(role=='instructor'){
+//       return true;
+//     }else{
+// return false;
+//     }
+//   }
+// }
 
 autoDetactUser(){
   const userToken = this.getToken()?.toString();

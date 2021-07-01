@@ -100,4 +100,10 @@ export class CourseService {
     return this.http.put<CourseLecture[]>(this.api+'Courses/Upload/'+lectId,video)
   }
 
+  // get courses by topic id
+  getCoursesByTopicId(topId:number){
+    return this.http.get(this.api+'Courses/GetCoursesByTopicId?id='+topId);
+  }
+
+
 }

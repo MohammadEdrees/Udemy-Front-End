@@ -32,6 +32,16 @@ export class StudentService {
     return this.http.post<Student>(this.api +'Students/StudentRegistration',std);
   }
 
+  // edit student
+  editStudent(id:number,student:any){
+    return this.http.put(this.api + 'Students/EditStudent/' + id , student);
+  }
+
+    // upload student image
+    uploadImg(id:number,img:any){
+      return this.http.post(this.api + 'Students/StudentImg/' + id , img);
+        }
+
   // delete enroll on course
   deleteEnroll(StdId:number,crsId:number)
   {

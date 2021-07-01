@@ -17,6 +17,7 @@ export class Course {
         public rate: number,
         public state: string,
         public topId: number,
+        public price: number,
         public top :any,
         public studentCourses :StudentCourses[],
         public courseVideos :any,

@@ -6,8 +6,8 @@
 
     <div class="m-3">
       <p class="text5">Welcome <b>" {{course?.instructor?.fname}} {{course?.instructor?.lname}} "</b></p>
-      <p class="text5">Manage your <b>{{course.title}}</b> course</p>
-      <p class="text5">There is {{course.studentCourses.length}} students enrolled in your course</p>
+      <p class="text5">Manage your <b>{{course?.title}}</b> course</p>
+      <p class="text5">There is {{course?.studentCourses?.length}} students enrolled in your course</p>
     </div>
 
     <div class="alert  alert-primary alert-dismissible fade show" role="alert">
@@ -37,7 +37,7 @@
 
         <div *ngFor="let lect of crsLectures;index as x">
           <div *ngIf="section.sectionId == lect.sectionId">
-            <span class="font-weight-bold m-1"> lecture {{x+1}} : {{lect.title}}</span>
+            <span class="font-weight-bold m-1"> lecture : {{lect.title}}</span>
             <span><i class="fa fa-trash" style="font-size:20px;color:red;margin: 10px;"
                 (click)="deleteLecture(lect.lectureId)"></i></span>
 

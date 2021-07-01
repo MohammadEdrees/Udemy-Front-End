@@ -27,6 +27,7 @@ import { UploadCourseComponent } from './upload-course/upload-course.component';
 
 import { UdemyErorrComponent } from './udemy-erorr/udemy-erorr.component';
 import { CommingSoonComponent } from './comming-soon/comming-soon.component';
+import { DesignTopicComponent } from './design-topic/design-topic.component';
 
 
 const routes: Routes = [
@@ -34,16 +35,17 @@ const routes: Routes = [
   //------------------ sidnav router outlet -----------------
   {
     component: SideNavComponent, path: 'sidnav',
+  
     children: [
 
       { path: 'pre', component: PreCourseCreationComponent },
       { component: XyzComponent, path: 'communication' },
-      { component: PerformanceComponent, path: 'performance' },
+      { component: PerformanceComponent, path: 'performance'},
       { component: ToolsComponent, path: 'Tools' },
       { component: ResourseComponent, path: 'resourse' },
       { component: CreatVideoComponent, path: "pre/CreatVideo" },
       {component:EditInstrucrorComponent,path:'editIns/:id' } ,
-  {component:UploadCourseComponent,path:'ManageCourse/:id'},
+      {component:UploadCourseComponent,path:'ManageCourse/:id'},
 
       { path: '', redirectTo: 'pre', pathMatch: 'full' }
 
@@ -68,6 +70,7 @@ const routes: Routes = [
       {component:StudentCoursesComponent,path:'StdCrs/:id'},
       {component:EditStudentComponent,path:'editStd/:id' } , 
       {component:CommingSoonComponent,path:'comming'},
+      {component:DesignTopicComponent,path:'topic/:id'},
       { path: '', redirectTo: 'home', pathMatch: 'full' }
 
     ]
@@ -85,7 +88,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

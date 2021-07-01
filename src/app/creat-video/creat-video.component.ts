@@ -206,6 +206,7 @@ export class CreatVideoComponent implements OnInit {
 
 
   onSubmit(files: any) {
+    this.success = false;
     this.submitted = true;
     this.imgSubmitted=true;
     // stop here if form is invalid
@@ -242,6 +243,27 @@ this.submitSuccess=true;
             console.log(`img`, imgres);
             this.loader = false;
             this.success = true;
+            this.courseFormGroup = new FormGroup({
+              title: new FormControl('', [Validators.required, Validators.minLength(5),Validators.maxLength(51)]),
+              description: new FormControl('',[Validators.required, Validators.minLength(5),Validators.maxLength(100)]),
+              paymentMethod: new FormControl('' ,[Validators.required]),
+              languge: new FormControl('',[Validators.required]),
+              levels: new FormControl('',[Validators.required]),
+              subtitle: new FormControl('',[Validators.required, Validators.minLength(5),Validators.maxLength(60)]),
+              rate: new FormControl(0),
+              state: new FormControl('unpublished'),
+              topId: new FormControl('',[Validators.required]),
+              instId: new FormControl(this.insId),
+              price: new FormControl(''),
+          
+            });
+
+            this.crsImgForm = new FormGroup({
+              file: new FormControl('', [Validators.required])
+            });
+
+            this.submitted = false;
+            this.imgSubmitted=false;
 
           },err=>{
             this.loader = false;

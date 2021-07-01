@@ -1,0 +1,55 @@
+
+
+.h11{
+    font-size: 30px;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-top: 90px;
+    margin-bottom: 20px;
+}
+#iconi{
+    
+    margin-right: 10px;
+    color: rgb(76, 76, 131);
+   
+}
+.card-text{
+     margin-bottom: 15px;
+}
+#btn{
+    margin-top: 5px;
+    margin-left: 50px;
+}
+.card{
+    margin-bottom: 10px;
+}
+/* #imm1{
+    height:50%;
+    width: 100%;
+} */
+.h-title{
+    color: black;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+   /* margin-left: 20px; */
+   
+ 
+}
+
+#h2-title{
+    color: black;
+    /* margin-left: 20px; */
+}
+#img1{
+    margin-right: 20px;
+    height: 200px;
+    max-width: 100%;
+}
+#span1{
+ float:right;
+ font-size: 20px;
+ padding: 5px;
+ /* padding-left: 5px;
+ padding-left: 5px; */
+ background-color:rgb(250, 208, 153);
+ /* margin-left: 290px; */
+}

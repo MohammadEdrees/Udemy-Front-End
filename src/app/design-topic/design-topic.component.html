@@ -1,0 +1,113 @@
+<div class="container">
+<div *ngIf="courses.length == 0" class="h11 row-fluid">
+  <h1 >design</h1>
+  <div   class="border text-center  rounded   p-5">
+    <h1 class="text-muted">No Courses To View</h1>
+  </div>
+</div>
+    <pre>
+  </pre>
+    <div *ngIf="courses.length > 0" class="row-fluid" >
+  
+      <div>
+        <h1 class="h11"> {{courses.length}} Course for “design ”</h1>
+        <div class="row">
+          <div class="card">
+            <div class="card-body">
+  
+              <div class="col">
+                <h2 class="card-text mr-4 ">
+                  <i class="fa fa-info-circle fa-1x" id="iconi" aria-hidden="true"></i> Your learning languages are set to
+                  Arabic and English.
+                </h2>
+              </div>
+              <button type="button" class="btn btn-outline-primary" id="btn">Edit settings</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  
+      <div class="card" *ngFor="let crs of courses">
+        <div class="row card-body">
+
+          <div class="col-lg-3">
+            <a class="img-responsive" href="#">
+              <img [src]="[crs?.imagePath]" class="rounded float-start" id="img1" alt="...">
+            </a>
+          </div>
+          
+          <div class="col-lg-9 ">
+           <a class="text"  href="#"><h1 class="h-title"> {{crs?.title}}</h1>
+           <h4  id="h2-title">{{crs?.description}}
+          </h4>
+        </a> 
+          <span class="text-warning mr-3"> {{crs.rate}} </span>
+          <i class="fa fa-star text-warning mr-1"></i>
+          <i class="fa fa-star text-warning mr-1"></i>
+          <i class="fa fa-star text-warning mr-1"></i>
+          <i class="fa fa-star text-warning mr-1"></i>
+          <i class="fa fa-star text-warning m-1"></i>
+          <p> Level : {{crs?.levels}}</p><br><br> 
+            <p><span class="text-black"id="span1" *ngIf="crs?.paymentMethod==0"> Free </span></p>
+           <p> <span class="text-black"id="span1" *ngIf="crs?.paymentMethod==1">{{crs?.price}}$</span>
+        </div>
+        </div>
+      </div>
+  
+      <!-- <div class="card">
+        <div class="card-body">
+          <div class="col-3">
+            <a class="img-responsive" href="#">
+              <img src="../../assets/imm2.PNG" class="rounded float-start" id="img1" alt="...">
+            </a>
+          </div>
+          
+          <div class="col-9 mr-2">
+           <a class="text"  href="#"><h1 class="h-title"> Graphic Design Masterclass-Learn Great Design</h1>
+           <h4  id="h2-title"> the ultimate Graphic Design Course Which Covers Photoshop,lllustrator,InDesign,<span>Deign</span>
+          Throey,Branding and Logo Design
+          </h4>
+        </a> 
+          <span class="text-warning mr-3"> 4.5</span>
+          <i class="fa fa-star text-warning mr-1"></i>
+          <i class="fa fa-star text-warning mr-1"></i>
+          <i class="fa fa-star text-warning mr-1"></i>
+          <i class="fa fa-star text-warning mr-1"></i>
+          <i class="fa fa-star text-warning m-1"></i>
+          <p> 25.5 total hours 203 lecture Beginner<br><br> <span class="text-black"id="span1">Hot&new</span></p>
+          </div>
+        </div>
+      </div>
+  
+  
+      <div class="card">
+        <div class="card-body">
+          <div class="col-3">
+            <a class="img-responsive" href="#">
+              <img src="../../assets/imm3.PNG" class="rounded float-start" id="img1" alt="...">
+            </a>
+          </div>
+          
+          <div class="col-9 mr-2">
+           <a class="text"  href="#"><h1 class="h-title"> Graphic Design Masterclass-Learn Great Design</h1>
+           <h4  id="h2-title"> the ultimate Graphic Design Course Which Covers Photoshop,lllustrator,InDesign,<span>Deign</span>
+          Throey,Branding and Logo Design
+          </h4>
+        </a> 
+          <span class="text-warning mr-3"> 4.5</span>
+          <i class="fa fa-star text-warning mr-1"></i>
+          <i class="fa fa-star text-warning mr-1"></i>
+          <i class="fa fa-star text-warning mr-1"></i>
+          <i class="fa fa-star text-warning mr-1"></i>
+          <i class="fa fa-star text-warning m-1"></i>
+          <p> 25.5 total hours 203 lecture Beginner<br><br> <span class="text-black"id="span1"> Bestsaller</span></p>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+  
+  
+  
+  

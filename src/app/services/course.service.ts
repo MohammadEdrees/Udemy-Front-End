@@ -105,5 +105,14 @@ export class CourseService {
     return this.http.get(this.api+'Courses/GetCoursesByTopicId?id='+topId);
   }
 
+  //get topic by topic id
+  getTopicByTopicId(topId:number){
+    return this.http.get(this.api+'Topics/GetTopicByTopicId?Topicd='+topId);
+  }
+
+  //get all courses
+  GetAllCourses(){
+    return this.http.get<Course[]>(this.api+'Courses/GetAllCourses');
+  }
 
 }

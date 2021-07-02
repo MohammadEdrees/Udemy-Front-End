@@ -7,6 +7,7 @@ import{Topic} from '../models/Topic';
 
 import { ActivatedRoute } from '@angular/router';
 import { Category } from '../models/Category';
+import { CourseService } from './../services/course.service';
 
 
 
@@ -24,7 +25,11 @@ export class HomePageComponent implements OnInit {
   categ:Category[]=[]
   courses:Course[] =[];
   topic:Topic[]=[];
-  constructor(private homeServices:HomeService , public activeRout:ActivatedRoute) {}
+  TopCateg:Category[]=[];
+
+
+  constructor(private homeServices:HomeService , public activeRout:ActivatedRoute,
+    private courseService:CourseService) {}
 
 GetTopRelateCourse(id:number){
 this.activeRout.params.subscribe(
@@ -46,20 +51,10 @@ this.activeRout.params.subscribe(
   ngOnInit(): void {
 
 
-
-
-        // this.homeServices.getTopicRelatCourse(1006).subscribe(
-        //   b=>{
-        //     console.log("Success RelateByCourse",b);
-        //     this.courses=b;
-        //   },
-        //   err=>{console.log("error of Relate Course",err)}
-        // )
-
         this.homeServices.getAllCategruery().subscribe(
           a=>{
             console.log("success Categerory");
-            this.categ=a;
+            // this.categ=a;
             
           },
           err=>{
@@ -68,17 +63,6 @@ this.activeRout.params.subscribe(
         )
 
 
-    // this.homeServices.getAllCourses().subscribe(
-    //   a=>{
-    //     console.log("success");
-    //     //this.courses=a;
-    //     console.log(a);
-    //   },
-    //   err=>{
-    //     console.log("error"+ err);
-    //   }
-
-    // )
     this.homeServices.getAllTopic().subscribe(
       a=>{
 
@@ -92,6 +76,32 @@ this.activeRout.params.subscribe(
     )
 
 
+// Get All Courses
+this.courseService.GetAllCourses().subscribe(
+  a=>{
+   console.log("success Categerory");
+   this.courses=a;
+   
+ },
+ err=>{
+   console.log("error"+ err);
+ }
+)
+
+// Get Top Categories
+this.homeServices.getTopCategories().subscribe(
+  (a:any)=>{
+this.categories=a;
+this.categ=a;
+    this.TopCateg=a;
+    console.log(a);
+    console.log("success category");
+ 
+  },
+  err=>{
+    console.log("error category"+ err);
+  }
+)
 
 
 

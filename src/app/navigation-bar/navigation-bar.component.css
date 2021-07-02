@@ -1,12 +1,26 @@
 nav{
   background-color: white;
   color: #999;
-  box-shadow: 5px 5px 5px rgba(245, 236, 236, 0.5);
+  /* box-shadow: 5px 5px 5px rgba(245, 236, 236, 0.5); */
+  box-shadow: 0 2px 4px 0 rgba(30, 30, 30, 0.2), 0 3px 10px 0 rgba(37, 36, 36, 0.19);
+
 }
 
 .udemyIcon{
   width: 40px;
   height: 40px;;
+}
+
+.businessText{
+  font-size:14px;
+  font-weight: 500;
+  color: black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+}
+.udemyText{
+color:#645A53;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .slang{
   border:1px solid #999;

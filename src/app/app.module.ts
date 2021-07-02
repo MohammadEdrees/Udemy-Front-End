@@ -66,6 +66,7 @@ import { UdemyErorrComponent } from './udemy-erorr/udemy-erorr.component';
 import { CommingSoonComponent } from './comming-soon/comming-soon.component';
 import { CourseComponent } from './course/course.component';
 import { DesignTopicComponent } from './design-topic/design-topic.component';
+import {NgxPaginationModule} from 'ngx-pagination'; 
 
 @NgModule({
   declarations: [
@@ -127,6 +128,7 @@ import { DesignTopicComponent } from './design-topic/design-topic.component';
     MatAutocompleteModule,
     MatIconModule ,
     PopoverModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap:[AppComponent],

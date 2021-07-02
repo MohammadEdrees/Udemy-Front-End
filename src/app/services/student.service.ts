@@ -48,10 +48,18 @@ export class StudentService {
     return this.http.delete<Course[]>(this.api +'Courses/DeleteCourseEnrollment?crsId=' + crsId +'&stdId='+ StdId );
   }
 
+  // enroll in course
   AddEnroll(crsId:any,stdId:number)
   {
     //http://localhost:28037/api/Students/AddCourseEnrollment?crsId=1011&stdId=3
     return this.http.post<Course>(this.api+'Students/AddCourseEnrollment?crsId='+crsId+'&stdId='+stdId,null);
   }
+
+// Delete student
+  deleteStudent(StdId:number)
+  {
+    return this.http.delete<Course[]>(this.api +'Topics/DeleteStudentByHisId?id=' + StdId );
+  }
+
 
 }

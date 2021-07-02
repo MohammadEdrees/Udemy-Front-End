@@ -292,103 +292,24 @@
   <div class=" offset-md-1  col-md-11">
 
     <carousel [loop]="true" [cellsToScroll]="1" [objectFit]="'cover'" [lightDOM]="true"
-      class="carousel--slider-alignment-students  w-100 ">
+      class="carousel--slider-alignment-students  w-100 " >
 
-      <div class="carousel-cell ">
-        <div class="card card-border-none ">
-          <img class="card-img-top img-fluid" src="../../assets/4.jpg" />
+      <div class="carousel-cell  " routerLink="/topnav/course/{{item?.crsId}}" *ngFor="let item of courses">
+        <div class="card card-border-none " id="cours" >
+          <img class="card-img-top img-fluid" id="imag" src="{{item.imagePath}}" />
           <div class="card-body">
-            <h3 class="card-title"> Web Development Bootcap 2021</h3>
+            <h3 class="card-title">{{item.title}}</h3>
             <div class="card-text">
-              <p> name of auther</p>
-              <span class="text-warning mr-3"> 4.5</span>
+              <p> Jose Portilla</p>
+              <span class="text-warning mr-3">{{item.rate}}</span>
               <i class="fa fa-star text-warning mr-1"></i>
               <i class="fa fa-star text-warning mr-1"></i>
               <i class="fa fa-star text-warning mr-1"></i>
               <i class="fa fa-star text-warning mr-1"></i>
               <i class="fa fa-star text-warning m-1"></i>
               <span>(number of using)</span>
-              <p>price</p><span>discount</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="carousel-cell ">
-        <div class="card card-border-none ">
-          <img class="card-img-top img-fluid" src="../../assets/3.jpg" />
-          <div class="card-body">
-            <h3 class="card-title"> Web Development Bootcap 2021</h3>
-            <div class="card-text">
-              <p> name of auther</p>
-              <span class="text-warning mr-3"> 4.5</span>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning m-1"></i>
-              <span>(number of using)</span>
-              <p>price</p><span>discount</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="carousel-cell ">
-        <div class="card card-border-none ">
-          <img class="card-img-top img-fluid" src="../../assets/5.jpg" />
-          <div class="card-body">
-            <h3 class="card-title"> Web Development Bootcap 2021</h3>
-            <div class="card-text">
-              <p> name of auther</p>
-              <span class="text-warning mr-3"> 4.5</span>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning m-1"></i>
-              <span>(number of using)</span>
-              <p>price</p><span>discount</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-cell ">
-        <div class="card card-border-none ">
-          <img class="card-img-top img-fluid" src="../../assets/3.jpg" />
-          <div class="card-body">
-            <h3 class="card-title"> Web Development Bootcap 2021</h3>
-            <div class="card-text">
-              <p> name of auther</p>
-              <span class="text-warning mr-3"> 4.5</span>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning m-1"></i>
-              <span>(number of using)</span>
-              <p>price</p><span>discount</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="carousel-cell ">
-        <div class="card card-border-none ">
-          <img class="card-img-top img-fluid" src="../../assets/4.jpg" />
-          <div class="card-body">
-            <h3 class="card-title"> Web Development Bootcap 2021</h3>
-            <div class="card-text">
-              <p> name of auther</p>
-              <span class="text-warning mr-3"> 4.5</span>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning m-1"></i>
-              <span>(number of using)</span>
-              <p>price</p><span>discount</span>
+              <p>price</p><span>{{item.state}}</span><br><br>
+              <button class="btn btn-warning  " id="best">BestSeller</button>
             </div>
           </div>
         </div>
@@ -412,8 +333,8 @@
 
 
     <div class=" parent" *ngFor="let item of categ" routerLink="/topnav/category/{{item.categoryId}}">
-      <div class="header">  
-        <img alt="design"  [src]="item.imgPath"  />
+      <div class="header">
+        <img alt="design" [src]="item.imgPath" />
       </div>
       <button class="footer">
         <h2>{{item.categoryName}}</h2>
@@ -428,27 +349,24 @@
 </div>
 
 
-
-
-
 <!--Start Featured topics by category-->
-<h1 class="b m-3 ">Featured topics by category</h1>
-<table class="table table-borderless m-3">
+<h1 class="b mt-3 mb-0">Featured topics by category</h1>
+<table class="table table-borderless m-3" *ngFor="let item of TopCateg">
   <thead>
-    <tr class="h5">
-      <th scope="col">Development</th>
-      <th scope="col">Business</th>
+    <tr class="h5" >
+      <th scope="col" >{{item.categoryName}}</th>
+      <!-- <th scope="col">Business</th>
       <th scope="col">IT and Software</th>
-      <th scope="col">Design</th>
+      <th scope="col">Design</th> -->
     </tr>
   </thead>
-  <tbody>
+  <tbody >
     <tr>
-      <td>
-        <h2 class="text-primary">Python</h2>
+      <!-- <td>
+        <h2 class="text-primary">{{item.title}}</h2>
         <p class="text-muted">27,537,753 students</p>
-      </td>
-      <td>
+      </td> -->
+      <td   >
         <h2 class="text-primary">Financial Analysis</h2>
         <p class="text-muted">27,537,753 students</p>
       </td>
@@ -474,7 +392,7 @@
         <h2 class="text-primary">Ethical Hacking</h2>
         <p class="text-muted">27,537,753 students</p>
       </td>
-      <td>
+     <!--  <td>
         <h2 class="text-primary">Graphic Design</h2>
         <p class="text-muted">27,537,753 students</p>
       </td>
@@ -497,11 +415,11 @@
           <h2 class="text-primary">Drawing</h2>
         </a>
         <p class="text-muted">27,537,753 students</p>
-      </td>
-    </tr>
+      </td> -->
+    </tr> 
   </tbody>
   <tfoot>
-    <button class="btn btn-info btn-lg">Explore More</button>
+    <!-- <button class="btn btn-info btn-lg">Explore More</button> -->
   </tfoot>
 </table>
 
@@ -509,38 +427,28 @@
 <!--End Featured topics by category-->
 
 
-
-
-
-
-<div class="container">
-  <div class=" part2 ">
-    <div class="container1">
-      <img src="https://s.udemycdn.com/home/non-student-cta/udlite-lohp-promo-teacher.jpg" class="non-student-cta-image"
-        alt="non student cta image" width="320" height="320">
-
-    </div>
+<div class=" part2 ">
+  <div class="container1">
+    <img id="imagg" src="https://s.udemycdn.com/home/non-student-cta/udlite-lohp-promo-teacher.jpg"
+      alt="non student cta image">
   </div>
-
-  <div class=" container2">
-    <h1 class="udlite-heading-xxl non-student-cta__header">Become an instructor</h1>
+  <div href="instreg" class=" ml-2 container2">
+    <div class="h3 mb-3">Become an instructor</div>
     <p>
       Top instructors from around the world teach millions of students on Udemy. We provide the tools and skills to
       teach what you love.
     </p>
-    <button class="button">StartTeachingToday</button>
+    <button routerLink="/topnav/instreg" class="button">Start Teaching Today</button>
   </div>
-
-  <div class="part3 border">
-
-
+</div>
+  <div class="part3 ">
     <div class="container4">
 
       <h1>Udemy for Business</h1>
       <p>
         Get unlimited access to 5,500+ of Udemy’s top courses for your team.
       </p>
-      <button class="button1">Get Udemy For Business</button>
+      <button class="button">Get Udemy For Business</button>
     </div>
     <div class="container3">
       <img src="https://s.udemycdn.com/home/non-student-cta/udlite-lohp-promo-ufb.jpg" alt="non student cta image">
@@ -549,9 +457,7 @@
 
   </div>
 
-  <div class="part4 d-flex justify-content-center  ">
-
-
+  <div class="part4 ">
     <div class="container5">
       <iframe title="Mohamad Alaloush's Story" width="580" height="400" frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""
@@ -569,9 +475,3 @@
 
 
   </div>
-
-</div>
-<!-- <div   class="img1" >
-    <img alt="Udemy"
-         src="https://www.udemy.com/staticx/udemy/images/v6/logo-coral.svg" >
-   </div> -->

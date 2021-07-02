@@ -14,6 +14,10 @@ export class DesignTopicComponent implements OnInit {
 
   courses:Course[]=[];
   topic:Topic | undefined;
+totalLength:any;
+page:number=1;
+
+
   constructor( private route:ActivatedRoute,private courseService:CourseService) { }
 
   ngOnInit(): void {
@@ -21,10 +25,20 @@ export class DesignTopicComponent implements OnInit {
     this.route.paramMap
     .subscribe(params => {
       let topId = Number(params.get('id'));
+      this.courseService.getTopicByTopicId(topId).subscribe(
+        (res:any)=>{
+            this.topic=res;
+         console.log(res);
+ 
+        }
+      ),
+
       this.courseService.getCoursesByTopicId(topId).subscribe(
         (res: any) => {
          this.courses=res;
          console.log(res);
+     
+         this.totalLength=res.length;
           })
   })
 

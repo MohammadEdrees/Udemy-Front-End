@@ -1,6 +1,8 @@
-<nav class="navbar navbar-expand-sm navbar-light fixed-top mb-0  ">
-  <img src="../../assets/iconUdemy.ico" alt="icon Udemy" class="udemyIcon">
-  <a class="navbar-brand  text-dark ml-1 mr-auto" href="topnav">Udemy</a>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top  ">
+  <a class="navbar-brand  text-dark ml-1 mr-auto" href="topnav">
+    <img src="../../assets/iconUdemy.ico" alt="icon Udemy" class="udemyIcon ">
+    <b class="udemyText"> Udemy </b>
+  </a>
 
 
 
@@ -9,170 +11,236 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <ul class="navbar-nav">
+      <li class="nav-item  mt-lg-2 ml-3">
+      <!-- start categories menu  -->
+      <div class="dropdown mr-1 ml-1">
 
-
-    <!-- start categories menu  -->
-    <div class="dropdown mr-1 ml-1">
-
-      <button mat-button [matMenuTriggerFor]="Categories"
-        class="btn btn-outline-default border-0 text-secondary ">Categories</button>
-    </div>
-    <mat-menu #Categories="matMenu" class="Categories">
-
-
-      <a mat-menu-item [matMenuTriggerFor]="reptiles" 
-      *ngFor="let item of categories"
-      [routerLink]="['/topnav/category/',item.categoryId]"
-        (mouseenter)="AddId(item.categoryId)">{{item.categoryName}}</a>
-    </mat-menu>
-    <mat-menu #reptiles="matMenu" class="dropdown-submenu">
-      <button mat-menu-item [matMenuTriggerFor]="repo" *ngFor="let item of subcateg "
-        (mouseenter)="AddTopic(item.supCatId )">{{item.supCatTitle}}</button>
-
-    </mat-menu>
-    <mat-menu #repo="matMenu">
-      <button mat-menu-item *ngFor="let item of topics ">{{item.topName}}</button>
-    </mat-menu>
-
-     <!-- end categories menu  -->
-
-
-    <!------ Start Search ------>
-    <form class="form-inline my-2 my-lg-0      ">
-      <div class="input-group d-flex align-items-center pr-3 pl-1 py-1 " id="search" >
-      <div class="input-group-prepend">
-        <i class="fa fa-search m-2 fa-lg"></i>
+        <a mat-button [matMenuTriggerFor]="Categories"
+          class="btn btn-outline-default border-0 text-secondary ">Categories</a>
       </div>
-      <input type="text" class="form-control border-0 inputbg" type="text" placeholder="Search for anything" 
-      [matAutocomplete]="auto" [(ngModel)]="searchText" [ngModelOptions]="{ standalone: true }">
-    </div>
-
-      
-      <mat-autocomplete #auto="matAutocomplete" class="mt-4">
-        <mat-option *ngFor="let option of Topics | filterByTopic:searchText;" [value]="option.topName"
-        (click)="GoTotopics(option.topId)" >
-          <i class="fa fa-search fa-sm fa-fw text-info"></i> {{option.topName}}
-        </mat-option>
-        <mat-option *ngFor="let option of Instructors | filterByIns:searchText;" [value]="option.fname" 
-        (click)="GoToInstructorProfile(option.instId)" 
-        >
-          <fa-icon [icon]="faUser" class="fa-sm fa-fw text-info"></fa-icon> {{option.fname}}
-        </mat-option>
-        <mat-option *ngFor="let option of Courses | filterByCrs:searchText;" [value]="option.title"
-        (click)="GoToCourse(option.crsId)" >
-          <fa-icon [icon]="faFile" class="fa-sm fa-fw text-info"></fa-icon> {{option.title}}
-        </mat-option>
-      </mat-autocomplete>
-    </form>
-
-   <!------ End Search ------>
+      <mat-menu #Categories="matMenu" class="Categories">
 
 
-    <li class="nav-link myDIV  "> <a class="text-secondary" routerLink="comming"> Udemy for Bussines</a></li>
+        <a mat-menu-item [matMenuTriggerFor]="reptiles" *ngFor="let item of categories"
+          [routerLink]="['/topnav/category/',item.categoryId]"
+          (mouseenter)="AddId(item.categoryId)">{{item.categoryName}}</a>
+      </mat-menu>
+      <mat-menu #reptiles="matMenu" class="dropdown-submenu">
+        <button mat-menu-item [matMenuTriggerFor]="repo" *ngFor="let item of subcateg "
+          (mouseenter)="AddTopic(item.supCatId )">{{item.supCatTitle}}</button>
+
+      </mat-menu>
+      <mat-menu #repo="matMenu">
+        <button mat-menu-item *ngFor="let item of topics ">{{item.topName}}</button>
+      </mat-menu>
+
+      <!-- end categories menu  -->
+</li>
+
+      <!------ Start Search ------>
+      <form class="form-inline my-2 my-lg-0      ">
+        <div class="input-group d-flex align-items-center pr-3 pl-1 py-1 " id="search">
+          <div class="input-group-prepend">
+            <i class="fa fa-search m-2 fa-lg"></i>
+          </div>
+          <input type="text" class="form-control border-0 inputbg" type="text" placeholder="Search for anything"
+            [matAutocomplete]="auto" [(ngModel)]="searchText" [ngModelOptions]="{ standalone: true }">
+        </div>
+
+
+        <mat-autocomplete #auto="matAutocomplete" class="mt-4">
+          <mat-option *ngFor="let option of Topics | filterByTopic:searchText;" [value]="option.topName"
+            (click)="GoTotopics(option.topId)">
+            <i class="fa fa-search fa-sm fa-fw text-info"></i> {{option.topName}}
+          </mat-option>
+          <mat-option *ngFor="let option of Instructors | filterByIns:searchText;" [value]="option.fname"
+            (click)="GoToInstructorProfile(option.instId)">
+            <fa-icon [icon]="faUser" class="fa-sm fa-fw text-info"></fa-icon> {{option.fname}}
+          </mat-option>
+          <mat-option *ngFor="let option of Courses | filterByCrs:searchText;" [value]="option.title"
+            (click)="GoToCourse(option.crsId)">
+            <fa-icon [icon]="faFile" class="fa-sm fa-fw text-info"></fa-icon> {{option.title}}
+          </mat-option>
+        </mat-autocomplete>
+      </form>
+
+      <!------ End Search ------>
+      <li class="nav-item mt-lg-2">
+
+    <a class="nav-link myDIV  text-secondary" routerLink="comming"> Udemy for Bussines</a>
 
     <div class="card hide" style="width: 18rem;">
       <div class="card-body">
 
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary btn-block"> Try Udemy for Bussinese</a>
+        <p class="card-text b businessText">Get your team access to over 5,500 top Udemy courses, anytime, anywhere.</p>
+        <!-- <a href="#" class="btn btn-primary btn-block"> Try Udemy for Bussinese</a> -->
       </div>
     </div>
+  </li>
+   
 
-    <li class="nav-link myDIV1 " *ngIf="!login"><a routerLink="instreg" class="text-secondary"> Teach On udemy</a></li>
+      <li *ngIf="!login" class="nav-item  mt-lg-2 mr-3">
+   <a routerLink="instreg" class="text-secondary nav-link myDIV1"> Teach On udemy</a>
+   <div class="card hide1" style="width: 18rem;">
+    <div class="card-body">
 
-    <div class="card hide1" style="width: 18rem;">
-      <div class="card-body">
-
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary btn-block"> Learn More..</a>
-      </div>
+      <p class="card-text b businessText">Turn what you know into an opportunity and reach millions around the world.</p>
+      <!-- <a href="#" class="btn btn-primary btn-block"> Learn More..</a> -->
     </div>
-
-
-    <li class="nav-link DivIcon   "><i class=" fa fa-shopping-cart text-secondary cartIcon fa-2x" aria-hidden="true"></i></li>
-
-    <div class="card hide1" style="width: 18rem;">
-      <div class="card-body">
-
-        <p class="card-text">Empty Card.</p>
-        <a href="#" class="btn btn-link btn-block"> Please Shopping more </a>
-      </div>
-    </div>
-
-
-
-    <button *ngIf="!login" class="btn btn-outline-info d-lg-inline   border navBtnz mr-1" routerLink="login">Log in </button>
-    <button *ngIf="!login" class="btn btn-info border navBtnz mr-1 " routerLink="studentreg">Sign Up</button>
-    <button *ngIf="!login" class="btn btn-outline-secondary border " ><i class="fa fa-globe text-secondary" aria-hidden="true"></i></button>
-    <a *ngIf="isInstructor" class="text-secondary mr-3" routerLink="../sidnav">instructor</a>
-    <a *ngIf="isStudent" class="text-secondary  mr-3 " [routerLink]="['StdCrs', user?.stdId]">My learning</a>
-    <a *ngIf="login">
-      <div *ngIf="!isImg" class="rounded-circle d-flex justify-content-center bg-success ml-4" style="width: 60px; height: 60px"
-          [popover]="myPopover" [popoverOnHover]="true" [popoverCloseOnMouseOutside]="true">
-          <span [routerLink]="isInstructor ? ['../sidnav/editIns', user?.instId] : ['/topnav/editStd', user?.stdId]"
-           class="h5 p-3 text-white">{{
-             char 
-              }}</span>
-      </div>
-      <div *ngIf="isImg"  [popover]="myPopover" [popoverOnHover]="true" [popoverCloseOnMouseOutside]="true">
-      <span [routerLink]="isInstructor ? ['../sidnav/editIns', user?.instId] : ['/topnav/editStd', user?.stdId]"
-       class="h5 p-3 text-white">
-      <img [src]="isInstructor ? user?.imagPath : user?.imagePath" class="rounded-circle  ml-4" width="50px" height="50px">
-      </span>
   </div>
-   </a>
-  <popover-content #myPopover popoverPlacement="bottom right" [closeOnClickOutside]="true" [closeOnMouseOutside]="true">
-    <div style=" width: 15rem; ">
+</li>
+    
 
-        <div class="row">
-          
-            <div class="col-4 "> <a [routerLink]="['../sidnav/editIns', user?.instId]">
-                    <div class="rounded-circle d-flex justify-content-center  bg-success "
-                        style="width: 60px; height: 60px">
-                        <span class="h5 p-3 text-white">{{
-                          char
-                            }}</span>
-                    </div>
-                </a></div>
-            <div class="col-8 text-left  ">
-                <p>{{user?.fname}}</p>
-                <p class="text-muted">{{user?.mail}}</p>
-            </div>
+
+<li class="nav-item mt-lg-2 ml-3">
+      <button *ngIf="!login" class="btn btn-outline-info d-lg-inline   border navBtnz mr-1" routerLink="login">Log in
+      </button>
+    </li>
+    <li class="nav-item mt-lg-2">
+      <button *ngIf="!login" class="btn btn-info border navBtnz mr-1 " routerLink="studentreg">Sign Up</button>
+    </li>
+    <li class="nav-item mt-lg-2">
+      <button *ngIf="!login" class="btn btn-outline-secondary border "><i class="fa fa-globe text-secondary"
+          aria-hidden="true"></i></button>
+    </li>
+
+ 
+  
+    <li class="nav-item mt-lg-3  d-inline-block">
+      <a *ngIf="isInstructor" class="text-secondary mr-3 ml-3" routerLink="../sidnav">instructor</a>
+      </li>
+      <li class="nav-item mt-lg-3  d-inline-block">
+      <a *ngIf="isStudent" class="text-secondary  mr-3 ml-3" [routerLink]="['StdCrs', user?.stdId]">My learning</a>
+      </li>
+      <li *ngIf="isStudent" class="nav-item mt-lg-2">
+        <i class="nav-link DivIcon fa fa-shopping-cart text-secondary cartIcon fa-2x"
+             aria-hidden="true"></i>
+   
+         <div class="card hide1" style="width: 18rem;">
+           <div class="card-body">
+   
+             <p class="card-text">Empty Card.</p>
+             <a href="#" class="btn btn-link btn-block"> Please Shopping more </a>
+           </div>
+         </div>
+   
+   </li>
+
+    <li *ngIf="login" class="nav-item" 
+    [ngStyle]="{'width': isStudent ? '140px' : '180px'}"></li>
+
+      <li class="nav-item mt-lg-2  d-inline-block">
+      <a *ngIf="login"> 
+        <div *ngIf="!isImg" class="rounded-circle d-flex justify-content-center bg-success ml-4"
+          style="width: 60px; height: 60px" [popover]="myPopover" [popoverOnHover]="true"
+          [popoverCloseOnMouseOutside]="true">
+          <span [routerLink]="isInstructor ? ['../sidnav/editIns', user?.instId] : ['/topnav/editStd', user?.stdId]"
+            class="h5 p-3 text-white">{{
+            char
+            }}</span>
         </div>
-        <div class="card-body">
+        <div *ngIf="isImg" [popover]="myPopover" [popoverOnHover]="true" [popoverCloseOnMouseOutside]="true">
+          <span [routerLink]="isInstructor ? ['../sidnav/editIns', user?.instId] : ['/topnav/editStd', user?.stdId]"
+            class="h5 p-3 text-white">
+            <img [src]="[isInstructor ? user?.imagPath : user?.imagePath]" class="rounded-circle  ml-4" width="50px"
+              height="50px">
+          </span>
+        </div>
+      </a>
+      </li>
+
+
+      <popover-content #myPopover popoverPlacement="bottom right" [closeOnClickOutside]="true"
+        [closeOnMouseOutside]="true">
+        <div *ngIf="login" style=" width: 15rem; ">
+
+          <div class="row">
+
+            <div class="col-4 "> <a [routerLink]="['../sidnav/editIns', user?.instId]">
+                <div class="rounded-circle d-flex justify-content-center  bg-success "
+                  style="width: 60px; height: 60px">
+                  <span class="h5 p-3 text-white">{{
+                    char
+                    }}</span>
+                </div>
+              </a></div>
+            <div class="col-8 text-left  ">
+              <p>{{user?.fname}}</p>
+              <p class="text-muted">{{user?.mail}}</p>
+            </div>
+          </div>
+          <div class="card-body">
             <table class="table table-borderless" style="width: 18rem; text-align: left;">
-                <tr>
-                    <td> My notifications</td>
-                </tr>
-                <tr>
-                    <td>Public Profile</td>
-                </tr>
-                <tr>
-                    <td> Account</td>
-                </tr>
-                <tr>
-                    <td>Payout settings</td>
-                </tr>
-                <tr>
-                    <td><a (click)="logout()"> Logout</a></td>
-                </tr>
+              <tr>
+                <td> My notifications</td>
+              </tr>
+              <tr>
+                <td>Public Profile</td>
+              </tr>
+              <tr>
+                <td> Account</td>
+              </tr>
+              <tr>
+                <td>Payout settings</td>
+              </tr>
+              <tr>
+                <td><a (click)="logout()"> Logout</a></td>
+              </tr>
 
             </table>
-        </div>
-        <div class="card-footer text-left">
+          </div>
+          <div class="card-footer text-left">
             <h3>Udemy For Business</h3>
             <p>Bring learning to your company</p>
+          </div>
         </div>
-    </div>
-</popover-content>
+      </popover-content>
 
-    <!-- <select class="form-input btn btn-outline-default  d-lg-inline slang" aria-label="Default select example">
+      <!-- <select class="form-input btn btn-outline-default  d-lg-inline slang" aria-label="Default select example">
         <option selected>Lang</option>
         <option value="en">English</option>
         <option value="ar">Arabic</option>
       </select> -->
-
+</ul>
   </div>
 
 
 </nav>
+<!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="margin-top: 200px;">
+  <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+              <a class="nav-link" href="#">Left</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="//codeply.com">Codeply</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+          </li>
+      </ul>
+  </div>
+  <div class="mx-auto order-0">
+      <a class="navbar-brand mx-auto" href="#">Navbar 2</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+  </div>
+  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+              <a class="nav-link" href="#">Right</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+          </li>
+      </ul>
+  </div>
+</nav> -->

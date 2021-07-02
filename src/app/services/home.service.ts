@@ -32,4 +32,10 @@ export class HomeService {
     return this.http.get<Course[]>(this.api+"Courses/GetCoursesByTopicId?id="+id);
    }
 
+
+   getTopCategories(){
+    return this.http.get<Category[]>(this.api+"Categories/GetTop8Categories")
+    }
+
+
 }

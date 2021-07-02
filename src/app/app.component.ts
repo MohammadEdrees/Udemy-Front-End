@@ -9,8 +9,9 @@ export class AppComponent {
   title = 'ClientSide';
 
 
-  onActivate(e:any){
-    //window.scroll(0,0);
-    document.body.scrollTop = 0;
+  OnActive(_e: any,outlet: { scrollTop: number; })
+  {
+     outlet.scrollTop=0;
   }
+
 }

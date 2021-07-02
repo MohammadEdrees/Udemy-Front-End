@@ -5,7 +5,7 @@
   <br /><br />
   <div  id="all">
   <div class=" m-auto w-100 d-flex row   ">
-    <div class="col-lg-9 col-sm-12 border border-danger  ">
+    <div class="col-lg-9 col-sm-12 ">
       <h1 class="font-weight-bold  text-truncate ">{{ course?.title }}</h1>
       <h2 class="m-0 mb-2">{{ course?.description }}</h2>
       <p><b>Created by :</b><a routerLink="/topnav/InsProfile/{{course?.instructor?.instId}}"> {{course?.instructor?.fname}} {{course?.instructor?.lname}}</a></p>
@@ -37,13 +37,45 @@
           <div class="fa fa-2x font-weight-bold">{{course?.state}}</div>
         </mat-card-header>
          <mat-card-actions>
-          <div class="container border"  *ngIf="login && role =='student'" >
-            <button class="btn btn-danger w-100" #enroll (click)="Enroll(t)" #t  [disabled]='enrolled' > Enroll</button>
+          <div class="card-body d-inline justify-content-center">
+            <div  *ngIf="login && role =='student'"  #t>
+            <div class="container border"*ngIf=" !enrolled">
+              <button class="btn btn-danger w-100" #enroll (click)="Enroll(t)"> Enroll</button>
+            </div>
+            </div>
+  
+            <!-- <div class="text text-danger" *ngIf='alert'>
+             Enrolled
+           </div> -->
+  
+           <!--Not LoggedIn-->
+            <div *ngIf="!login" class="alert alert-primary">
+              <a routerLink="/topnav/login">Start Learning Now</a>
+            </div>
+  
+  
+            <!--Student Already Enrolled-->
+            <div class="alert alert-primary" role="alert" *ngIf="enrolled">
+              <a routerLink="/topnav/Content/{{course.crsId}}">Continue Learning</a> 
+            </div>
+  
+  
+            <div class="alert alert-primary" role="alert" *ngIf="isProgress">
+              Enrolling ......
+            </div>
+  
+            <!--Enrolled Succesfully-->  
+            <div class="alert alert-success" role="alert" *ngIf="alert">
+              Enrolled Successfully <strong><a routerLink="/topnav/Content/{{course.crsId}}">Start Learning </a></strong>
+            </div>
+            
+  <!--Owner Of the Course-->
+            <div class="alert alert-success" role="alert" *ngIf="role =='instructor' && loginId == course.instructor.instId">
+              <a routerLink="/sidnav/ManageCourse/{{course.crsId}}">Continue Managing your course!</a> 
+            </div>
+  
+  
           </div>
-
-         <div class="text text-danger" *ngIf='alert'>
-           Enrolled
-         </div>
 
           <button  class="btn btn-outline-info  m-1 w-100">Add To Card</button>
         </mat-card-actions>

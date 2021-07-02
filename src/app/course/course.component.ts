@@ -34,6 +34,7 @@ export class CourseComponent implements OnInit {
   lectures: lecture[] = [];
   step = 0;
 
+  isProgress:boolean = false;
   enrolled: boolean = false;
   alert: boolean = false;
 
@@ -63,10 +64,12 @@ export class CourseComponent implements OnInit {
 
 
   Enroll(t: any) {
+    this.isProgress = true;
     this.studentService.AddEnroll(this.course?.crsId, this.loginId).subscribe(
       d => {
         this.course = d;
-        t.disabled = true;
+        t.style.display = 'none';
+        this.isProgress = false;
         this.alert = true;
         console.log("enrolled", this.course.studentCourses.length);
       }, err => {

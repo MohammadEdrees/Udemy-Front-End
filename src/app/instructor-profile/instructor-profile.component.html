@@ -9,13 +9,13 @@
   <div class="row">
     <div class="col-12 col-md-4">
       <img class="rounded-circle" width="200" height="200"
-      [src]="instructor.imagPath!= null? instructor.imagPath : myImgUrl" 
+      [src]="instructor?.imagPath!= null? instructor?.imagPath : myImgUrl" 
       />
     </div>
     <div class="col-12 col-md-8">
       <p class="mt-5">Instructor</p>
-      <p class="font-weight-bold h1">{{instructor.fname}} {{instructor.lname}}</p>
-      <p class="font-weight-bold h3">{{instructor.headLine}}</p>
+      <p class="font-weight-bold h1">{{instructor?.fname}} {{instructor?.lname}}</p>
+      <p class="font-weight-bold h3">{{instructor?.headLine}}</p>
       <div class="d-flex">
         <ul class="list-inline mb-0">
           <li class="list-inline-item mr-5">
@@ -35,26 +35,26 @@
         </ul>
       </div>
       <p class="mt-3 h4" >About me</p>
-      <p class="font-weight-60">{{instructor.biography}}</p>
+      <p class="font-weight-60">{{instructor?.biography}}</p>
 
-      <p class="mt-3 h4">My Courses  ({{instructor.courses.length}}) </p>
+      <p class="mt-3 h4">My Courses  ({{instructor?.courses?.length}}) </p>
       <!--Card Conainer-->
       <div class="row">
         <div *ngFor="let course of courses" class="col-12 col-md-6 col-lg-4  p-2">
           <div class="card card-border-none">
             <img class="card-img-top img-fluid" 
-            [src]="course.imagePath!= null? course.imagePath : CourseImgUrl"
+            [src]="course?.imagePath!= null? course?.imagePath : CourseImgUrl"
             />
             <div class="card-body">
-              <h3 class="card-title">{{course.title}}</h3>
+              <h3 class="card-title">{{course?.title}}</h3>
               <div class="card-text">
-                <span class="text-warning mr-3"> {{course.rate}} </span>
+                <span class="text-warning mr-3"> {{course?.rate}} </span>
                 <i class="fa fa-star text-warning mr-1"></i>
                 <i class="fa fa-star text-warning mr-1"></i>
                 <i class="fa fa-star text-warning mr-1"></i>
                 <i class="fa fa-star text-warning mr-1"></i>
                 <i class="fa fa-star text-warning m-1"></i>
-                <span>{{course.studentCourses.length}}</span>
+                <span>{{course?.studentCourses?.length}}</span>
                 <
               </div>
             </div>

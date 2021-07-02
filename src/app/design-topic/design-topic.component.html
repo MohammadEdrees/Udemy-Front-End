@@ -1,16 +1,27 @@
-<div class="container">
+<div class="container d-flex justify-content-center " id="container">
 <div *ngIf="courses.length == 0" class="h11 row-fluid">
-  <h1 >design</h1>
+  <h1 >{{topic?.topName}}</h1>
   <div   class="border text-center  rounded   p-5">
     <h1 class="text-muted">No Courses To View</h1>
   </div>
 </div>
+
+<!-- 
+<div  *ngIf="loader" class=" text-center  rounded   p-5">
+ 
+  <button class="btn btn-lg btn-primary"  type="button" disabled>
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    Loading...
+  </button>
+</div> -->
+
     <pre>
   </pre>
     <div *ngIf="courses.length > 0" class="row-fluid" >
   
       <div>
-        <h1 class="h11"> {{courses.length}} Course for “design ”</h1>
+        <h1 class="h11"> {{courses.length}} Course for “{{topic?.topName}}”</h1>
+        
         <div class="row">
           <div class="card">
             <div class="card-body">
@@ -28,17 +39,21 @@
       </div>
   
   
-      <div class="card" *ngFor="let crs of courses">
+      <div class="card" *ngFor="let crs of courses | paginate: { 
+        itemsPerPage: 2,
+         currentPage: page ,
+          totalItems : totalLength }">
         <div class="row card-body">
 
           <div class="col-lg-3">
-            <a class="img-responsive" href="#">
+            <a class="img-responsive"  [routerLink]="['/topnav/course/',crs?.crsId]">
               <img [src]="[crs?.imagePath]" class="rounded float-start" id="img1" alt="...">
             </a>
           </div>
           
           <div class="col-lg-9 ">
-           <a class="text"  href="#"><h1 class="h-title"> {{crs?.title}}</h1>
+           <a class="text"   [routerLink]="['/topnav/course/',crs?.crsId]"><h1 class="h-title"
+            > {{crs?.title}}</h1>
            <h4  id="h2-title">{{crs?.description}}
           </h4>
         </a> 
@@ -54,7 +69,7 @@
         </div>
         </div>
       </div>
-  
+      <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
       <!-- <div class="card">
         <div class="card-body">
           <div class="col-3">

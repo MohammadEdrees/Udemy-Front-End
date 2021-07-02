@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute ,Router } from '@angular/router';
 import { StudentService } from './../services/student.service';
+import { LoginService } from '../services/login.service';
+
 
 @Component({
   selector: 'app-edit-student',
@@ -11,8 +13,12 @@ import { StudentService } from './../services/student.service';
 export class EditStudentComponent implements OnInit {
 
   constructor( private route:ActivatedRoute,
-    private stdService:StudentService
+    private stdService:StudentService,
+    private router: Router,
+    private loginService:LoginService
     ) { }
+
+
 v: boolean = true;
 isAlert:boolean=false;
 stdDetails:any;
@@ -173,6 +179,14 @@ this.stdDetails.lname=data.lname;
 
 }
 
-
+deleteAccount(stdId:number){
+  this.stdService.deleteStudent(stdId).subscribe(
+    res=>{
+      console.log(res);
+this.loginService.logout();
+       this.router.navigate(['topnav/login']);
+    }
+  )
+}
 
 }

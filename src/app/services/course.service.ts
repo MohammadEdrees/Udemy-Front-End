@@ -111,7 +111,7 @@ export class CourseService {
   }
 
   //get all courses
-  GetAllCourses(){
+  GetAllCourses():Observable<any>{
     return this.http.get<Course[]>(this.api+'Courses/GetAllCourses');
   }
 

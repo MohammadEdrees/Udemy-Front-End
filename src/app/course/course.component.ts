@@ -71,6 +71,7 @@ export class CourseComponent implements OnInit {
         t.style.display = 'none';
         this.isProgress = false;
         this.alert = true;
+        this.enrolled=true;
         console.log("enrolled", this.course.studentCourses.length);
       }, err => {
       console.log("error enrolled");
@@ -81,7 +82,7 @@ export class CourseComponent implements OnInit {
   ngOnInit(): void {
 
     this.GetRole();
-
+this.enrolled=false;
     let id = 0;
     this.ar.params.subscribe(
       a => {
@@ -89,7 +90,7 @@ export class CourseComponent implements OnInit {
       }
     );
 
-
+  
     this.categoryService.getcourseBycourseId(id).subscribe(
       (d) => {
         this.course = d;
@@ -101,7 +102,13 @@ export class CourseComponent implements OnInit {
           console.log("is login :", this.login);
           this.loginId = Number(localStorage.getItem('LoginedId'));
           
-          this.GetEnrolled();
+          for (var i = 0; i < this.course.studentCourses.length; i++) {
+            if (this.course.studentCourses[i].stdId == this.loginId) {
+              this.enrolled = true;
+              console.log("found******");
+              return;
+            }
+          }
         });
 
 

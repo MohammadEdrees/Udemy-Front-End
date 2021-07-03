@@ -8,6 +8,8 @@ import{Topic} from '../models/Topic';
 import { ActivatedRoute } from '@angular/router';
 import { Category } from '../models/Category';
 import { CourseService } from './../services/course.service';
+import { Instructor } from '../models/Instructor';
+import { NavbarService } from './../services/navbar.service';
 
 
 
@@ -26,10 +28,16 @@ export class HomePageComponent implements OnInit {
   courses:Course[] =[];
   topic:Topic[]=[];
   TopCateg:Category[]=[];
+  searchText: string = '';
+  Instructors: Instructor[] = [];
+  studenrview:boolean=false;
+  topicview:boolean=false;
 
-
-  constructor(private homeServices:HomeService , public activeRout:ActivatedRoute,
-    private courseService:CourseService) {}
+  constructor(
+    private homeServices:HomeService , 
+    public activeRout:ActivatedRoute,
+    private courseService:CourseService,
+    private navbarService:NavbarService) {}
 
 GetTopRelateCourse(id:number){
 this.activeRout.params.subscribe(
@@ -50,23 +58,23 @@ this.activeRout.params.subscribe(
 
   ngOnInit(): void {
 
-
-        this.homeServices.getAllCategruery().subscribe(
-          a=>{
-            console.log("success Categerory");
-            // this.categ=a;
-            
-          },
-          err=>{
-            console.log("error"+ err);
-          }
-        )
-
-
+    
+    //---------------get all Instructors-----------------
+    this.navbarService.GetAllInstructors().subscribe(
+      (res: any) => {
+        this.Instructors = res;
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      }
+    )
+this.topicview=true;
     this.homeServices.getAllTopic().subscribe(
       a=>{
 
         this.topic=a;
+        this.topicview=false;
         console.log(a);
         console.log("success Topic");
       },
@@ -75,13 +83,13 @@ this.activeRout.params.subscribe(
       }
     )
 
-
+this.studenrview=true;
 // Get All Courses
 this.courseService.GetAllCourses().subscribe(
   a=>{
-   console.log("success Categerory");
    this.courses=a;
-   
+   this.studenrview=false;
+   console.log(this.studenrview);
  },
  err=>{
    console.log("error"+ err);
@@ -91,7 +99,6 @@ this.courseService.GetAllCourses().subscribe(
 // Get Top Categories
 this.homeServices.getTopCategories().subscribe(
   (a:any)=>{
-this.categories=a;
 this.categ=a;
     this.TopCateg=a;
     console.log(a);
@@ -104,9 +111,13 @@ this.categ=a;
 )
 
 
-
   }
 
-  items = Array.from({length: 30}).map((_, i) => `Item #${i}`);
+  // items = Array.from({length: 30}).map((_, i) => `Item #${i}`);
+  gettopics(){
+  
+  }
 
 }
+
+

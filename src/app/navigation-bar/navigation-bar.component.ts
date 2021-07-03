@@ -175,6 +175,20 @@ isImg:boolean=false;
       this.router.navigate(['/topnav/topic/',topId]);
  });
   }
+
+    
+  GoToCategory(categId:number){
+    this.router.navigateByUrl('/home', { skipLocationChange: false }).then(() => {
+      this.router.navigate(['/topnav/category/',categId]);
+ });
+  }
+
+  
+  GoToSubCategory(subId:number){
+    this.router.navigateByUrl('/home', { skipLocationChange: false }).then(() => {
+      this.router.navigate(['/topnav/subcategory/',subId]);
+ });
+  }
   
 
 

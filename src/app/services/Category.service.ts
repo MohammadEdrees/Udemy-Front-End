@@ -86,5 +86,11 @@ export class CategoryService {
        return this.http.get<lecture[]>("http://localhost:28037/api/Courses/LecuresInSection?sectionId="+id)
    }
 
- 
+
+   // get sub categ by id
+   GetSubCategById(id:number){
+    return this.http.get<SubCateg>("http://localhost:28037/api/SupCats/GetSubCategoryById?subCatId="+id)
+}
+
+
 }

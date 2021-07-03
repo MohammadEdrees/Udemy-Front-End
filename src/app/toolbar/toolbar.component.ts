@@ -11,8 +11,13 @@ export class ToolbarComponent implements OnInit {
   inputSideNav!: MatSidenav;
   constructor() { }
 
+
   ngOnInit(): void {
+  
   }
+
+
+
   myname: string = 'sara';
   toggle: boolean = false;
   genarteChar(name: string) {

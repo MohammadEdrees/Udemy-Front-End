@@ -66,7 +66,8 @@ import { UdemyErorrComponent } from './udemy-erorr/udemy-erorr.component';
 import { CommingSoonComponent } from './comming-soon/comming-soon.component';
 import { CourseComponent } from './course/course.component';
 import { DesignTopicComponent } from './design-topic/design-topic.component';
-import {NgxPaginationModule} from 'ngx-pagination'; 
+import {NgxPaginationModule} from 'ngx-pagination';
+import { SubCategoryComponent } from './sub-category/sub-category.component'; 
 
 @NgModule({
   declarations: [
@@ -100,7 +101,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     UdemyErorrComponent,
     CommingSoonComponent,
     CourseComponent,
-    DesignTopicComponent
+    DesignTopicComponent,
+    SubCategoryComponent
 
   ],
   imports: [

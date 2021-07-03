@@ -64,6 +64,7 @@ const routes: Routes = [
       { component: RegistrationInstructorComponent, path: 'instreg' },
       { component: RegistrationStudentComponent, path: 'studentreg' },
       { component: CategoryComponent, path: 'category/:categoryId' },
+      { component: CategoryComponent, path: 'subcategory/:supCatId' },
       { component: InstructorProfileComponent, path: 'InsProfile/:id' },
       {component:CourseContentComponent,path:'Content/:id'},
       {component: CourseComponent, path: 'course/:crsId'},

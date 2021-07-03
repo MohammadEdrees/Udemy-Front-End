@@ -37,6 +37,7 @@ errorMessage: string = '';
   // submit function
   submit() {
     this.submitted = true;
+    this.errorMessage='';
     // stop here if form is invalid
     if (this.registerForm.invalid) {
 

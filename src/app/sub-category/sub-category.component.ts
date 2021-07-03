@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { Category,SubCateg } from '../models/Category';
-import {Course}from '../models/Course'
 import { ActivatedRoute, Router } from '@angular/router';
-import {CategoryService} from '../services/Category.service'
+import { Category, SubCateg } from '../models/Category';
+import { Course } from '../models/Course';
 import { Instructor } from '../models/Instructor';
-import { InstructorService } from '../services/instructor.service';
 import { Topic } from '../models/Topic';
-@Component({
-  selector: 'app-category',
-  templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css'],
+import { CategoryService } from '../services/Category.service';
+import { InstructorService } from './../services/instructor.service';
 
+@Component({
+  selector: 'app-sub-category',
+  templateUrl: './sub-category.component.html',
+  styleUrls: ['./sub-category.component.css']
 })
-export class CategoryComponent implements OnInit {
+export class SubCategoryComponent implements OnInit {
+
   category!:Category;
   courses:Course[]=[];
   subcateg:SubCateg []=[];
@@ -96,7 +97,6 @@ export class CategoryComponent implements OnInit {
       this.router.navigate(['/topnav/topic/',topId]);
  });
   }
-
 
 
 

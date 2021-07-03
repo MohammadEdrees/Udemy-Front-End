@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top  ">
-  <a class="navbar-brand  text-dark ml-1 mr-auto" href="topnav">
+  <a class="navbar-brand  text-dark ml-1 mr-auto"  routerLink="/topnav">
     <img src="../../assets/iconUdemy.ico" alt="icon Udemy" class="udemyIcon ">
     <b class="udemyText"> Udemy </b>
   </a>
@@ -10,7 +10,10 @@
     aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavId">
+  <div  class="collapse navbar-collapse" id="collapsibleNavId">
+
+
+
     <ul class="navbar-nav">
       <li class="nav-item  mt-lg-2 ml-3">
       <!-- start categories menu  -->
@@ -24,15 +27,15 @@
 
         <a mat-menu-item [matMenuTriggerFor]="reptiles" *ngFor="let item of categories"
           [routerLink]="['/topnav/category/',item.categoryId]"
-          (mouseenter)="AddId(item.categoryId)">{{item.categoryName}}</a>
+          (mouseenter)="AddId(item.categoryId)" (click)="GoToCategory(item.categoryId)">{{item.categoryName}}</a>
       </mat-menu>
       <mat-menu #reptiles="matMenu" class="dropdown-submenu">
         <button mat-menu-item [matMenuTriggerFor]="repo" *ngFor="let item of subcateg "
-          (mouseenter)="AddTopic(item.supCatId )">{{item.supCatTitle}}</button>
+          (mouseenter)="AddTopic(item.supCatId )" >{{item.supCatTitle}}</button>
 
       </mat-menu>
       <mat-menu #repo="matMenu">
-        <button mat-menu-item *ngFor="let item of topics ">{{item.topName}}</button>
+        <button mat-menu-item *ngFor="let item of topics "  (click)="GoTotopics(item.topId)">{{item.topName}}</button>
       </mat-menu>
 
       <!-- end categories menu  -->
@@ -100,10 +103,10 @@
     <li class="nav-item mt-lg-2">
       <button *ngIf="!login" class="btn btn-info border navBtnz mr-1 " routerLink="studentreg">Sign Up</button>
     </li>
-    <li class="nav-item mt-lg-2">
+    <!-- <li class="nav-item mt-lg-2">
       <button *ngIf="!login" class="btn btn-outline-secondary border "><i class="fa fa-globe text-secondary"
           aria-hidden="true"></i></button>
-    </li>
+    </li> -->
 
  
   
@@ -128,7 +131,7 @@
    </li>
 
     <li *ngIf="login" class="nav-item" 
-    [ngStyle]="{'width': isStudent ? '140px' : '180px'}"></li>
+    [ngStyle]="{'width': isStudent ? '130px' : '180px'}"></li>
 
       <li class="nav-item mt-lg-2  d-inline-block">
       <a *ngIf="login"> 
@@ -172,18 +175,23 @@
           </div>
           <div class="card-body">
             <table class="table table-borderless" style="width: 18rem; text-align: left;">
-              <tr>
-                <td> My notifications</td>
+              
+              <tr *ngIf="isInstructor">
+                <td ><a (click)="GoToInstructorProfile(user?.instId)"> Public Profile</a></td>
+              </tr>
+              <tr *ngIf="isInstructor">
+                <td routerLink="../sidnav">Instructor DashBoard</td>
+              </tr>
+              <tr *ngIf="isStudent">
+                <td [routerLink]="['StdCrs', user?.stdId]">My learning</td>
               </tr>
               <tr>
-                <td>Public Profile</td>
+                <td 
+                [routerLink]="isInstructor ? ['../sidnav/editIns', user?.instId] : ['/topnav/editStd', user?.stdId]" 
+               >
+                 Edit Account</td>
               </tr>
-              <tr>
-                <td> Account</td>
-              </tr>
-              <tr>
-                <td>Payout settings</td>
-              </tr>
+            
               <tr>
                 <td><a (click)="logout()"> Logout</a></td>
               </tr>
@@ -197,50 +205,9 @@
         </div>
       </popover-content>
 
-      <!-- <select class="form-input btn btn-outline-default  d-lg-inline slang" aria-label="Default select example">
-        <option selected>Lang</option>
-        <option value="en">English</option>
-        <option value="ar">Arabic</option>
-      </select> -->
 </ul>
-  </div>
 
+</div>
 
 </nav>
-<!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="margin-top: 200px;">
-  <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-      <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-              <a class="nav-link" href="#">Left</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="//codeply.com">Codeply</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-          </li>
-      </ul>
-  </div>
-  <div class="mx-auto order-0">
-      <a class="navbar-brand mx-auto" href="#">Navbar 2</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-  </div>
-  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-      <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-              <a class="nav-link" href="#">Right</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-          </li>
-      </ul>
-  </div>
-</nav> -->
+

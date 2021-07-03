@@ -5,7 +5,8 @@ export class Topic {
     public supCatId:number,
     public categoryId:number,
     public supcatId:number,
-    public supCatTitle:string
+    public supCatTitle:string,
+    public courses:any
   ){};
 }
 

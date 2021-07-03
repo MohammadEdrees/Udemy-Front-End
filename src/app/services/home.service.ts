@@ -13,13 +13,13 @@ export class HomeService {
   private readonly api ='http://localhost:28037/api/'
   constructor( private http:HttpClient) { }
 
-  getAllCourses(){
+  getAllCourses():Observable<any>{
     return this.http.get<Course[]>(this.api+"Courses/GetAllCourses/");
   }
   getAllCategruery(){
     return this.http.get<Category[]>(this.api+"Categories/GetAllCategories")
   }
-  getAllTopic(){
+  getAllTopic():Observable<any>{
     return this.http.get<Topic[]>(this.api+"Topics/GetAllTopics");
   }
 
@@ -33,7 +33,7 @@ export class HomeService {
    }
 
 
-   getTopCategories(){
+   getTopCategories():Observable<any>{
     return this.http.get<Category[]>(this.api+"Categories/GetTop8Categories")
     }
 

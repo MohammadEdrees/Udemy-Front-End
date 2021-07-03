@@ -1,36 +1,58 @@
-<!--Start Jumbo-->
-<div class="jumbotron  jumbotronT p-5 " #jumbotron>
+<!-- start intro  -->
+<section class="jumbotronT">
 
-  <div class=" col-6 d-none col-lg-4  d-lg-block d-md-block d-sm-block  cardjumbo  " #jumboCard>
+  <div class="bg-image intro">
+    <div class="container " style="position:relative">
+      <div class="row mt-5 mb-5">
 
-    <div class="card-body ">
-      <p class="card-text cardheader">Wake Up</p>
-    </div>
 
-    <div class="card-body ">
-      <p class="card-text  text-wrap cardbody">
-        Ambition accepted. Learn the latest skills to reach your professional goals</p>
-    </div>
+        <div class=" col-md-6 col-sm-10  col-lg-5  card ">
 
-    <div class="card-body d-flex justify-content-center ">
-      <input class="form-control mr-sm-2 w-100 cardSearch" type="text" placeholder="Search" #search2>
+          <div class="card-body ">
+            <p class="card-text cardheader">Wake Up</p>
+          </div>
+
+          <div class="card-body ">
+            <p class="card-text  text-wrap cardbody">
+              Ambition accepted. Learn the latest skills to reach your professional goals</p>
+          </div>
+
+          <div class="card-body d-flex justify-content-center mb-2">
+            <input class="form-control mr-sm-2 w-100 cardSearch" type="text" placeholder="What do you want to learn ?"
+              [matAutocomplete]="auto" [(ngModel)]="searchText" [ngModelOptions]="{ standalone: true }">
+            <mat-autocomplete #auto="matAutocomplete" class="mt-4">
+              <mat-option *ngFor="let option of topic | filterByTopic:searchText;" [value]="option.topName"
+                [routerLink]="['/topnav/topic/',option?.topId]">
+                <i class="fa fa-search fa-sm fa-fw text-info"></i> {{option.topName}}
+              </mat-option>
+              <mat-option *ngFor="let option of Instructors | filterByIns:searchText;" [value]="option.fname"
+                [routerLink]="['/topnav/InsProfile/',option?.instId]">
+                <i class="fa fa-user fa-sm fa-fw text-info"></i> {{option.fname}}
+              </mat-option>
+              <mat-option *ngFor="let option of courses | filterByCrs:searchText;" [value]="option.title"
+                [routerLink]="['/topnav/course/',option?.crsId]">
+                <i class="fa fa-file fa-sm fa-fw text-info"></i> {{option.title}}
+              </mat-option>
+            </mat-autocomplete>
+          </div>
+        </div>
+
+
+      </div>
     </div>
   </div>
-  <div class="col-6 col-lg-8 col-md-8  ">
 
-  </div>
+</section>
 
-</div>
-<!--End Jumbo-->
-
+<!-- end intro  -->
 
 <!--Start text-->
 <div class="m-3">
-  <div class="h3">
-    The world's largest selection of courses
+  <div class="h3 mt-5">
+    A broad selection of courses
   </div>
   <div class="p text-secondary ">
-    Choose from 155,000 online video courses with new additions published every month
+    Choose from online video courses with new additions published every month
   </div>
 </div>
 
@@ -40,20 +62,44 @@
 
 
 <!--Start topics-->
-<div class=" container-fluid  d-flex justify-content-center ">
+<div class="ml-5 " *ngIf="topicview==true">
+  <div class="row text-center">
+    <div class="col-3">
+      <div class="spinner-border text-secondary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="spinner-border text-secondary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="spinner-border text-secondary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="spinner-border text-secondary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="topicview==false" class=" container-fluid  d-flex justify-content-center ">
   <!--Start mat-tab-group-->
   <mat-tab-group color="white" class="p-4 ">
-    <mat-tab label="Python">
+    <mat-tab *ngFor="let item of topic | slice:0:6" label={{item?.topName}}>
       <div class=" mt-3 border rounded">
         <div class="row m-2">
           <div class="col ">
-            <div class="h3">Expand your career opportunities with Python</div>
+            <div class="h3">Expand your career opportunities with {{item?.topName}}</div>
             <div class="p text-secondary">Whether you work in machine learning or finance,
-              or are pursuing a career in web development or data science, Python is
+              or are pursuing a career in web development or data science, this is
               one of the most important skills you can learn.
             </div>
 
-            <button class="btn btn-outline-info mt-2 mb-3">Explore Python</button>
+            <button class="btn btn-outline-info mt-2 mb-3">Explore {{item?.topName}}</button>
           </div>
           <div class="col d-flex flex-row-reverse">
             <img src="../../assets/uhome1.jpg" class="rounded-circle imgs m-3">
@@ -63,112 +109,63 @@
           <carousel [loop]="true" [cellsToScroll]="1" [objectFit]="'cover'" [lightDOM]="true"
             class="carousel--slider-alignment-students  w-100 ">
 
-            <div class="carousel-cell ">
-              <div class="card card-border-none">
-                <img class="card-img-top img-fluid" src="../../assets/4.jpg" />
+
+            <div class="carousel-cell " *ngFor="let course of item?.courses ">
+              <div class="card card-border-none ">
+                <img [routerLink]="['/topnav/course/',course?.crsId]" class="card-img-top img-fluid"
+                  src="{{course?.imagePath }}" />
                 <div class="card-body">
-                  <h3 class="card-title"> Web Development Bootcap 2021</h3>
+                  <h3 class="card-title" [routerLink]="['/topnav/course/',course?.crsId]"> {{course?.title}}</h3>
                   <div class="card-text">
-                    <p> name of auther</p>
+                    <p> {{course?.instructor?.fname}} {{course?.instructor?.lname}}</p>
                     <span class="text-warning mr-3"> 4.5</span>
                     <i class="fa fa-star text-warning mr-1"></i>
                     <i class="fa fa-star text-warning mr-1"></i>
                     <i class="fa fa-star text-warning mr-1"></i>
                     <i class="fa fa-star text-warning mr-1"></i>
                     <i class="fa fa-star text-warning m-1"></i>
-                    <span>(number of using)</span>
-                    <p>price</p><span>discount</span>
+                    <span>({{course?.studentCourses?.length}})</span>
+                    <p *ngIf="course?.paymentMethod==0">Free</p>
+                    <p *ngIf="course?.paymentMethod==1">{{course?.price}} $</p>
+
                   </div>
                 </div>
               </div>
             </div>
 
 
-            <div class="carousel-cell ">
-              <div class="card card-border-none ">
-                <img class="card-img-top img-fluid" src="../../assets/3.jpg" />
-                <div class="card-body">
-                  <h3 class="card-title"> Web Development Bootcap 2021</h3>
-                  <div class="card-text">
-                    <p> name of auther</p>
-                    <span class="text-warning mr-3"> 4.5</span>
-                    <i class="fa fa-star text-warning mr-1"></i>
-                    <i class="fa fa-star text-warning mr-1"></i>
-                    <i class="fa fa-star text-warning mr-1"></i>
-                    <i class="fa fa-star text-warning mr-1"></i>
-                    <i class="fa fa-star text-warning m-1"></i>
-                    <span>(number of using)</span>
-                    <p>price</p><span>discount</span>
+            <!-- <div class="row">
+              <div class="col-lg-4" *ngFor="let course of item?.courses ">
+                <div class="card card-border-none ">
+                  <img [routerLink]="['/topnav/course/',course?.crsId]" class="card-img-top img-fluid"
+                    src="{{course?.imagePath }}" />
+                  <div class="card-body">
+                    <h3 class="card-title" [routerLink]="['/topnav/course/',course?.crsId]"> {{course?.title}}</h3>
+                    <div class="card-text">
+                      <p> {{course?.instructor?.fname}} {{course?.instructor?.lname}}</p>
+                      <span class="text-warning mr-3"> 4.5</span>
+                      <i class="fa fa-star text-warning mr-1"></i>
+                      <i class="fa fa-star text-warning mr-1"></i>
+                      <i class="fa fa-star text-warning mr-1"></i>
+                      <i class="fa fa-star text-warning mr-1"></i>
+                      <i class="fa fa-star text-warning m-1"></i>
+                      <span>({{course?.studentCourses?.length}})</span>
+                      <p *ngIf="course?.paymentMethod==0">Free</p>
+                      <p *ngIf="course?.paymentMethod==1">{{course?.price}} $</p>
+  
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
-            <div class="carousel-cell ">
-              <div class="card card-border-none ">
-                <img class="card-img-top img-fluid" src="../../assets/5.jpg" />
-                <div class="card-body">
-                  <h3 class="card-title"> Web Development Bootcap 2021</h3>
-                  <div class="card-text">
-                    <p> name of auther</p>
-                    <span class="text-warning mr-3"> 4.5</span>
-                    <i class="fa fa-star text-warning mr-1"></i>
-                    <i class="fa fa-star text-warning mr-1"></i>
-                    <i class="fa fa-star text-warning mr-1"></i>
-                    <i class="fa fa-star text-warning mr-1"></i>
-                    <i class="fa fa-star text-warning m-1"></i>
-                    <span>(number of using)</span>
-                    <p>price</p><span>discount</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-cell ">
-              <div class="card card-border-none ">
-                <img class="card-img-top img-fluid" src="../../assets/3.jpg" />
-                <div class="card-body">
-                  <h3 class="card-title"> Web Development Bootcap 2021</h3>
-                  <div class="card-text">
-                    <p> name of auther</p>
-                    <span class="text-warning mr-3"> 4.5</span>
-                    <i class="fa fa-star text-warning mr-1"></i>
-                    <i class="fa fa-star text-warning mr-1"></i>
-                    <i class="fa fa-star text-warning mr-1"></i>
-                    <i class="fa fa-star text-warning mr-1"></i>
-                    <i class="fa fa-star text-warning m-1"></i>
-                    <span>(number of using)</span>
-                    <p>price</p><span>discount</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="carousel-cell ">
-              <div class="card card-border-none ">
-                <img class="card-img-top img-fluid" src="../../assets/4.jpg" />
-                <div class="card-body">
-                  <h3 class="card-title"> Web Development Bootcap 2021</h3>
-                  <div class="card-text">
-                    <p> name of auther</p>
-                    <span class="text-warning mr-3"> 4.5</span>
-                    <i class="fa fa-star text-warning mr-1"></i>
-                    <i class="fa fa-star text-warning mr-1"></i>
-                    <i class="fa fa-star text-warning mr-1"></i>
-                    <i class="fa fa-star text-warning mr-1"></i>
-                    <i class="fa fa-star text-warning m-1"></i>
-                    <span>(number of using)</span>
-                    <p>price</p><span>discount</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </carousel>
+ </carousel>
         </div>
 
       </div>
 
     </mat-tab>
-    <mat-tab label="Excel">
+    <!-- <mat-tab label="Excel">
       <div class=" mt-3 border rounded">
         <div class="row m-2">
           <div class="col ">
@@ -276,7 +273,7 @@
           </div>
         </div>
       </div>
-    </mat-tab>
+    </mat-tab> -->
 
   </mat-tab-group>
   <!--End  mat-tab-group-->
@@ -285,87 +282,126 @@
 
 
 <!--Start Students are viewing-->
-<div class="container ">
-  <h1 class="m-3">
+<div class="row">
+  <div class="h3 mt-5 ml-3">
     Students are viewing
-  </h1>
-  <div class=" offset-md-1  col-md-11">
-
-    <carousel [loop]="true" [cellsToScroll]="1" [objectFit]="'cover'" [lightDOM]="true"
-      class="carousel--slider-alignment-students  w-100 " >
-
-      <div class="carousel-cell  " routerLink="/topnav/course/{{item?.crsId}}" *ngFor="let item of courses">
-        <div class="card card-border-none " id="cours" >
-          <img class="card-img-top img-fluid" id="imag" src="{{item.imagePath}}" />
-          <div class="card-body">
-            <h3 class="card-title">{{item.title}}</h3>
-            <div class="card-text">
-              <p> Jose Portilla</p>
-              <span class="text-warning mr-3">{{item.rate}}</span>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning mr-1"></i>
-              <i class="fa fa-star text-warning m-1"></i>
-              <span>(number of using)</span>
-              <p>price</p><span>{{item.state}}</span><br><br>
-              <button class="btn btn-warning  " id="best">BestSeller</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </carousel>
-
   </div>
 </div>
+<div class=" container m-auto ">
+  <div class="ml-5 " *ngIf="studenrview==true">
+    <div class="row text-center">
+      <div class="col-3">
+        <div class="spinner-border text-secondary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="spinner-border text-secondary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="spinner-border text-secondary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="spinner-border text-secondary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Start mat-tab-group-->
+  <mat-tab-group color="white">
+    <mat-tab>
+      <div>
+
+
+        <div class="ml-5 " *ngIf="studenrview==false">
+          <carousel [loop]="true" [cellsToScroll]="1" [objectFit]="'cover'" [lightDOM]="true"
+            class="carousel--slider-alignment-students  w-100 ">
+
+
+            <div class="carousel-cell " *ngFor="let course of courses ">
+              <div class="card card-border-none ">
+                <img [routerLink]="['/topnav/course/',course?.crsId]" class="card-img-top img-fluid"
+                  src="{{course?.imagePath }}" />
+                <div class="card-body">
+                  <h3 class="card-title" [routerLink]="['/topnav/course/',course?.crsId]"> {{course?.title}}</h3>
+                  <div class="card-text">
+                    <p> {{course?.instructor?.fname}} {{course?.instructor?.lname}}</p>
+                    <span class="text-warning mr-3"> 4.5</span>
+                    <i class="fa fa-star text-warning mr-1"></i>
+                    <i class="fa fa-star text-warning mr-1"></i>
+                    <i class="fa fa-star text-warning mr-1"></i>
+                    <i class="fa fa-star text-warning mr-1"></i>
+                    <i class="fa fa-star text-warning m-1"></i>
+                    <span>({{course?.studentCourses?.length}})</span>
+                    <p *ngIf="course?.paymentMethod==0">Free</p>
+                    <p *ngIf="course?.paymentMethod==1">{{course?.price}} $</p>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </carousel>
+        </div>
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+  <!--End  mat-tab-group-->
+</div>
+
 <!--End Students are viewing-->
 
 
+<div class="row">
+  <div class="h3 mt-5 ml-3">
+    Top Categories
+  </div>
+</div>
 
-<div class="container-fluid  d-flex justify-content-center  ">
-
-  <!-- Start of TopCategories-->
-  <div class="container  topcategdiv  ">
-
-    <h1 class="topCat ml-1 ">
-      Top Categories
-    </h1>
-
-
-    <div class=" parent" *ngFor="let item of categ" routerLink="/topnav/category/{{item.categoryId}}">
-      <div class="header">
-        <img alt="design" [src]="item.imgPath" />
+<!-- Start of TopCategories-->
+<div class="container-fluid  ">
+  <div class="container ">
+    <div class="row">
+      <div class="card ml-2 mt-2" style="width: 16rem;" *ngFor="let item of categ"
+        routerLink="/topnav/category/{{item.categoryId}}">
+        <div class="row  ">
+          <img alt="design" [src]="item.imgPath" width="100%" class="mt-1 rounded" />
+        </div>
+        <div class="row">
+          <div class="card-body text-center">
+            <h2 class="card-text">{{item.categoryName}}</h2>
+          </div>
+        </div>
       </div>
-      <button class="footer">
-        <h2>{{item.categoryName}}</h2>
-      </button>
     </div>
 
 
-
   </div>
-  <!--End Of Top Categories-->
-
 </div>
+<!--End Of Top Categories-->
 
 
 <!--Start Featured topics by category-->
-<h1 class="b mt-3 mb-0">Featured topics by category</h1>
+<!-- <h1 class="b mt-3 mb-0">Featured topics by category</h1>
 <table class="table table-borderless m-3" *ngFor="let item of TopCateg">
   <thead>
     <tr class="h5" >
       <th scope="col" >{{item.categoryName}}</th>
-      <!-- <th scope="col">Business</th>
-      <th scope="col">IT and Software</th>
-      <th scope="col">Design</th> -->
+    
     </tr>
   </thead>
   <tbody >
     <tr>
-      <!-- <td>
-        <h2 class="text-primary">{{item.title}}</h2>
-        <p class="text-muted">27,537,753 students</p>
-      </td> -->
+    
       <td   >
         <h2 class="text-primary">Financial Analysis</h2>
         <p class="text-muted">27,537,753 students</p>
@@ -392,45 +428,21 @@
         <h2 class="text-primary">Ethical Hacking</h2>
         <p class="text-muted">27,537,753 students</p>
       </td>
-     <!--  <td>
-        <h2 class="text-primary">Graphic Design</h2>
-        <p class="text-muted">27,537,753 students</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <h2 class="text-primary">Machine Learning</h2>
-        <p class="text-muted">27,537,753 students</p>
-      </td>
-      <td>
-        <h2 class="text-primary">PMP</h2>
-        <p class="text-muted">27,537,753 students</p>
-      </td>
-      <td>
-        <h2 class="text-primary">Cyber Security</h2>
-        <p class="text-muted">27,537,753 students</p>
-      </td>
-      <td>
-        <a href="#">
-          <h2 class="text-primary">Drawing</h2>
-        </a>
-        <p class="text-muted">27,537,753 students</p>
-      </td> -->
+    
     </tr> 
   </tbody>
   <tfoot>
-    <!-- <button class="btn btn-info btn-lg">Explore More</button> -->
+ 
   </tfoot>
-</table>
-
+</table> -->
 
 <!--End Featured topics by category-->
 
 
-<div class=" part2 ">
+<div class=" part2  ">
   <div class="container1">
     <img id="imagg" src="https://s.udemycdn.com/home/non-student-cta/udlite-lohp-promo-teacher.jpg"
-      alt="non student cta image">
+      alt="non student cta image" class="mb-5">
   </div>
   <div href="instreg" class=" ml-2 container2">
     <div class="h3 mb-3">Become an instructor</div>
@@ -438,40 +450,41 @@
       Top instructors from around the world teach millions of students on Udemy. We provide the tools and skills to
       teach what you love.
     </p>
-    <button routerLink="/topnav/instreg" class="button">Start Teaching Today</button>
+    <button routerLink="/topnav/instreg" class="button btn btn-info">Start Teaching Today</button>
   </div>
 </div>
-  <div class="part3 ">
-    <div class="container4">
+<div class="part3 ">
+  <div class="container4">
 
-      <h1>Udemy for Business</h1>
-      <p>
-        Get unlimited access to 5,500+ of Udemy’s top courses for your team.
-      </p>
-      <button class="button">Get Udemy For Business</button>
-    </div>
-    <div class="container3">
-      <img src="https://s.udemycdn.com/home/non-student-cta/udlite-lohp-promo-ufb.jpg" alt="non student cta image">
-    </div>
+    <h1>Udemy for Business</h1>
+    <p>
+      Get unlimited access to 5,500+ of Udemy’s top courses for your team.
+    </p>
+    <a class="btn btn-info" routerLink="comming">Get Udemy For Business</a>
+  </div>
+  <div class="container3">
+    <img src="https://s.udemycdn.com/home/non-student-cta/udlite-lohp-promo-ufb.jpg" alt="non student cta image">
+  </div>
 
+
+</div>
+<hr class="bg-white border border-bottom-0 border-secondary border-5">
+
+<div class="row m-auto pt-5 text-center">
+  <div class="col-4 ">
+    <iframe title="Mohamad Alaloush's Story" width="480" height="300" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""
+      src="https://www.youtube.com/embed/QFIhEmOd6No/?autoplay=0"></iframe>
+  </div>
+  <div class="col-4 m-auto">
+
+    <h1><b>Transform Your Life Through Education</b></h1>
+    <h3>
+      Mohamad Alaloush launched a new career in software development by taking courses on Udemy. What will you be able
+      to do?
+    </h3>
 
   </div>
 
-  <div class="part4 ">
-    <div class="container5">
-      <iframe title="Mohamad Alaloush's Story" width="580" height="400" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""
-        src="https://www.youtube.com/embed/QFIhEmOd6No/?autoplay=0"></iframe>
-    </div>
-    <div class="container6">
 
-      <h1>Transform Your Life Through Education</h1>
-      <h3>
-        Mohamad Alaloush launched a new career in software development by taking courses on Udemy. What will you be able
-        to do?
-      </h3>
-
-    </div>
-
-
-  </div>
+</div>

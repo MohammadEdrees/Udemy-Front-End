@@ -71,7 +71,7 @@ export class CourseComponent implements OnInit {
         t.style.display = 'none';
         this.isProgress = false;
         this.alert = true;
-        this.enrolled=true;
+        this.enrolled=false;
         console.log("enrolled", this.course.studentCourses.length);
       }, err => {
       console.log("error enrolled");

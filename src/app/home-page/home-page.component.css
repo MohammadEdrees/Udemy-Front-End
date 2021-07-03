@@ -1,5 +1,5 @@
 body{
-  overflow-x: hidden;
+  overflow-x: hidden; 
   margin: 0px;
 
 }
@@ -11,7 +11,7 @@ body{
 }
 .container {
   width: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   padding: 10px;
   
@@ -337,10 +337,6 @@ hr {
 
 
 
-
-
-
-
 .carousel--slider-alignment{
   height:20rem !important;
  margin-bottom:0 ;
@@ -357,9 +353,7 @@ hr {
 .carousel--slider-alignment p, .carousel--slider-alignment h3{
   margin: 0%;
 }
-/* .card-img-top{
- height: 30vh;
-} */
+
 .card-text p, .card-text span{
   color: rgb(129, 129, 129);
 }

@@ -45,10 +45,20 @@
             <mat-card-actions>
               <div class="card-body d-inline justify-content-center">
                 <div *ngIf="login && role =='student'" #t>
-                  <div class="container border" *ngIf=" !enrolled">
+                  <div *ngIf="course.paymentMethod == 0 ">
+                  <div class="container border" *ngIf="!enrolled">
                     <button class="btn btn-danger w-100" #enroll (click)="Enroll(t)"> Enroll</button>
                   </div>
                 </div>
+                </div>
+
+                  <!--Paid Course-->
+                  <div *ngIf="login && role =='student'">
+                  <div *ngIf="course.paymentMethod != 0" class="container border">
+                    <button class="btn btn-danger w-100" routerLink="/topnav/comming">Buy Now</button>
+                  </div>
+                  </div>
+
 
                 <!-- <div class="text text-danger" *ngIf='alert'>
              Enrolled

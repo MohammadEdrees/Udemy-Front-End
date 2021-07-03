@@ -8,10 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ClientSide';
 
-
-  OnActive(_e: any,outlet: { scrollTop: number; })
-  {
-     outlet.scrollTop=0;
-  }
-
 }

@@ -101,7 +101,7 @@
             <mat-card-content>
               <h1> Training 5 or more people?</h1>
               <p>Get your team access to 5,500+ top Udemy courses anytime, anywhere. </p>
-              <a class="btn btn-outline-info  m-1 w-100" routerLink="comming">Try Udemy For Business</a>
+              <button class="btn btn-outline-info  m-1 w-100" routerLink="/topnav/comming">Try Udemy For Business</button>
             </mat-card-content>
 
           </mat-card>
@@ -165,10 +165,10 @@
 
     <div class=" cllapsecontainer ml-5">
       <mat-accordion multi>
-        <mat-expansion-panel hideToggle *ngFor="let item of sections">
+        <mat-expansion-panel hideToggle *ngFor="let item of sections;index as x">
           <mat-expansion-panel-header id="header">
             <mat-panel-title class="text-dark p-6" (mouseenter)="AddLecture(item.sectionId)">
-              <h3>{{item?.title}}</h3>
+              <h3>Section{{x+1}} :{{item?.title}}</h3>
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div>

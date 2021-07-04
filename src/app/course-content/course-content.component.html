@@ -29,10 +29,10 @@
     <div class="rhead text-truncate"> {{course.title}} Content</div>
 
     <div class=" h-75 text-center  sectionsCont">
-      <div class="sectiondiv" *ngFor="let section of crsSections">
+      <div class="sectiondiv" *ngFor="let section of crsSections;index as x">
 
         <div class="d-flex " (click)="shoechilds(section.sectionId)">
-          <div class=" sectionName text-truncate flex-wrap ">{{ section.title }}</div>
+          <div class=" sectionName text-truncate flex-wrap ">Section {{x+1}} :{{ section.title }}</div>
 
           <div class="icon fa fa-angle-down ">
 

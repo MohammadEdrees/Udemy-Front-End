@@ -5,6 +5,7 @@ import { Course } from '../models/Course';
 import { Instructor } from '../models/Instructor';
 import { Topic } from '../models/Topic';
 import { CategoryService } from '../services/Category.service';
+import { NavbarService } from '../services/navbar.service';
 import { InstructorService } from './../services/instructor.service';
 
 @Component({
@@ -14,90 +15,82 @@ import { InstructorService } from './../services/instructor.service';
 })
 export class SubCategoryComponent implements OnInit {
 
-  category!:Category;
   courses:Course[]=[];
-  subcateg:SubCateg []=[];
+  subcateg:SubCateg |undefined;
   Topics:Topic[]=[];
   Instructors:Instructor[]=[];
- 
+ iscategory:boolean=false;
+ p:number=1;
   constructor(private route:ActivatedRoute,
     private categoryService:CategoryService,
     private InstructorService:InstructorService,
-    private router:Router   ) { }
+    private navbarService: NavbarService) { }
 
   ngOnInit(): void {
+     //get Subcategory By Id
+     this.route.paramMap
+     .subscribe(params => {
+       let id =Number( params.get('supCatId'))|| 0;
+       console.log(id);
+       this.categoryService.GetSubCategById(id ).subscribe(
+        (d:any)=>{
+          console.log(d[0],"subcate");
+          this.subcateg=d[0];
+        
+         }
+       )})
+   //get Courses in subcategory
+   this.route.paramMap
+   .subscribe(params => {
+     let id =Number( params.get('supCatId'))|| 0;
+     console.log(id);
+     this.categoryService.getOrderedCoursesInSubCateg(id ).subscribe(
+      (d)=>{
+        console.log(d);
+        this.courses=d;
+
+     }
+     )})
+         //---------------get all topics-----------------
+    // this.navbarService.GetAllTopics().subscribe(
+    //   (res: any) => {
+    //     this.Topics = res;
+    //     console.log(res);
+    //   },
+    //   err => {
+    //     console.log(err);
+
+    //   }
+    // )
+
+    //Topics in subcategory
+         this.route.paramMap
+         .subscribe(params => {
+           let id =Number( params.get('supCatId'))|| 0;
+           console.log(id);
+           this.categoryService.getTopicBySubId(id ).subscribe(
+            (d)=>{
+              console.log(d);
+              this.Topics=d;
    
-   let id=0
-   this.route.params.subscribe(
-      a => {
-        id = a['categoryId'];
-      }
-    );
-    
+           }
+           )})
 
 
-      this.categoryService.getCategById(id).subscribe(
-       d=>{
-         this.category=d;
-          console.log("Category",this.category);
-        },err =>
-        {
-          console.log("Get Categore Error",err);
-        }
-      );
-
-        this.categoryService.getOrderedCoursesInCateg(id).subscribe(
-         (d)=>{
-           this.courses=d;
-           console.log("courses",this.courses);
-        },err =>
-        {
-          console.log("Get getOrderedCoursesInCateg Error",err);
-        }
-        )
-
-
-          this.categoryService.getTopicsByCateg(id ).subscribe(
-           (d)=>{
-             this.Topics=d;
-            console.log("topics",this.Topics);
-          },err =>
-        {
-          console.log("Get getTopicsByCateg Error",err);
-        }
-          )
-
- 
+        
+                 //Instructors in subcategory
+          this.route.paramMap
+          .subscribe(params => {
+            let id =Number( params.get('supCatId'))|| 0;
+            console.log(id);
             this.InstructorService.GetInstructorsByCategId(id ).subscribe(
              (d)=>{
+               console.log(d);
                this.Instructors=d;
-               console.log("Instructors",this.Instructors);
-            },err =>
-        {
-          console.log("Get GetInstructorsByCategId Error",err);
-        }
-            )
-          
-            this.route.paramMap
-            .subscribe(params => {
-              let id =Number( params.get('supCatId'))|| 0;
-              console.log(id);
-              this.categoryService.getOrderedCoursesInSubCateg(id).subscribe(
-               (d)=>{
-                 console.log(d);
-                 this.courses=d;
-              }
-              )})
+             
+            }
+            )})
      
   }
-
-
-  GoTotopics(topId:number){
-    this.router.navigateByUrl('/home', { skipLocationChange: false }).then(() => {
-      this.router.navigate(['/topnav/topic/',topId]);
- });
-  }
-
-
 
 }

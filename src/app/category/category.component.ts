@@ -18,7 +18,9 @@ export class CategoryComponent implements OnInit {
   subcateg:SubCateg []=[];
   Topics:Topic[]=[];
   Instructors:Instructor[]=[];
- 
+  p:number=1;
+
+  
   constructor(private route:ActivatedRoute,
     private categoryService:CategoryService,
     private InstructorService:InstructorService,

@@ -31,7 +31,7 @@
       </mat-menu>
       <mat-menu #reptiles="matMenu" class="dropdown-submenu">
         <button mat-menu-item [matMenuTriggerFor]="repo" *ngFor="let item of subcateg "
-          (mouseenter)="AddTopic(item.supCatId )" >{{item.supCatTitle}}</button>
+          (mouseenter)="AddTopic(item.supCatId )" (click)="GoToSubCategory(item.supCatId)">{{item.supCatTitle}}</button>
 
       </mat-menu>
       <mat-menu #repo="matMenu">

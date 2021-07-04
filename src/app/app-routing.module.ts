@@ -28,6 +28,7 @@ import { UploadCourseComponent } from './upload-course/upload-course.component';
 import { UdemyErorrComponent } from './udemy-erorr/udemy-erorr.component';
 import { CommingSoonComponent } from './comming-soon/comming-soon.component';
 import { DesignTopicComponent } from './design-topic/design-topic.component';
+import { SubCategoryComponent } from './sub-category/sub-category.component';
 
 
 const routes: Routes = [
@@ -35,7 +36,7 @@ const routes: Routes = [
   //------------------ sidnav router outlet -----------------
   {
     component: SideNavComponent, path: 'sidnav',
-  
+     canActivate: [AuthGuard],
     children: [
 
       { path: 'pre', component: PreCourseCreationComponent },
@@ -64,11 +65,11 @@ const routes: Routes = [
       { component: RegistrationInstructorComponent, path: 'instreg' },
       { component: RegistrationStudentComponent, path: 'studentreg' },
       { component: CategoryComponent, path: 'category/:categoryId' },
-      { component: CategoryComponent, path: 'subcategory/:supCatId' },
+      { component: SubCategoryComponent, path: 'subcategory/:supCatId' },
       { component: InstructorProfileComponent, path: 'InsProfile/:id' },
-      {component:CourseContentComponent,path:'Content/:id'},
+      {component:CourseContentComponent,path:'Content/:id', canActivate: [AuthGuard]},
       {component: CourseComponent, path: 'course/:crsId'},
-      {component:StudentCoursesComponent,path:'StdCrs/:id'},
+      {component:StudentCoursesComponent,path:'StdCrs/:id', canActivate: [AuthGuard]},
       {component:EditStudentComponent,path:'editStd/:id' } , 
       {component:CommingSoonComponent,path:'comming'},
       {component:DesignTopicComponent,path:'topic/:id'},
@@ -89,7 +90,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+exports: [RouterModule]
 })
 export class AppRoutingModule { }
 export const routingComponents = [RegistrationStudentComponent,
